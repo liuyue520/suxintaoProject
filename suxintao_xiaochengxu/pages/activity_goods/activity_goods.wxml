@@ -1,0 +1,104 @@
+<!--pages/activity_goods/activity_goods.wxml-->
+<view class="ActivitySection">
+    <view class="ActivityImgBox"><image class="ActivityImg" mode="widthFix" src="https://suxintao.oss-cn-hangzhou.aliyuncs.com/manual/activity/isHeader.png"></image></view>
+    <view class="ActivityContext">
+      <view class="OneBox">
+        <!-- 活动时间 -->
+        <view class="ActivityTiem">
+          <text class="ActivityTitle">活动时间：</text>
+          <text class="Context">2019年11月7日10:00-11月9日10:00</text>
+        </view>
+        <!-- 活动时间结束 -->
+        <!-- 参与方式 -->
+        <view class="Participate">
+          <view class="Context"> <text class="ActivityTitle">参与方式：</text>活动期间<text class="isColor">普通会员</text>或<text class="isColor">金卡</text>会员在苏心淘平台任意单笔订单购买<text class="isColor">满299元</text>，即可免费升级为黑卡会员,无需购买指定礼包，<text class="isColor">权益仅此一次。</text><view class="Rule" bindtap="isRule">查看具体活动规则</view> </view>
+        </view>
+      <!-- 参与方式结束 -->
+      </view>
+      <image class="ActivityImg" mode="widthFix" src="https://suxintao.oss-cn-hangzhou.aliyuncs.com/manual/activity/Privilege.png"></image>
+
+      <!-- 尊享超值特权 -->
+      <view class="Privilege">
+          <view class="PrivilegeBox">
+            <image src="../../images/Self.jpg"></image>
+            <view class="isTitle">自选省钱</view>
+            <view class="isTip">专享85折起</view>
+          </view>
+          <view class="PrivilegeBox">
+            <image src="../../images/share.jpg"></image>
+            <view class="isTitle">分享赚钱</view>
+            <view class="isTip">佣金高达15%</view>
+          </view>
+          <view class="PrivilegeBox">
+            <image src="../../images/Member.jpg"></image>
+            <view class="isTitle">会员大促</view>
+            <view class="isTip">每月2场</view>
+          </view>
+          <view class="PrivilegeBox">
+            <image src="../../images/Super.jpg"></image>
+            <view class="isTitle">超值礼卷</view>
+            <view class="isTip">不定期放</view>
+          </view>
+          <view class="PrivilegeBox">
+            <image src="../../images/Birthday.jpg"></image>
+            <view class="isTitle">生日礼包</view>
+            <view class="isTip">敬请期待</view>
+          </view>
+          <view class="PrivilegeBox">
+            <image src="../../images/More.jpg"></image>
+            <view class="isTitle">更多权益</view>
+            <view class="isTip">敬请期待</view>
+          </view>
+        </view>
+      <!-- 尊享超值特权 -->
+      <view class="isBtn">
+        <view class="isMyBtn" bindtap="isHome"><image src="../../images/MyBtn.png"></image></view>
+        <button class="share" bindtap="Invitation"><image src="../../images/yao.png"></image></button>
+      </view>
+      <image class="ActivityImg" mode="widthFix" src="https://suxintao.oss-cn-hangzhou.aliyuncs.com/manual/activity/Selected.png"></image>
+      <!-- 精选专区 -->
+      <view class="Selected">
+          <view class="GoodsOnly" bindtap="isGift">
+            <image class="back" src="../../images/Home.jpg"></image>
+            <view class="Introduce">
+              <view class="InTitle">直升专区</view>
+              <view class="InTip">299专区“一件”升级</view>
+            </view>
+            <image class="icon" src="../../images/iocn.png"></image>
+          </view>
+          <view class="GoodsOnly" bindtap="Seckill">
+            <image class="back" src="../../images/staple.jpg"></image>
+            <view class="Introduce">
+              <view class="InTitle">限时秒杀</view>
+              <view class="InTip">1折好物 抢完即止</view>
+            </view>
+             <image class="icon" src="../../images/iocn.png"></image>
+          </view>
+          <view class="GoodsOnly" bindtap="chudong">
+            <image class="back" src="../../images/clothes.jpg"></image>
+            <view class="Introduce">
+              <view class="InTitle">初冬必备</view>
+              <view class="InTip">初冬好物 低至9.9元</view>
+            </view>
+             <image class="icon" src="../../images/iocn.png"></image>
+          </view>
+          <view class="GoodsOnly" bindtap="chihuo">
+            <image class="back" src="../../images/snacks.jpg"></image>
+            <view class="Introduce">
+              <view class="InTitle">吃货种草</view>
+              <view class="InTip">精选美食 停不下嘴</view>
+            </view>
+             <image class="icon" src="../../images/iocn.png"></image>
+          </view>
+      </view>
+    </view>
+</view>
+
+<view class="{{state == true ? 'block' : 'no'}}" bindtap="onColse"></view>
+<view class="{{state == true ? 'ImgBox' : 'ImgBoxNo'}}">
+  <image class="widthFix" src="{{ImgPhoto}}"></image>
+  <view class="loadImg" >
+    <view class="isLoad" bindtap="onClickDownloadQrcode">下载图片</view>
+    <button class="isColse" open-type="share">分享链接</button> 
+  </view>
+</view>

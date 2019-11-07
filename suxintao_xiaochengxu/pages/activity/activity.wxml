@@ -1,0 +1,4 @@
+<view class='item' wx:for="{{activity.images}}">
+  <image src='{{item}}' mode='widthFix'></image>
+</view>
+<view class='links'><navigator class='item2' wx:for="{{activity.links}}" url='{{item.url}}'><image src='{{item.image}}' mode='widthFix'></image></navigator></view>

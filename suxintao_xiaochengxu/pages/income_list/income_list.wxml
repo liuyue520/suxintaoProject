@@ -1,0 +1,51 @@
+<!--pages/income_list/income_list.wxml-->
+<view class='head'>
+  <view bindtap='onClickTab' data-type='today' class='tab {{type == "today" ? "active" : ""}}'>
+    <view class='val'>{{income.today}}</view>
+    <view class='label'>今日收入(元)</view>
+    <view class='indicator'></view>
+  </view>
+  <view bindtap='onClickTab' data-type='month' class='tab {{type == "month" ? "active" : ""}}'>
+    <view class='val'>{{income.month}}</view>
+    <view class='label'>本月收入(元)</view>
+    <view class='indicator'></view>
+  </view>
+  <view bindtap='onClickTab' data-type='total' class='tab {{type == "total" ? "active" : ""}}'>
+    <view class='val'>{{income.total}}</view>
+    <view class='label'>累积收入(元)</view>
+    <view class='indicator'></view>
+  </view>
+</view>
+
+<view class='income-list'>
+  <view class='income' wx:for='{{income_list}}'>
+    <view class='income-bd'>
+      <view class='amount'>{{item.income}}</view>
+      <view class='meta'>
+        <view class='income-type'>
+          {{item.order_user_name}} 
+          <image wx:if="{{item.income_type_value == 1 || item.income_type_value == 2}}" src='/images/income_type{{item.income_type_value}}.png'></image>
+        </view>
+        <view class='add-time'>{{item.add_time}}</view>
+        <view class='order_sn' wx:if='{{item.order}}'>
+          订单编号 {{item.order.sn}}
+          <text class='toggle-order' bindtap='onShowOrder' data-income-id='{{item.id}}'>显示详情</text>
+        </view>
+      </view>
+    </view>
+    <view class='income-order' wx:if="{{item.order && explode_income['income_id_' + item.id]}}">
+      <view class='order-goods' wx:for="{{item.order.goods}}" wx:for-item="order_goods">
+        {{order_goods.product.name}} X{{order_goods.total_amount}}
+      </view>
+      <view class='order-status'>
+        {{item.order.status == 0 ? "待付款" : ""}}
+        {{item.order.status == 1 ? "待发货" : ""}}
+        {{item.order.status == 2 ? "待收货" : ""}}
+        {{item.order.status == 3 ? "已收货" : ""}}
+        {{item.order.status == 4 ? "已完成" : ""}}
+        {{item.order.status == 5 ? "已取消" : ""}}
+        <text class='toggle-order' bindtap='onHideOrder' data-income-id='{{item.id}}'>关闭详情</text>
+      </view>
+    </view>
+  </view>
+</view>

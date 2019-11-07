@@ -1,0 +1,93 @@
+/* pages/login/login.wxss */
+page{
+  background: #e2a64b;
+  color: #000;
+  text-align: center;
+}
+
+.welcome{
+  font-size: 26px;
+  margin-top: 240rpx;
+  font-weight: bold;
+}
+.slogan{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 32rpx;
+}
+.slogan::before, .slogan::after{
+  content: " ";
+  width: 64rpx;
+  height: 2rpx;
+  background: #000;
+}
+.slogan::before{
+  margin-right: 16rpx;
+}
+.slogan::after{
+  margin-left: 16rpx;
+}
+.login{
+  height: 88rpx;
+  line-height: 88rpx;
+  margin: 312rpx 120rpx 0 120rpx;
+  background: #000;
+  border-radius: 44rpx;
+  color: #fff;
+  position: relative;
+}
+.UpLogin{
+  height: 88rpx;
+  line-height: 88rpx;
+  margin: 10rpx 120rpx 0 120rpx;
+  position: relative;
+}
+.UpLogin button{
+  height: 88rpx;
+  line-height: 88rpx;
+  background: #000;
+  border-radius: 44rpx;
+  color: #fff;
+  font-size: 28rpx;
+}
+.login button{
+  position: absolute;
+  top:0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: transparent;
+}
+.login button::after{
+  border: none;
+}
+.login .bd{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login .bd image{
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 16rpx;
+}
+.login-tips{
+  font-size: 12px;
+  color: #333;
+  margin-top: 16rpx;
+}
+.agreement{
+  font-size: 12px;
+  color: #333;
+  position:fixed;
+  left: 0;
+  bottom: 64rpx;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.agreement .doc{
+  color: #fff;
+}

@@ -1,0 +1,172 @@
+<!--pages/home/home.wxml-->
+<view class='home-main'>
+  <view class='flash'>
+    <swiper autoplay="true" circular="true" bindchange='onChangeFlash' style="width:750rpx; height:750rpx;">
+      <swiper-item wx:for="{{home_data.banners}}">
+        <navigator style='font-size:0px;' url=''>
+          <image src="{{item.photo.large}}" class="slide-image" style='width:750rpx; height:750rpx;'/>
+        </navigator>
+      </swiper-item>
+    </swiper>
+    <view class='indicator' style='display:none'>
+      <view class='dot {{currentFlash == 0 ? "active" : ""}}'></view>
+      <view class='dot {{currentFlash == 1 ? "active" : ""}}'></view>
+    </view>
+  </view>
+  <view class='core'>
+    <navigator class='core-item mall'><image src='/images/mall.png'></image>自营品牌</navigator>
+    <view class='seprate'></view>
+    <navigator class='core-item brand-factory'><image src='/images/factory.png'></image>同制造商</navigator>
+    <view class='seprate'></view>
+    <navigator class='core-item refund7'><image src='/images/refund7.png'></image>7天退货<image src='/images/arrow_right.png'></image></navigator>
+  </view>
+  <navigator class='ad'><image src='/images/ad.jpg' mode='widthFix'></image></navigator>
+  <view class='tools'>
+    <navigator class='tools_item tools_vip'><image src='/images/tools_vip.jpg'></image>会员福利</navigator>
+    <navigator class='tools_item tools_good'><image src='/images/tools_good.jpg'></image>苏心淘质造</navigator>
+    <navigator class='tools_item tools_factory'><image src='/images/tools_factory.jpg'></image>大牌同厂</navigator>
+    <navigator class='tools_item tools_coupon'><image src='/images/tools_coupon.jpg'></image>领券中心</navigator>
+  </view>
+  <view class='hot'>
+    <view class='hd'>热门推荐</view>
+    <view class='bd'>
+      <navigator class='hot-newer' style='margin-right:16rpx;'><image src='/images/newer.jpg'></image></navigator>
+      <navigator class='hot-today'><image src='/images/today_goods.jpg'></image></navigator>
+    </view>
+  </view>
+  <view class='new'>
+    <view class='hd'>
+      <view class='label'>新品推荐<image src='/images/new.png'></image></view>
+      <navigator class='more'>更多新品 ></navigator>
+    </view>
+    <view class='bd'>
+      <swiper indicator-dots="true"
+        autoplay="true"
+        circular="true">
+        <swiper-item wx:for="{{home_data.recently_products}}">
+          <view class='slide-item'>
+            <navigator class='swipe-goods' url='/pages/goods/goods?id={{recently_item.id}}'  wx:for="{{item}}" wx:for-item="recently_item">
+              <view class='goods-meta'>
+                <view class='cover'><image src="{{recently_item.default_photo.large}}" class="slide-image"/></view>
+                <view class='goods-name'>{{recently_item.name}}</view>
+                <view class='keywords'>{{recently_item.keywords}}</view>
+                <view class='price'>¥{{recently_item.current_price}}</view>
+              </view>
+            </navigator>
+          </view>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
+
+  <view class='limitbuy'>
+    <view class='hd'>
+      <view class='title'>限量抢购</view>
+      <view class='limitbuy-tabs-wrapper' style='height:46px;'>
+        <scroll-view class='limitbuy-tabs {{limitBuyMask ? "mask" : ""}}' style='{{limitBuyMask ? "top:" + headerRect.bottom + "px" : ""}}' scroll-x>
+          <view class='limitbuy-item'>
+            <view class='time'>10:00</view>
+            <view class='status'>抢购中</view>
+          </view>
+          <view class='limitbuy-item active'>
+            <view class='time'>12:00</view>
+            <view class='status'>抢购中</view>
+          </view>
+          <view class='limitbuy-item'>
+            <view class='time'>18:00</view>
+            <view class='status'>预热中</view>
+          </view>
+          <view class='limitbuy-item'>
+            <view class='time'>20:00</view>
+            <view class='status'>预热中</view>
+          </view>
+          <view class='limitbuy-item'>
+            <view class='time'>10:00</view>
+            <view class='status'>明日预告</view>
+          </view>
+          <view class='limitbuy-item'>
+            <view class='time'>12:00</view>
+            <view class='status'>明日预告</view>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+    <view class='bd'>
+      <navigator class='limitbuy-goods'>
+        <view class='cover'><image src="/images/limitbuy_goods.jpg" mode='widthFix'></image></view>
+        <view class='goods-name'>【源自加拿大生物实验室】维C亮肤原液 12ml</view>
+        <view class='keywords'>源自加拿大生物实验室 4种高能亮肤成搭配</view>
+        <view class='price'>¥99.0</view>
+        <view class='stock'>
+          <view class='total' style='width:160px;'><view class='left' style='width:100px;'></view></view>
+          <text>仅剩88件</text>
+        </view>
+        <view class='buy'>马上抢</view>
+      </navigator>
+      <navigator class='limitbuy-goods'>
+        <view class='cover'><image src="/images/limitbuy_goods.jpg" mode='widthFix'></image></view>
+        <view class='goods-name'>【源自加拿大生物实验室】维C亮肤原液 12ml</view>
+        <view class='keywords'>源自加拿大生物实验室 4种高能亮肤成搭配</view>
+        <view class='price'>¥99.0</view>
+        <view class='stock'>
+          <view class='total' style='width:160px;'><view class='left' style='width:100px;'></view></view>
+          <text>仅剩88件</text>
+        </view>
+        <view class='buy'>马上抢</view>
+      </navigator>
+      <navigator class='limitbuy-goods'>
+        <view class='cover'><image src="/images/limitbuy_goods.jpg" mode='widthFix'></image></view>
+        <view class='goods-name'>【源自加拿大生物实验室】维C亮肤原液 12ml</view>
+        <view class='keywords'>源自加拿大生物实验室 4种高能亮肤成搭配</view>
+        <view class='price'>¥99.0</view>
+        <view class='stock'>
+          <view class='total' style='width:160px;'><view class='left' style='width:100px;'></view></view>
+          <text>仅剩88件</text>
+        </view>
+        <view class='buy'>马上抢</view>
+      </navigator>
+      <navigator class='limitbuy-goods'>
+        <view class='cover'><image src="/images/limitbuy_goods.jpg" mode='widthFix'></image></view>
+        <view class='goods-name'>【源自加拿大生物实验室】维C亮肤原液 12ml</view>
+        <view class='keywords'>源自加拿大生物实验室 4种高能亮肤成搭配</view>
+        <view class='price'>¥99.0</view>
+        <view class='stock'>
+          <view class='total' style='width:160px;'><view class='left' style='width:100px;'></view></view>
+          <text>仅剩88件</text>
+        </view>
+        <view class='buy'>马上抢</view>
+      </navigator>
+      <navigator class='limitbuy-goods'>
+        <view class='cover'><image src="/images/limitbuy_goods.jpg" mode='widthFix'></image></view>
+        <view class='goods-name'>【源自加拿大生物实验室】维C亮肤原液 12ml</view>
+        <view class='keywords'>源自加拿大生物实验室 4种高能亮肤成搭配</view>
+        <view class='price'>¥99.0</view>
+        <view class='stock'>
+          <view class='total' style='width:160px;'><view class='left' style='width:100px;'></view></view>
+          <text>仅剩88件</text>
+        </view>
+        <view class='buy'>马上抢</view>
+      </navigator>
+    </view>
+  </view>
+</view>
+<view class='header {{mask ? "mask" : ""}}'>
+  <view class='navigator-bar' style='margin-top:{{navBarStyle.top}}px; height:{{navBarStyle.height}}px'>
+    <view class='navigator' style='margin-left:{{navStyle.left}}px; width:{{navStyle.width}}px; height:{{navStyle.height}}px'>
+      <navigator url='/pages/search/search' class='search' style='height:{{navStyle.height}}px; border-radius:{{navStyle.height / 2}}px'>
+        <image src='/images/{{mask ? "search_black" : "search_white"}}.png'></image>
+        <text class='keywords'>水牛奶</text>
+      </navigator>
+    </view>
+  </view>
+  <scroll-view class='tabs' scroll-x>
+    <view class='tab-item active' data-cat-id='0' bindtap='onClickCatTabItem'>
+      <view class='lable'>推荐</view>
+      <image class='love' src='/images/love.png'></image>
+    </view>
+    <view class='tab-item' wx:for="{{categories}}" data-cat-id='{{item.id}}' bindtap='onClickCatTabItem'>
+      <view class='lable'>{{item.name}}</view>
+      <image class='love' src='/images/love.png'></image>
+    </view>
+  </scroll-view>
+</view>

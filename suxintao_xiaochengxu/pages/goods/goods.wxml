@@ -1,0 +1,137 @@
+<!--pages/goods/goods.wxml-->
+<view class='main'>
+  <view class='flash'>
+    <swiper autoplay="true" circular="true" bindchange='onChangeFlash' style="width:750rpx; height:750rpx;">
+      <swiper-item  wx:for='{{goodsInfo.photos}}'>
+        <view style='font-size:0px;' url='/pages/apply/apply1'>
+          <image src="{{item.large}}" class="slide-image" style='width:750rpx; height:750rpx;'/>
+        </view>
+      </swiper-item>
+    </swiper>
+    <view class='indicator'>
+      <view class='dot {{currentFlash == 0 ? "active" : ""}}'></view>
+      <view class='dot {{currentFlash == 1 ? "active" : ""}}'></view>
+    </view>
+  </view>
+
+  <view class='price'>
+    <view class='current'><text class='rmb'>¥</text>{{goodsInfo.display_price && goodsInfo.display_price > 0 ? goodsInfo.display_price : goodsInfo.current_price}}</view>
+    <view class='ori'>¥{{goodsInfo.price}}</view>
+  </view>
+
+  <view class='discount'>
+    <view class='discount-item'>
+      <text class='label'>黑卡价</text> 
+      <text class='rmb val'>¥</text>
+      <text class='val'>{{price_rank2}}</text>
+    </view>
+
+    <view class='discount-item'>
+      <text class='label'>金卡价</text> 
+      <text class='rmb val'>¥</text>
+      <text class='val'>{{price_rank1}}</text>
+    </view>
+  </view>
+
+  <navigator class='vip_goods' url='/pages/vip_goods/vip_goods'>
+    <view class='tips'>
+      <image src='/images/vip_icon.png'></image>
+      会员礼包专区，预计可省 ¥{{year_save}}/年
+    </view>
+    <view class='go'>去查看></view>
+  </navigator>
+
+  <view class='goods-name'>{{goodsInfo.name}}</view>
+  <view class='goods-keywords'>{{goodsInfo.keywords}}</view>
+
+  <view class='core-wrapper'>
+  <view class='core'>
+    <navigator class='core-item mall'><image src='/images/mall.png'></image>优质品牌</navigator>
+    <view class='seprate'></view>
+    <navigator class='core-item brand-factory'><image src='/images/factory.png'></image>工厂直供</navigator>
+    <view class='seprate'></view>
+    <navigator class='core-item refund7'><image src='/images/refund7.png'></image>退换无忧</navigator>
+  </view>
+  </view>
+
+  <view class='goods-desc'>
+    <view class='hd'>图文详情</view>
+    <view class='bd' style='font-size:0;'>
+      <import src="../../wxParse/wxParse.wxml"/>
+      <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
+    </view>
+  </view>
+</view>
+<view class='bottom'>
+  <navigator open-type='switchTab' class='href' url='/pages/home/home'>
+    <view class='icon'>
+      <image src='/images/tab_home.png'></image>
+    </view>
+    <view class='label'>首页</view>
+  </navigator>
+  <navigator open-type='switchTab' class='href' url='/pages/cart/cart'>
+    <view class='icon'>
+      <image src='/images/tab_gouwudai.png'></image>
+      <view class='badge'>{{cart_num}}</view>
+    </view>
+    <view class='label'>购物车</view>
+  </navigator>
+  <view class='handle addtocart'   bindtap='onShowBuyInfo'>加入购物车</view>
+  <view class='handle share'>
+    <view class="content" bindtap='onShowQrcode'>分享<image src='/images/icon_share.png'></image></view>
+    <!--<button open-type='share'></button>-->
+  </view>
+</view>
+
+<view class='page' wx:if="{{showBuyInfo}}">
+  <view class='bg'  bindtap='onHideBuyInfo'></view>
+  <view class='buy-info' style='height:{{buyInfoHeight}}rpx; bottom:{{buyInfoBottom}}px'>
+    <view class='goods-info'>
+      <view class='cover'><image src='{{image}}'></image></view>
+      <view class='other'>
+        <view class='goods-price'>¥ {{goodsInfo.display_price && goodsInfo.display_price > 0 ? goodsInfo.display_price : price}}</view>
+        <view class='goods-stock'>剩余 {{stock}} 件</view>
+      </view>
+    </view>
+    <!-- 开始 -->
+<view class="guige">
+    <view class='goods-attr' wx:if="{{properties.length > 0}}" wx:for="{{properties}}">
+      <view class='hd'>{{item.name}}</view>
+      <view class='bd'>
+        <view bindtap='{{attr.disabled?"":"onSelectAttr"}}' wx:for="{{item.attrs}}" wx:for-item="attr" wx:for-index="attr_index" data-attr-index='{{attr_index}}' data-pro-index='{{index}}' class='attr  {{attr.disabled?"disabled":""}} {{item.selected_index == attr_index ? "active" : ""}}'>{{attr.attr_name}}</view>
+      </view>
+    </view>
+
+    <view class='goods-num'>
+      <view class='hd'>数量</view>
+      <view class='bd'>
+        <view class='num'>
+          <view class='minus'  bindtap='onMinus'><image src='/images/minus.png' class='indicator'></image></view>
+          <view class='num-val'><input disabled="{{true}}" type='number' value='{{buy_num}}'></input></view>
+          <view class='plus'  bindtap='onPlus'><image src='/images/plus.png' class='indicator'></image></view>
+        </view>
+      </view>
+    </view>
+</view>
+<!-- 结束 -->
+    <view class='handles'>
+      <view class='addtocart' bindtap='onAddToCart'>加入购物车</view>
+      <view class='buynow' bindtap='onBuyNow'>立即购买</view>
+    </view>
+  </view>
+</view>
+
+<view class='pop-window' wx:if='{{show_qrcode}}'  catchtap='onHideQrcode'>
+  <view class='bd' catchtap='onClickQrcode'>
+    <view class='cover'>
+      <image src='{{qrcode}}'></image>
+    </view>
+    <view class='handle-area'>
+      <view class='handle'>
+      分享链接
+      <button open-type='share' class='share'></button>
+      </view>
+      <view class='handle' catchtap='onClickDownloadQrcode'>下载专属图片</view>
+    </view>
+  </view>
+</view>

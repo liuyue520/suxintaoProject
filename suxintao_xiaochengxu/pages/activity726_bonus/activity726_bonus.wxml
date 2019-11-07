@@ -1,0 +1,22 @@
+<!--pages/order_list/order_list.wxml-->
+<view class='tab'>
+  <view bindtap='onClickTab' class='tab-item {{bonus_type == 10 ? "active" : ""}}' data-bonus-type="10">所有红包</view>
+  <view bindtap='onClickTab' class='tab-item {{bonus_type == 1 ? "active" : ""}}' data-bonus-type="1">未拆红包</view>
+  <view bindtap='onClickTab' class='tab-item {{bonus_type == 2 ? "active" : ""}}' data-bonus-type="2">已领红包</view>
+</view>
+
+<view class='order_list'>
+  <view class='bonus_item' wx:for='{{bonus_list}}' bindtap='onOpenBunus' data-bonus-id='{{item.id}}' data-status='{{item.status}}'>
+    <view class='bd status0' wx:if='{{item.status == 0}}'>
+      <image src='http://suxintao.oss-cn-hangzhou.aliyuncs.com/manual/activity726/bonus_bg0.png'></image>
+    </view>
+    <view class='bd status1' wx:else>
+      <view class='val'><text class='rmb'>¥</text> {{item.bonus}}</view>
+      <view class='meta'>
+        <view class='remark'>{{item.remark}}</view>
+        <view class='add-time'>{{item.add_time}}</view>
+        <view class='res' wx:if='{{item.is_pay}}'>已发放至微信零钱 注意查收</view>
+      </view>
+    </view>
+  </view>
+</view>

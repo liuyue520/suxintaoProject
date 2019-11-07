@@ -1,0 +1,9 @@
+<!--pages/activity77/activity77.wxml-->
+<block wx:for="{{activity77}}">
+<navigator class='item77' wx:if="{{item.href}}" url='{{item.href}}'>
+  <image src='{{item.url}}' mode='widthFix'></image>
+</navigator>
+<view class='item77' wx:else>
+  <image src='{{item.url}}' mode='widthFix'></image>
+</view>
+</block>

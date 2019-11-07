@@ -1,0 +1,7 @@
+/* pages/activity77/activity77.wxss */
+.item77{
+  font-size: 0;
+}
+.item77 image{
+  width: 100%;
+}

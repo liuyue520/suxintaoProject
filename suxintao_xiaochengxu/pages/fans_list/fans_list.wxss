@@ -1,0 +1,48 @@
+.head{
+  background: #e2a64b;
+  text-align: center;
+  color: #000;
+  padding: 40px;
+}
+
+.head .total{
+  font-size: 30px;
+}
+.head .tips{
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+}
+
+.fans-list{
+  margin-top: 8px;
+  background: #ffffff;
+}
+.fans-list .fans{
+  padding: 8px;
+  border-bottom: 1rpx solid #e4e4e4;
+  display: flex;
+  align-items: center;
+}
+.fans-list .fans:last-child{
+  border-bottom: 1rpx solid transparent;
+}
+.fans-list .fans .cover{
+  font-size: 0;
+  margin-right: 8px;
+}
+.fans-list .fans .cover image{
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+}
+
+.fans-list .fans .meta{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80px;
+}
+
+.fans-list .fans .meta .share-rank, .fans-list .fans .meta .add-time{
+  color: #999;
+}

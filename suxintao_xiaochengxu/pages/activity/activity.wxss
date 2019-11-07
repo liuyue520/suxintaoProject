@@ -1,0 +1,15 @@
+/* pages/activity77/activity77.wxss */
+.item{
+  font-size: 0;
+}
+.item image{
+  width: 100%;
+}
+.item2{
+  width: 50%;
+  float: left;
+  font-size: 0;
+}
+.item2 image{
+  width: 100%;
+}

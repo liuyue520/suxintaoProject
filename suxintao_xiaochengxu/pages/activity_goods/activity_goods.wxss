@@ -1,0 +1,229 @@
+/* pages/activity_goods/activity_goods.wxss */
+.ActivitySection {
+  width: 100%;
+}
+.ActivityImgBox{font-size: 0;}
+.ActivityImg {
+  width: 100%;
+  margin: 0;
+}
+.OneBox{
+  background-color: #fff;
+  width: 90%;
+  padding: 20rpx;
+  margin: 0 auto;
+}
+.ActivityContext {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #ef9a8b;
+  padding-bottom: 20rpx;
+}
+
+.ActivityTiem {
+  font-size: 28rpx;
+}
+
+.ActivityTitle {
+  font-weight: bold;
+  font-size: 28rpx;
+}
+
+.Context {
+  font-size: 26rpx;
+}
+
+.isColor {
+  color: #de565a;
+  font-weight: bold;
+}
+
+/* 参与 */
+
+.Participate {
+  margin-top: 20rpx;
+  box-sizing: border-box;
+}
+
+.Rule {
+  color: #345076;
+  margin-left: 10rpx;
+  text-decoration: underline;
+  display: inline-block;
+}
+
+/* 特权 */
+
+.Privilege {
+  box-sizing: border-box;
+  padding: 10rpx 20rpx 0;
+  display: flex;
+  flex-wrap: wrap;
+  background: #fff;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.PrivilegeBox {
+  box-sizing: border-box;
+  width: 33.3%;
+  /* background: red; */
+  text-align: center;
+  margin-top: 10rpx;
+}
+
+.PrivilegeBox image {
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.isTitle {
+  font-size: 26rpx;
+  font-weight: 500;
+}
+
+.isTip {
+  font-size: 20rpx;
+  color: gray;
+}
+
+.isBtn {
+  height: 100rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 15rpx;
+  background: #fff;
+  width: 90%;
+  margin: 0 auto;
+}
+
+
+.isMyBtn{
+  height: 60rpx;
+  width: 180rpx;
+}
+.isMyBtn image{
+  width: 100%;
+  height: 100%;
+}
+
+.Selected{
+  width: 95%;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background: #fff;
+  margin: 0 auto;
+}
+.GoodsOnly{
+  height: 405rpx;
+  width: 308rpx;
+  border-radius: 10rpx;
+  margin: 10rpx 10rpx;
+  position: relative;
+}
+.GoodsOnly .back{
+  width:100%;
+  height: 100%;
+}
+.Introduce{
+  position: absolute;
+  bottom: 0;
+  padding-left: 10rpx;
+  background: #ef9a8b;
+  opacity: .8;
+  width: 100%;
+  box-sizing: border-box;
+  height: 85rpx;
+  border-bottom-left-radius:10rpx;
+  border-bottom-right-radius: 10rpx; 
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  padding-top: 5rpx;
+}
+.InTitle{
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #fff;
+}
+.InTip{
+  font-size: 25rpx;
+  margin-top: 5rpx;
+  color: #fff;
+}
+.icon{
+  position: absolute;
+  bottom: 10rpx;
+  right: 15rpx;
+  height: 30rpx;
+  width: 30rpx;
+}
+.share{
+  height: 60rpx;
+  width: 180rpx;
+  margin: 0;
+  background: none;
+  line-height: 0;
+}
+button{
+  padding: 0;
+}
+button::after{
+  border: none;
+}
+.share image{
+  width: 100%;
+  height: 100%;
+  vertical-align: bottom;
+}
+.block{
+  display: block;
+  height:100%;
+  width: 100%;
+  background: black;
+  position: fixed;
+  top:0;
+  opacity: .8;
+}
+.no{
+  display: none;
+}
+.ImgBox{
+  width: 100%;
+  position: fixed;
+  z-index: 999;
+  bottom: 0;
+  background: #f5f5f5;
+  display: block;
+  text-align: center;
+}
+.ImgBoxNo{
+  display: none;
+}
+.loadImg{
+  height: 70rpx;
+  width: 100%;
+  background-color:#ef8478;
+  color: #fff;
+  line-height: 70rpx;
+  display: flex;
+  font-size: 28rpx;
+}
+.isLoad{
+  width: 50%;
+  border-right: 1px dotted #fff;
+}
+.isColse{
+  width: 50%;
+  border-radius: 0;
+  font-size: 28rpx;
+  background-color:#ef8478;
+  color: #fff;
+}
+.widthFix{
+  height: 900rpx;
+  width: 80%;
+}

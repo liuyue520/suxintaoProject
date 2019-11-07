@@ -1,0 +1,88 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/classify/classify",
+    "pages/vip/vip",
+    "pages/cart/cart",
+    "pages/mine/mine",
+    "pages/search/search",
+    "pages/goods/goods",
+    "pages/test/test",
+    "pages/login/login",
+    "pages/checkout/checkout",
+    "pages/address_info/address_info",
+    "pages/address_list/address_list",
+    "pages/order_list/order_list",
+    "pages/web_view/web_view",
+    "pages/vip_goods/vip_goods",
+    "pages/vip_goods_list/vip_goods_list",
+    "pages/card_active/card_active",
+    "pages/fans_list/fans_list",
+    "pages/fans_list_v2/fans_list_v2",
+    "pages/income_list/income_list",
+    "pages/goods_list/goods_list",
+    "pages/email/email",
+    "pages/profile/profile",
+    "pages/profile_edit/profile_edit",
+    "pages/exchange299/exchange299",
+    "pages/card_exchange_goods299/goods",
+    "pages/checkout_card_exchange299/checkout",
+    "pages/supplier_apply/supplier_apply",
+    "pages/activity726/activity726",
+    "pages/activity726_bonus/activity726_bonus",
+    "pages/activity726_checkout/activity726_checkout",
+    "pages/activity77/activity77",
+    "pages/activity/activity",
+    "pages/withdraw/withdraw",
+    "pages/activity5years/activity5years",
+    "pages/activity_goods/activity_goods",
+    "pages/activity_rule/activity_rule"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FF6450",
+    "navigationBarTitleText": "苏心淘",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#FF6450",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#000000",
+    "selectedColor": "#e2a64b",
+    "backgroundColor": "#fafafa",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "images/tab_home.png",
+        "selectedIconPath": "images/tab_home_selected.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/classify/classify",
+        "iconPath": "images/classify.png",
+        "selectedIconPath": "images/classify_selected.png",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/vip/vip",
+        "iconPath": "images/tab_zuanshi.png",
+        "selectedIconPath": "images/tab_zuanshi_selected.png",
+        "text": "会员"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "iconPath": "images/tab_gouwudai.png",
+        "selectedIconPath": "images/tab_gouwudai_selected.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "images/tab_wode.png",
+        "selectedIconPath": "images/tab_wode_selected.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

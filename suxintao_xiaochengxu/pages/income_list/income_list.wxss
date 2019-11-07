@@ -1,0 +1,114 @@
+/* pages/income_list/income_list.wxss */
+page{
+  background: #f5f5f5;
+}
+.head{
+  background: #e2a64b;
+  color: #000;
+  display: flex;
+  align-items: center;
+}
+.head .tab{
+  flex: 1;
+  font-size: 12px;
+  text-align: center;
+  position: relative;
+  padding: 8px 0;
+}
+.head  .tab{
+  flex: 1;
+  font-size: 12px;
+  text-align: center;
+}
+.head .tab .val{
+  font-size: 20px;
+}
+.head .tab .label{
+  color: rgba(0,0,0,0.6)
+}
+.head .tab .indicator{
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+
+  width:0; 
+  height:0; 
+  border-left:6px solid transparent;
+  border-right:6px solid transparent;
+  border-bottom:6px solid #fff;
+
+  margin-left: -6px;
+
+  display: none;
+}
+
+.head .tab.active .indicator{
+  display: block;
+}
+
+.income-list{
+  margin-top: 8px;
+  background: #ffffff;
+}
+
+.income-list .income{
+  padding: 8px;
+  border-bottom: 1rpx solid #e4e4e4;
+}
+
+.income-list .income .income-bd{
+  display: flex;
+  align-items: center;
+}
+.income-list .income .amount{
+  width: 100px;
+  overflow: hidden;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+
+  color: #333;
+  font-size: 20px;
+}
+.income-list .income .meta{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.income-list .income .meta .add-time, .income-list .income .meta .order_sn{
+  font-size: 12px;
+  margin-top: 4px;
+  color: #666;
+}
+.income-list .income:last-child{
+  border-bottom: none;
+}
+.income-list .income .meta .income-type{
+  display: flex;
+  align-items: center;
+}
+.income-list .income .meta .income-type image{
+  width: 32rpx;
+  height: 32rpx;
+  display: inline-block;
+  margin-left: 16px;
+}
+
+.toggle-order{
+  float: right;
+  color: #FF6450;
+  font-size: 12px;
+}
+.order-goods{
+  padding: 16rpx;
+}
+.order-status{
+  height: 64rpx;
+  line-height: 64rpx;
+  padding-left: 16rpx;
+}
+.income-order{
+  border-top: 1px dashed #e4e4e4;
+  margin-top: 16rpx;
+}

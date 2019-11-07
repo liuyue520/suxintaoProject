@@ -1,0 +1,47 @@
+<view class="header">
+  <view class='logo'>
+    <image src='/images/suxintao.jpg'></image>
+  </view>
+  <view class='title'>苏心淘商务招商合作</view>
+</view>
+
+<form  bindsubmit="onFormSubmit">
+<view class='input-area'>
+  <view class='input-item'>
+    <view class='label'>品牌/公司</view>
+    <input class='input' placeholder='请输入品牌/公司' name="company"></input>
+  </view>
+  <view class='input-item'>
+    <view class='label'>您的产品</view>
+    <input class='input' placeholder='请输入产品名称' name="goods_name"></input>
+  </view>
+  <view class='input-item'>
+    <view class='label'>您的姓名</view>
+    <input class='input' placeholder='请输入您的姓名' name="contact_name"></input>
+  </view>
+  <view class='input-item'>
+    <view class='label'>联系电话</view>
+    <input class='input' placeholder='请输入您的联系电话' name="contact_mobile"></input>
+  </view>
+  <view class='remark'>
+    <textarea placeholder="请简单描述您的合作意向或微信QQ等其他联系方式" name="remark" />
+  </view>
+  <view class='upload'>
+    <view class='tips'>上传图片<text>选填，最多上传四张图</text></view>
+    <view class='images'>
+      <view class='image-item add' bindtap='onAddImage'>
+        <image class='upload-image' src='/images/plus.png'></image> 
+        <image class='remove' src='/images/remove.png'></image>
+      </view>
+      <view class='image-item' wx:for="{{upload_images}}">
+        <image class='upload-image' src='{{item}}' mode='aspectFit'></image> 
+        <image class='remove' src='/images/remove.png' bindtap='onRemoveImageUrl' data-index='{{index}}'></image>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='submit_area'>
+  <button form-type="submit" class='submit'>提交</button>
+</view>
+</form>

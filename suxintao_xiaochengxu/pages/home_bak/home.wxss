@@ -1,0 +1,283 @@
+/* pages/home/home.wxss */
+page{
+  background: #f5f5f5;
+  height: 100%;
+}
+.header{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0);
+}
+.header.mask{
+  background: rgba(255, 255, 255, 1);
+  color: #000;
+}
+.header .search{
+  height: 48rpx;
+  font-size: 12px;
+  border-radius: 24rpx;
+  background: rgba(255, 255, 255, 0.8);
+  padding-left: 24rpx;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+.header.mask .search{
+  background: rgba(0, 0, 0, 0.1);
+  color: #666;
+}
+.header .search image{
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 8rpx
+}
+
+.header .tabs{
+  white-space: nowrap;
+  margin: 16rpx 0;
+}
+.header .tabs .tab-item{
+  display: inline-block;
+  position: relative;
+  padding: 0 40rpx;
+}
+.header .tabs .tab-item image{
+  width: 24rpx;
+  height: 24rpx;
+  position: absolute;
+  top: 0;
+  right: 8rpx;
+  display: none;
+}
+.header .tabs .tab-item.active{
+  font-size: large;
+}
+.header .tabs .tab-item.active image{
+  display: block;
+}
+.header .tabs .tab-item.active::after{
+  content: " ";
+  display: block;
+  height: 4rpx;
+  background: #fff;
+  width: 24rpx;
+  margin: 0 auto;
+  margin-top: 16rpx;
+}
+.header.mask .tabs .tab-item.active::after{
+  background: #000;
+}
+
+.limitbuy-tabs.mask{
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+.limitbuy-tabs-wrapper{
+  overflow: hidden;
+}
+
+.ad{
+  margin-top: 8rpx;
+  font-size: 0;
+}
+.ad image{
+  width: 100%;
+}
+.tools{
+  display: flex;
+  background: #fff;
+  padding: 16rpx 0;
+}
+.tools .tools_item{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+}
+.tools .tools_item image{
+  width: 160rpx;
+  height: 160rpx;
+  margin-bottom: 16rpx;
+}
+.hot{
+  background: #ffffff;
+}
+.hot .hd{
+  height: 88rpx;
+  line-height: 88rpx;
+  color: #000;
+  font-size: large;
+  padding: 0 16rpx;
+}
+.hot .bd{
+  padding: 0 16rpx;
+  display: flex;
+}
+.hot .bd>navigator{
+  flex: 1;
+}
+
+.hot .bd image{
+  width: 351rpx;
+  height: 351rpx;
+  border-radius: 16rpx;
+}
+
+.new{
+  background: rgba(255, 0, 0, 0.1);
+}
+.new .hd{
+  height: 88rpx;
+  line-height: 88rpx;
+  color: #000;
+  font-size: large;
+  padding: 0 16rpx;
+  display: flex;
+  align-items: center;
+}
+.new .hd .label{
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.new .hd .label image{
+  width: 88rpx;
+  height: 88rpx;
+  margin-left: 16rpx;
+}
+.new .hd .more{
+  font-size: small;
+}
+.new swiper{
+  width: 750rpx;
+  height: 400rpx;
+}
+.new .slide-item{
+  display: flex;
+  padding: 0 8rpx;
+}
+
+.new .swipe-goods{
+  width: 244rpx;
+  box-sizing: border-box;
+  padding: 0 8rpx;
+}
+.new .swipe-goods .goods-meta{
+  background: #fff;
+  padding: 16rpx 16rpx;
+  font-size: 12px;
+}
+.new .swipe-goods .goods-meta .goods-name, .new .swipe-goods .goods-meta .keywords{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.new .swipe-goods .goods-meta .cover{
+  font-size: 0;
+  text-align: center;
+}
+.new .swipe-goods image{
+  width: 200rpx;
+  height: 200rpx;
+}
+.limitbuy{
+  background: #fff;
+  padding-top: 48rpx;
+}
+.limitbuy .hd{
+  border-bottom: 2rpx solid #e4e4e4;
+}
+.limitbuy .bd{
+  padding-bottom: 64rpx;
+}
+.limitbuy .hd .title{
+  height: 88rpx;
+  line-height: 88rpx;
+  color: #000;
+  font-size: large;
+  padding: 0 16rpx;
+}
+.limitbuy .limitbuy-tabs{
+  white-space: nowrap;
+  padding: 0 16rpx;
+  font-size: 12px;
+  background: #fff;
+  z-index: 10000;
+}
+.limitbuy .limitbuy-tabs .limitbuy-item{
+  display: inline-block;
+  margin-right: 90rpx;
+  text-align: center;
+}
+.limitbuy .limitbuy-tabs .limitbuy-item .time{
+  font-size: 16px;
+  color: #333;
+}
+.limitbuy .limitbuy-tabs .limitbuy-item .status{
+  line-height: 24px;
+  color: #666;
+}
+.limitbuy .limitbuy-tabs .limitbuy-item.active .time, .limitbuy .limitbuy-tabs .limitbuy-item.active .status{
+  color: #ff0000;
+}
+.limitbuy-goods{
+  padding: 24rpx 16rpx 0 16rpx;
+  font-size: 12px;
+  position: relative;
+}
+.limitbuy-goods .cover{
+  font-size: 0;
+}
+.limitbuy-goods .cover image{
+  width: 100%;
+  border-radius: 8rpx;
+}
+.limitbuy-goods .goods-name{
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  line-height: 24px;
+}
+.limitbuy-goods .keywords{
+  color: #666;
+}
+.limitbuy-goods .price{
+  font-size: 16px;
+  color: #ff0000;
+  line-height: 44px;
+}
+.limitbuy-goods .stock{
+  font-size: 10px;
+}
+.limitbuy-goods .stock .total{
+  height: 16rpx;
+  background: #f5f5f5;
+  border-radius: 8rpx;
+  display: inline-block;
+  margin-right: 16rpx;
+}
+.limitbuy-goods .stock .total .left{
+  height: 16rpx;
+  border-radius: 8rpx;
+  background: #ff0000;
+}
+.limitbuy-goods .buy{
+  width: 160rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  text-align: center;
+  border-radius: 32rpx;
+  font-size: 12px;
+  color: #fff;
+  background: #ff0000;
+  position: absolute;
+  right: 16rpx;
+  bottom: 16rpx;
+}

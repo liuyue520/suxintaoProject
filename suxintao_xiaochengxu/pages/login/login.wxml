@@ -1,0 +1,17 @@
+<!--pages/login/login.wxml-->
+<view class='welcome'>欢迎来到苏心淘</view>
+<view class='slogan'>精致生活刚刚好</view>
+
+<view class='login'>
+  <view class='bd'><image src='/images/wechat.png'></image>微信一键登录</view>
+  <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo"></button>
+</view>
+<view class="UpLogin">
+  <button  bindtap="UpLogin">稍后登陆</button>
+</view> 
+<view class='login-tips'>还未注册？点击登录自动注册</view>
+
+<view class='agreement'>
+登录即同意以下协议 <navigator class='doc'>《苏心淘用户服务协议》</navigator> 和 <navigator class='doc'>《隐私政策》</navigator>
+</view>
+<view class='image'></view>

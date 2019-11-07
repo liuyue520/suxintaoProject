@@ -1,0 +1,6 @@
+<!--pages/email/email.wxml-->
+<view class='bd'>
+  <view class='label'>招商邮箱：</view>
+  <view class='val'>ggazy@foxmail.com</view>
+  <view class='copy' bindtap='onCopy' data-text='ggazy@foxmail.com'>复制</view>
+</view>

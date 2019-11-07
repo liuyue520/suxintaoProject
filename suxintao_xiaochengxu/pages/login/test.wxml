@@ -1,0 +1,17 @@
+<!-- 整个workspace 可以定义为一个750*750的view -->
+<view class='workspace'>
+  <!-- 画布：根据接口返回的画布大小，缩放，放在父元素中间 -->
+  <view class="canvas">
+    <!-- 画布元素： 背景-->
+    <view class='canvas-layer bg'><image src='path/to/bg/image'></image></view>
+    <!-- diy 区域: 根据接口确定diy area的定位和大小 overflow是hidden 内容是用户上传图 -->
+    <view class='diy-area'>
+      <view class='user-image'><image src='USER_IMAGE_URL'></image></view>
+    </view>
+    <!-- 操作区域，与user-image联动，联动规则与以前跟你说的相同 -->
+    <view class='handle-area'>
+      <view class='scale'></view>
+      <view class='ratote'></view>
+    </view>
+  </view>
+</view>

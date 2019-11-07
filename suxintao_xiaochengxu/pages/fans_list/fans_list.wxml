@@ -1,0 +1,16 @@
+<!--pages/fans_list/fans_list.wxml-->
+<view class='head'>
+  <view class='total'>{{fans.total}}</view>
+  <view class='tips'>粉丝总数(人)</view>
+</view>
+
+<view class='fans-list'>
+  <view class='fans' wx:for="{{fans_list}}">
+    <view class='cover'><image src='{{item.avatar}}'></image></view>
+    <view class='meta'>
+      <view class='fans-name'>{{item.nickname}}</view>
+      <view class='share-rank'>{{item.share_user_rank_name}}</view>
+      <view class='add-time'>{{item.refer_time}}</view>
+    </view>
+  </view>
+</view>

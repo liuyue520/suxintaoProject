@@ -1,0 +1,189 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": false,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.6.6",
+	"appid": "wxfc2a0476e35bd16c",
+	"projectname": "suxintao_xiaochengxu",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 16,
+			"list": [
+				{
+					"id": -1,
+					"name": "测试",
+					"pathName": "pages/test/test",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "购物车",
+					"pathName": "pages/cart/cart",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商品搜索",
+					"pathName": "pages/search/search",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "goods",
+					"pathName": "pages/goods/goods",
+					"query": "id=198&refer_code=ABC123",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "order_list",
+					"pathName": "pages/order_list/order_list",
+					"query": "id=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "mine",
+					"pathName": "pages/mine/mine",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 6,
+					"name": "home bind parent",
+					"pathName": "pages/home/home",
+					"query": "refer_code=NHIN9D",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "礼包首页",
+					"pathName": "pages/vip_goods/vip_goods",
+					"query": "id=108&refer_code=ABC123",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "supplier_apply",
+					"pathName": "pages/supplier_apply/supplier_apply",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 9,
+					"name": "activity726",
+					"pathName": "pages/activity726/activity726",
+					"query": "refer_code=OWTNGB",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "activity726 bonus",
+					"pathName": "pages/activity726_bonus/activity726_bonus",
+					"query": "refer_code=OWTNGB",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "checkout",
+					"pathName": "pages/checkout/checkout",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "activity77",
+					"pathName": "pages/activity77/activity77",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "withdraw",
+					"pathName": "pages/withdraw/withdraw",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 14,
+					"name": "activity5years",
+					"pathName": "pages/activity5years/activity5years",
+					"query": "refer_code=J2W5NE",
+					"scene": null
+				},
+				{
+					"id": 15,
+					"name": "pages/goods/goods",
+					"pathName": "pages/goods/goods",
+					"query": "id=413",
+					"scene": null
+				},
+				{
+					"id": 16,
+					"name": "pages/activity_goods/activity_goods",
+					"pathName": "pages/activity_goods/activity_goods",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 17,
+					"name": "pages/activity_rule/activity_rule",
+					"pathName": "pages/activity_rule/activity_rule",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/card_exchange_goods299/card_exchange_goods299",
+					"pathName": "pages/card_exchange_goods299/card_exchange_goods299",
+					"query": "",
+					"scene": null
+				}
+			]
+		}
+	}
+}

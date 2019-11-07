@@ -1,0 +1,70 @@
+/* pages/withdraw/withdraw.wxss */
+.hd{
+  background: #FF6450;
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  padding: 64rpx 0;
+}
+.hd .val{
+  font-size: 24px;
+  margin-bottom: 16rpx;
+}
+.input-item{
+  height: 88rpx;
+  line-height: 88rpx;
+  display: flex;
+  align-items: center;
+  padding-left: 16rpx;
+  padding-right: 16rpx;
+  position: relative;
+  margin: 16rpx 0 0 0;
+}
+
+
+
+.input-item .label{
+  width: 160rpx;
+  margin-right: 16rpx;
+}
+
+.input-item .input{
+  width: 542rpx
+}
+
+.submit{
+  border: none;
+  color: #fff;
+  background: #FF6450;
+  display: inline-block;
+}
+.submit::after{
+  border: none;
+}
+
+.data-item{
+  margin: 8rpx 16rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 16rpx;
+  display: flex;
+  align-items: center;
+  color: #333;
+}
+.data-item .amount{
+  width: 180rpx;
+  text-align: center;
+  font-size: 20px;
+}
+.data-item .meta{
+  flex: 1;
+}
+
+.data-item.pass{
+  color: #FF6450;
+}
+
+.data-item .meta .add-time{
+  color: #999;
+  margin-top: 16rpx;
+}

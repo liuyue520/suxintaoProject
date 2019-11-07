@@ -1,0 +1,28 @@
+/* pages/activity_ rule/activity_ rule.wxss */
+page{
+  background-color: #ef9a8b;
+}
+.RuleSection{
+  width:100%;
+}
+.RuleSection image{
+  width: 100%;
+}
+.Comtent{
+  height: 430rpx;
+  width: 100%;
+  background-color: #ef9a8b;
+}
+.box{
+  width: 90%;
+  height: 370rpx;
+  background-color: #fff;
+  margin: 0 auto;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  font-size: 25rpx;
+}
+.box text{
+  display: block;
+  margin: 32rpx 0;
+}

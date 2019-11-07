@@ -1,0 +1,21 @@
+<view class="cover" wx:for='{{activity.images}}'>
+  <image src='{{item}}' mode='widthFix'></image>
+</view>
+
+<view class='exchange' wx:if='{{activity.show_exchange}}'>
+  <view class='tips'>恭喜您获得兑换黑卡会员的机会</view>
+  <view bindtap='onBuy' class='href'>立即兑换</view>
+</view>
+
+<view class='share' wx:if='{{activity.show_share}}'>
+  <view class='tips'>您有{{activity.show_share.left_num}}个黑卡身份可赠送</view>
+  <view class='href'>立即赠送<button open-type='share' class='share-btn'></button></view>
+  <view class='tips' wx:for='{{activity.show_share.exchange}}'>
+    <text>{{item.user_name}}</text><text style='display:inline-block; margin-left:8px'>{{item.status}}</text>
+  </view>
+  <view class='time'>{{activity.show_share.left_time}}</view>
+</view>
+
+<view class='cover'>
+  <image src='{{activity.bottom_image}}' mode='widthFix'></image>
+</view>

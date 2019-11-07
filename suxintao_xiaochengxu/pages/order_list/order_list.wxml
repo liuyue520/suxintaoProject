@@ -1,0 +1,67 @@
+<!--pages/order_list/order_list.wxml-->
+<view class='tab'>
+  <view bindtap='onClickTab' class='tab-item {{order_type == 10 ? "active" : ""}}' data-order-type="10">全部</view>
+  <view bindtap='onClickTab' class='tab-item {{order_type == 0 ? "active" : ""}}' data-order-type="0">待付款</view>
+  <view bindtap='onClickTab' class='tab-item {{order_type == 1 ? "active" : ""}}' data-order-type="1">待发货</view>
+  <view bindtap='onClickTab' class='tab-item {{order_type == 2 ? "active" : ""}}' data-order-type="2">待收货</view>
+  <view bindtap='onClickTab' class='tab-item {{order_type == 3 ? "active" : ""}}' data-order-type="3">已完成</view>
+</view>
+
+<view class='order_list'>
+  <view class='order_item' wx:for='{{order_list}}' wx:key="{{index}}">
+    <view class='hd'>
+      <view class="order-sn">订单号 {{item.sn}}<text class='copy' bindtap='onCopy' data-text="{{item.sn}}">复制</text></view>
+      <view class='order-status'>
+        {{item.status == 0 ? "待付款" : ""}}
+        {{item.status == 1 ? "待发货" : ""}}
+        {{item.status == 2 ? "待收货" : ""}}
+        {{item.status == 3 ? "已收货" : ""}}
+        {{item.status == 4 ? "已完成" : ""}}
+        {{item.status == 5 ? "已取消" : ""}}
+      </view>
+    </view>
+    <navigator class='bd' url='/pages/goods/goods?id={{goods.id}}' wx:for='{{item.goods}}' wx:for-item="goods" wx:for-index="goods_index">
+      <view class='goods-image'><image src='{{goods.product.photos[0].thumb}}' mode='aspectFit'></image></view>
+      <view class='goods-meta'>
+        <view class='goods-title'>{{goods.product.name}}</view>
+        <view class='goods-attr'>
+            <view class='attr-item' wx:for='{{goods.property}}' wx:for-item="attr_item">{{attr_item}}</view>
+        </view>
+        <view class='other'>
+          <view class='goods-add-time'>¥{{goods.product.display_price && goods.product.display_price > 0 ? goods.product.display_price : goods.product_price}}</view>
+          <view class='goods-num'>{{goods.total_amount}} 件</view>
+        </view>
+      </view>
+    </navigator>
+    <view class='ft'>
+      <view class='meta1'></view>
+      <view class='meta2'>{{item.card_amount > 0 ? "使用礼品卡 ¥" + item.card_amount : ""}} 总金额 ¥{{item.total}}(含运费 ¥{{item.shipping.price}})</view>
+    </view>
+
+    <view class='order-meta'>
+      <view>快递公司：{{item.shipping.name}}</view>
+      <view wx:if="{{item.shipping_no}}">快递单号：{{item.shipping_no}}</view>
+      收货人：{{item.consignee.name}} 
+      {{item.consignee.mobile}} 
+      {{item.consignee.regions}} 
+      {{item.consignee.address}} 
+    </view>
+
+    <block wx:if="{{item.status == 2 && item.order_shipping.length > 0}}">
+    <view wx:for="{{item.order_shipping}}" wx:for-item="shipping_item" class='order-meta'>
+      发货单：{{shipping_item.shipping_name}} {{shipping_item.shipping_no}}
+      <text class='copy' bindtap='onCopy' data-text="{{shipping_item.shipping_no}}">复制</text>
+    </view>
+    </block>
+    
+    <view class='order-meta' wx:if="{{item.postscript.length > 0}}">
+      买家留言：{{item.postscript}}
+    </view>
+    <view class='handle'>
+      <view wx:if='{{item.can_cancel}}' class='handle-item' bindtap='onCancel' data-order-id='{{item.id}}'>取消订单</view>
+      <view  wx:if='{{item.status == 0}}' class='handle-item' bindtap='onPay' data-order-id='{{item.id}}'>立即支付</view>
+      <view wx:if='{{item.status == 2}}' class='handle-item' bindtap='onConfirm' data-order-id='{{item.id}}'>确认收货</view>
+    </view>
+  </view>
+</view>
+

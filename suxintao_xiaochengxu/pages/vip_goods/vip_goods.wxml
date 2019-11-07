@@ -1,0 +1,50 @@
+<!--pages/vip_goods/vip_goods.wxml-->
+<view class='cover'>
+  <image src='https://suxintao.oss-cn-hangzhou.aliyuncs.com/manual/vip/vip_benifit.jpg?random={{random}}' mode='widthFix'></image>
+</view>
+
+<view class='vip_goods' style='display:none'>
+  <view class='hd'>{{vip_tips99}}</view>
+  <view class='bd'>
+    <navigator class='vip-goods-item' wx:for="{{goods_list99}}" url='/pages/goods/goods?id={{item.id}}'>
+      <view class='wrapper'>
+        <view class='cover'><image src='{{item.default_photo.thumb}}'></image></view>
+        <view class='goods-meta'>
+          <view class='goods-name'>{{item.name}}</view>
+          <view class='goods-price'>
+            <view class='price'><view class="rmb">¥</view><view class="val">{{item.display_price && item.display_price > 0 ? item.display_price : item.current_price}}</view></view>
+            <view class='buynow'>立即购买</view>
+          </view>
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <navigator class='ft' url='/pages/vip_goods_list/vip_goods_list?type=99'>查看更多></navigator>
+</view>
+
+<view class='vip_goods'>
+  <view class='hd'>{{vip_tips299}}</view>
+  <view class='bd'>
+    <navigator class='vip-goods-item' wx:for="{{goods_list299}}" url='/pages/goods/goods?id={{item.id}}'>
+      <view class='wrapper'>
+        <view class='cover'><image src='{{item.default_photo.thumb}}'></image></view>
+        <view class='goods-meta'>
+          <view class='goods-name'>{{item.name}}</view>
+          <view class='goods-price'>
+            <view class='price'><view class="rmb">¥</view><view class="val">{{item.display_price && item.display_price > 0 ? item.display_price : item.current_price}}</view></view>
+            <view class='buynow'>立即购买</view>
+          </view>
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <navigator class='ft' url='/pages/vip_goods_list/vip_goods_list?type=299'>查看更多></navigator>
+</view>
+
+<view class='cover'>
+  <image src='https://suxintao.oss-cn-hangzhou.aliyuncs.com/manual/vip/vip_desc.jpg?random={{random}}' mode='widthFix'></image>
+</view>
+
+<view class='cover'>
+  <image src='https://suxintao.oss-cn-hangzhou.aliyuncs.com/manual/vip/vip_a.jpg?random={{random}}' mode='widthFix'></image>
+</view>

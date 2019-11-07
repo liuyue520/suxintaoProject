@@ -1,0 +1,159 @@
+.header{
+  background: #000;
+  color: #fff;
+  padding: 24px 8px 0 8px;
+}
+.user-info{
+  display: flex;
+  padding: 32rpx 0;
+}
+.user-info .info .username{
+  font-size: large;
+}
+.user-info .info .mobile{
+  line-height: 64rpx;
+  color:#666;
+}
+.user-info .avatar{
+  font-size: 0;
+  margin-right: 32rpx;
+}
+.user-info .avatar image{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.user-info .info{
+  position: relative;
+  flex: 1;
+}
+.user-info .info .invite-code{
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: small;
+}
+.user-info .info .invite-code .val{
+  text-align: center;
+  padding: 8rpx;
+}
+.user-info .info .invite-code .copy{
+  padding: 4rpx 16rpx;
+  color: #333;
+  background: #e2a64b;
+  border-radius: 8rpx;
+  margin-left: 8px;
+}
+.user-info .info .qrcode{
+  font-size: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #fff;
+}
+.user-info .info .qrcode image{
+  width: 88rpx;
+  height: 88rpx;
+}
+
+.money{
+  color: #000;
+  background: #e2a64b;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  position: relative;
+}
+.money .withdraw{
+  position: absolute;
+  right: 48rpx;
+  top: 48rpx;
+  display: inline-block;
+  line-height: 64rpx;
+  height: 64rpx;
+  border-radius: 16rpx;
+  padding: 0 32rpx;
+  background: #FF6450;
+  color: #fff;
+}
+.money .title{
+  line-height: 60px;
+  font-weight: bold;
+  padding: 0 16px;
+}
+
+.money > .val{
+  font-weight: bold;
+  padding: 0 16px;
+}
+
+.money > .val text{
+  display: inline-block;
+  margin-right: 8px;
+  font-size: 24px;
+}
+
+.money .income{
+  display: flex;
+  margin-top: 16px;
+  padding: 16px;
+}
+.money .income .income-item{
+  flex: 1;
+  text-align: center;
+  font-weight: bold;
+  font-size: 12px;
+}
+.money .income .income-item .val{
+  font-size: 20px;
+}
+.fans{
+  background: #fff;
+  padding: 8px 16px;
+  color: #333;
+}
+.fans .hd .title{
+  font-weight: bold;
+  color: #000;
+  line-height: 44px;
+  font-size: large;
+}
+.fans .bd{
+  display: flex;
+  border: 1px solid #e4e4e4;
+  border-radius: 4px;
+  padding: 8px 0;
+}
+.fans .bd .fans-item{
+  flex: 1;
+  text-align: center;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 16px 0;
+}
+.fans .bd .fans-item .label{
+  color: #999;
+  margin-top: 8px;
+}
+.fans .bd .fans-item .val{
+  font-size: 20px;
+}
+
+.uc-goods-list{
+  margin-top: 8px;
+  background: #fff;
+  padding: 8px 0;
+}
+.uc-goods-list .hd{
+  text-align: center;
+}
+.uc-goods-list .hd .m{
+  font-size: large;
+  font-weight: bold;
+  color: #000;
+  line-height: 32px;
+}
+.uc-goods-list .hd .s{
+  color: #999;
+}

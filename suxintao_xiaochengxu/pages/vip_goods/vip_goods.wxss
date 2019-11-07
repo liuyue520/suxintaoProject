@@ -1,0 +1,78 @@
+/* pages/vip_goods/vip_goods.wxss */
+page{
+  background: #f0f1f3;
+}
+.cover{
+  font-size: 0;
+}
+.cover image{
+  width: 100%;
+}
+
+.vip_goods{
+  margin: 16rpx;
+  background: #ffffff;
+  border-radius: 4px;
+  color: #333;
+}
+.vip_goods .hd{
+  line-height: 44px;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 4px;
+  background: #7700d3;
+}
+.vip_goods .ft{
+  line-height: 44px;
+  text-align: right;
+  color: #666;
+  padding-right: 8px;
+}
+
+.vip_goods .bd .vip-goods-item{
+  width: 359rpx;
+  padding: 0 8rpx;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.vip_goods .bd .vip-goods-item .cover{
+  font-size: 0;
+  padding-top: 8px;
+}
+.vip_goods .bd .vip-goods-item .cover image{
+  width: 343rpx;
+  height: 343rpx;
+  border-radius: 8px;
+}
+.vip_goods .bd .vip-goods-item .goods-name{
+  line-height: 24px;
+}
+.vip_goods .bd .vip-goods-item .goods-price{
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+.vip_goods .bd .vip-goods-item .goods-price .price{
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  font-weight: bold;
+  color: #ff0000;
+}
+.vip_goods .bd .vip-goods-item .goods-price .price .rmb{
+  font-size: 14px;
+  line-height: 24px;
+}
+.vip_goods .bd .vip-goods-item .goods-price .price .val{
+  font-size: 20px;
+  line-height: 28px;
+}
+.vip_goods .bd .vip-goods-item .goods-price .buynow{
+  background: #ffb265;
+  padding: 0 8px;
+  color: #fff;
+  height: 24px;
+  line-height: 24px;
+  border-radius: 12px;
+}

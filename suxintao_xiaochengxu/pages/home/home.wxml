@@ -1,0 +1,150 @@
+<view  class="{{ImgState == true ? '' : 'container-ban'}}">
+  <view class='hd-bg'></view>
+  <view class="Query">
+    <navigator hover-class="none" url='/pages/search/search' class='search'>
+      <image src='/images/search_black.png'></image>
+      <text class='keywords'>请输入你要搜索的商品</text>
+    </navigator>
+  </view>
+  <view class='flash'>
+      <swiper autoplay="true" circular="true" indicator-dots="true" indicator-active-color="#ED6D59" indicator-color='#ffffff'>
+        <swiper-item wx:for="{{banners}}" wx:key="{{index}}">
+          <navigator hover-class="none" style='font-size:0px;' url='{{item.link}}'>
+            <image src="{{item.photo.large}}" class="slide-image"/>
+          </navigator>
+        </swiper-item>
+      </swiper>
+  </view>
+  <view class='channels'>
+    <navigator hover-class="none" url='{{item.url}}'  wx:for="{{channels}}" wx:key="{{index}}" class='channel'>
+      <view class='cover'>
+        <image src='{{item.image}}'></image>
+      </view>
+      <view class='title'>{{item.title}}</view>
+    </navigator>
+  </view>
+  <view class='module-blank'></view>
+  <navigator hover-class="none" style='font-size:0' url='/pages/exchange299/exchange299'>
+    <image style='width:100%' mode='widthFix' src='http://suxintao.oss-cn-hangzhou.aliyuncs.com/manual/exchange/exchange299.jpg'></image>
+  </navigator>
+
+  <block  wx:if="{{promotions.length > 0}}">
+  <view class='module-blank'></view>
+  <view class='limitbuy'>
+    <view class='hd'>
+      <view class='title'>
+      <image src='/images/home_promotion.png'></image>
+      秒杀专区
+      </view>
+      <view class='limitbuy-tabs-wrapper'>
+        <scroll-view class='limitbuy-tabs' scroll-x>
+          <view class='limitbuy-item {{index == current_promotion_index ? "active" : ""}}' wx:for="{{promotions}}" wx:key="{{index}}" data-index='{{index}}' bindtap='onTapPromotionTab'>
+            <view class='time'>{{item.time}}</view>
+            <view class='status'>{{item.status == 0 ? "抢购中" : (item.status == 1 ? "预热中" : "明日预告")}}</view>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+    <view class='bd'>
+      <navigator hover-class="none" wx:for="{{promotions[current_promotion_index].goods_list}}" wx:key="{{index}}" class='limitbuy-goods' url='/pages/goods/goods?id={{item.id}}'>
+        <view class='cover'><image src="{{item.promote_image}}" mode='widthFix'></image></view>
+        <view class='goods-name'>{{item.name}}</view>
+        <view class='keywords'>{{item.keywords}}</view>
+        <view class='ft-meta'>
+          <view class='price'>¥{{item.discount.price}}</view>
+          <view class='ori-price'>¥{{item.price}}</view>
+          <view class='sale'><image src='/images/home_shandian.png'></image> 已售出{{item.sales_count}}件</view>
+          <view class='buy'>立即购买</view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  </block>
+  <view class='module-blank'></view>
+  <view class='brand-goods'>
+    <view class='hd'><image src='/images/home_brand.png'></image>品牌精选</view>
+    <view class='bd'>
+      <view class='brand-item' wx:for="{{brands}}" wx:key="{{index}}">
+        <navigator hover-class="none" class='brand-logo' url="/pages/goods_list/goods_list?brand_id={{item.id}}">
+          <image src='{{item.logo.large}}' mode='widthFix'></image>
+        </navigator>
+        <view class='brand-goods-list'>
+          <navigator hover-class="none" wx:for="{{item.best_goods}}" wx:key="{{index}}"  wx:for-item="brand_goods" class='brand-goods-item' url='/pages/goods/goods?id={{brand_goods.id}}'>
+            <view class='cover'><image src='{{brand_goods.default_photo.thumb}}'></image></view>
+            <view class='goods-meta'>
+              <view class='goods-name'>{{brand_goods.name}}</view>
+              <view class='ft-meta'>
+                <view class='current-price'>¥{{brand_goods.display_price && brand_goods.display_price > 0 ? brand_goods.display_price : brand_goods.current_price}}</view>
+                <view class='ori-price'>¥{{brand_goods.price}}</view>
+              </view>
+            </view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='module-blank'></view>
+  <view class='hot-goods'>
+    <view class='hd'><image src='/images/home_hot.png'></image>今日热卖</view>
+    <view class='bd'>
+      <!-- <block wx:for="{{hot_goods_list}}" wx:key="{{index}}">
+      <navigator hover-class="none" class='goods-list-item' url='/pages/goods/goods?id={{item.id}}'>
+      <view class='cover'><image src='{{item.default_photo.thumb}}'></image></view>
+      <view class='goods-meta'>
+        <view class='goods-name'>{{item.name}}</view>
+        <view class='goods-keywords'>{{item.keywords}}</view>
+        <view class='bd-meta'>已售出{{item.sales_count}}件</view>
+        <view class='ft-meta'>
+          <view class='current-price'>¥{{item.display_price && item.display_price > 0 ? item.display_price : item.current_price}}</view>
+          <view class='ori-price'>¥{{item.price}}</view>
+        </view>
+        <view class='cart-icon'><image src='/images/home_cart.png'></image></view>
+      </view>
+    </navigator>
+    <view class='hot-goods-blank'></view>
+    </block> -->
+
+    <!-- 开始 -->
+      <view id="the-id" class="{{Position == false ? 'ClassifTab' : 'Position'}}">
+        <view class="Synthe" bindtap="Synthe" style="color:{{TabStatus == 0 ? '#FF6450' : 'black'}}">综合</view>
+        <view class="Sales" bindtap="ListVolume" style="color:{{TabStatus == 1 ? '#FF6450' : 'black'}}">销量</view>
+        <view class="Newproducts" bindtap="NewProd" style="color:{{TabStatus == 2 ? '#FF6450' : 'black'}}">新品</view>
+        <view class="Tariff" bindtap="ListSort" style="color:{{TabStatus == 3 ? '#FF6450' : 'black'}}">价格</view>
+        <view class="Select" bindtap="Select">
+          <image class="SelectImg" src="{{Wstate == 1 ? '../../images/heng.png' : '../../images/shu.png'}}"></image>
+        </view>
+      </view>
+      <view class="{{Wstate == 1 ? 'ClassifBox' : 'ClassifState'}}">
+        <view class="{{Wstate == 1 ? 'Box' : 'BoxState'}}"  wx:for="{{hot_goods_list}}" bindtap="isOrderID" wx:key="{{index}}" data-id='{{item.id}}'>
+          <view class="{{Wstate == 1 ? 'ImgBox' : 'ImgState'}}">
+            <image mode="aspectFill" src="{{item.default_photo.thumb}}"></image>
+          </view>
+          <view class="{{Wstate == 1 ? 'Commodity' : 'CommodityState'}}">
+            <view class="{{Wstate == 1 ? 'Title' : 'TitleState'}}">{{item.name}}</view>
+            <view class="{{Wstate == 1 ? 'introduce' : 'introduceState'}}">{{item.keywords}}</view>
+            <view class="{{Wstate == 1 ? 'Sellout' : 'SelloutState'}}">已售出{{item.sales_count}}件</view>
+            <view class="{{Wstate == 1 ? 'Price' : 'PriceState'}}">
+              <text class="Price">￥{{item.current_price && item.ccurrent_price < 0 ? item.display_price : item.current_price}}</text>
+              <text wx:if='{{item.vip}}' class="{{Wstate == 1 ? 'Vip' : 'VipState'}}" style="background-image:url(../../images/vip.png)">{{item.vip}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    <!-- 结束 -->
+    </view>
+  </view>
+
+  <view class='modal-activity' wx:if="{{showAcitivity}}">
+    <navigator hover-class="none" url='/pages/activity/activity' class='modal-content modal-bd'>
+      <image mode='widthFix' src='{{activity_pop}}'></image>
+    </navigator>
+    <view class='modal-content modal-close' bindtap='onCloseModal'>
+      <image src='/images/icon_close.png'></image>
+    </view>
+  </view>
+</view>
+<view class="isAlert" hidden="{{ImgState}}" bindtap="onColse"></view>
+<view class="AlertImg" hidden="{{ImgState}}" >
+  <image bindtap="activity" src="https://suxintao.oss-cn-hangzhou.aliyuncs.com/manual/activity/activity1107_02.png"></image>
+  <image bindtap="onColse" id="onClose" src="../../images/colse.png"></image>
+</view>

@@ -1,0 +1,11 @@
+<navigator wx:for="{{goods_list}}" class='goods-list-item' url='/pages/card_exchange_goods299/goods?id={{item.id}}'>
+  <view class='cover'><image src='{{item.default_photo.thumb}}'></image></view>
+  <view class='goods-meta'>
+    <view class='goods-name'>{{item.name}}</view>
+    <view class='goods-keywords'>{{item.keywords}}</view>
+    <view class='goods-price'>
+      <view class='price'>¥{{item.display_price && item.display_price > 0 ? item.display_price : item.current_price}}</view>
+      <view class='handle'>立即兑换</view>
+    </view>
+  </view>
+</navigator>

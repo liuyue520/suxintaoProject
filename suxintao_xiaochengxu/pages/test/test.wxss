@@ -1,0 +1,13 @@
+/* pages/test/test.wxss */
+page{
+  background: pink;
+}
+
+.hd{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: #fff;
+  color: #000;
+  z-index: 9999999;
+}

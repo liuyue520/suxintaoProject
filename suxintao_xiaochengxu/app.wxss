@@ -1,0 +1,277 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
+page{
+  font-size: 14px;
+  background: #f8f8f8;
+}
+.navigator-bar{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.goods-list-item{
+  padding: 0 32rpx;
+  height: 240rpx;
+  font-size: 12px;
+  color: #333;
+  display: flex;
+  margin-top: 32rpx;
+}
+.goods-list-item:nth-last-of-type(1){
+  margin-bottom: 20rpx;
+}
+
+.goods-list-item .cover{
+  font-size: 0;
+  width: 240rpx;
+  height: 240rpx;
+}
+.goods-list-item .cover image{
+  width: 100%;
+  height: 100%;
+  border-radius: 8rpx;
+}
+.goods-list-item .goods-meta{
+  width:414rpx;
+  height: 100%;
+  margin-left: 32rpx;
+  position: relative;
+}
+.goods-list-item .goods-meta .goods-name{
+  font-size: 28rpx;
+  line-height: 44rpx;
+  color: #333;
+  height: 88rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.goods-list-item .goods-meta .goods-keywords{
+  font-size: 24rpx;
+  color: #999;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 8rpx;
+}
+.goods-list-item .goods-meta .ft-meta{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+.goods-list-item .goods-meta .ft-meta>view{
+  display: inline-block;
+}
+.goods-list-item .goods-meta .ft-meta .current-price{
+  font-size: 40rpx;
+  color: #FF6450;
+}
+.goods-list-item .goods-meta .ft-meta .ori-price{
+  font-size: 24rpx;
+  color: #999999;
+  margin-left: 16rpx;
+  text-decoration: line-through;
+}
+.goods-list-item .goods-meta .bd-meta{
+  font-size: 22rpx;
+  color: #999;
+  line-height: 300%;
+}
+.goods-list-item .goods-meta .goods-price{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.goods-list-item .goods-meta .goods-price .price{
+  flex: 1;
+  font-size: larger;
+  color: #ff0000;
+}
+.goods-list-item .goods-meta .goods-price .handle{
+  height: 64rpx;
+  line-height: 64rpx;
+  border-radius: 32rpx;
+  padding: 0 48rpx;
+  background: #ff0000;
+  color: #fff;
+}
+.goods-list-item .goods-meta .sale-users{
+  font-size: 0;
+  margin-left: 8px;
+}
+.goods-list-item .goods-meta .sale-users image{
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+.goods-list-item .goods-meta .cart-icon{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 60rpx;
+  height: 60rpx;
+  font-size: 0;
+}
+.goods-list-item .goods-meta .cart-icon image{
+  width: 100%;
+  height: 100%;
+  /*background: #FF6450;*/
+}
+
+.flash{
+  position: relative;
+}
+.flash .indicator{
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+  padding: 16rpx 0;
+}
+.flash .indicator .dot{
+  display: inline-block;
+  width: 16rpx;
+  height: 4rpx;
+  background: #ffffff;
+  margin-right: 4rpx;
+}
+.flash .indicator .dot.active{
+  background: #000000;
+}
+.core{
+  font-size: 12px;
+  color: #000;
+  padding: 32rpx 0;
+  display: flex;
+  align-items: center;
+  background: #fff;
+}
+.core .core-item{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.core .seprate{
+  width: 2rpx;
+  height: 24rpx;
+  background: #000;
+}
+.core .core-item image{
+  width: 34rpx;
+  height: 34rpx;
+  margin-right: 8rpx;
+}
+
+.grid-goods-list{
+  padding: 0 8rpx;
+}
+
+.grid-goods-list .grid-goods-list-item{
+  padding: 0 8rpx;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  display: inline-block;
+  width: 367rpx;
+  color: #333;
+}
+
+.grid-goods-list .grid-goods-list-item .cover{
+  font-size: 0;
+}
+
+.grid-goods-list .grid-goods-list-item .cover image{
+  width: 351rpx;
+  height: 351rpx;
+  border-radius: 4px;
+}
+.grid-goods-list .grid-goods-list-item .goods-name{
+  height: 32px;
+  line-height: 32px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.grid-goods-list .grid-goods-list-item .goods-keywords{
+  color: #999;
+  height: 24px;
+  line-height: 24px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.grid-goods-list .grid-goods-list-item .goods-price .price{
+  color: #ff0000;
+  font-size: 16px;
+}
+.grid-goods-list .grid-goods-list-item .goods-price .ori{
+  color: #999;
+  text-decoration: line-through;
+  font-size: 12px;
+}
+
+.qrcode-window{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.qrcode-window .bd{
+  width: 686rpx;
+  background: #fff;
+  text-align: center;
+  color: #333;
+  border-radius: 4px;
+  padding: 8px 0;
+}
+
+.qrcode-window .bd .title{
+  font-size: large;
+  line-height: 44px;
+}
+
+.qrcode-window .bd .cover{
+  font-size: 0;
+}
+
+.qrcode-window .bd .cover image{
+  width: 480rpx;
+  height: 480rpx;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 3px;
+}
+
+.qrcode-window .bd .handle{
+  line-height: 32px;
+  color: #e2a64b;
+}
+.qrcode-window .close{
+  font-size: 0;
+  padding: 4px;
+  margin-top: 8px;
+}
+.qrcode-window .close image{
+  width: 32px;
+  height: 32px;
+}

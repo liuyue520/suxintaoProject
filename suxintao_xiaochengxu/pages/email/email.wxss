@@ -1,0 +1,23 @@
+/* pages/email/email.wxss */
+page{
+  background: #fff;
+}
+.bd{
+  display: flex;
+  line-height: 88rpx;
+  padding: 0 16rpx;
+  margin-top: 32rpx;
+}
+.bd .label{
+  width: 200rpx;
+  text-align: right;
+}
+.bd .val{
+  margin-right: 88rpx;
+}
+
+.copy{
+  background: none;
+  font-size: 14px;
+  color: #FF6450;
+}

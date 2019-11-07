@@ -1,0 +1,105 @@
+<!--pages/vip/vip.wxml-->
+<view class='header'>
+  <view class='user-info'>
+    <view class='avatar'><image src='{{user.avatar}}'></image></view>
+    <view class='info'>
+      <view class='username'>{{user.nickname}}</view>
+      <view class='share-user-rank' style='line-height:32px;display:flex; align-items:center;'>{{user.share_user_rank_name}}
+      <image style='width:72rpx; height:42rpx; margin-left:8px;' src='/images/icon_years5.png' wx:if="{{user.share_user_rank_year5}}"></image></view>
+      <view class='invite-code'><view class="val">邀请码：{{user.refer_code}}</view><view class='copy' bindtap='onCopy' data-text="{{user.refer_code}}">复制</view></view>
+
+      <view class='qrcode' bindtap='onShowQrcode'><image src='/images/qrcode.png'></image></view>
+    </view>
+  </view>
+
+  <view class='money'>
+    <navigator class='withdraw' url='/pages/withdraw/withdraw'>提现</navigator>
+    <view class='title'>可提现额度</view>
+    <view class='val'><text>{{user.share_income}}</text>元</view>
+    <view class='income'>
+      <navigator class='income-item' url='/pages/income_list/income_list?type=today'>
+        <view class='val'>{{income.today}}</view>
+        <view class='label'>今日收入(元)</view>
+      </navigator>
+      <navigator class='income-item' url='/pages/income_list/income_list?type=month'>
+        <view class='val'>{{income.month}}</view>
+        <view class='label'>本月收入(元)</view>
+      </navigator>
+      <navigator class='income-item' url='/pages/income_list/income_list?type=total'>
+        <view class='val'>{{income.total}}</view>
+        <view class='label'>累积收入(元)</view>
+      </navigator>
+    </view>
+  </view>
+</view>
+
+<view class='fans'>
+  <view class='hd'>
+    <view class='title'>我的粉丝</view>
+  </view>
+  <view class='bd'>
+    <navigator class='fans-item'  url='/pages/fans_list_v2/fans_list_v2?fans_type=1'>
+      <view class='val'>{{fans.vip}}</view>
+      <view class='label'>会员粉丝(人)</view>
+    </navigator>
+    <navigator class='fans-item'  url='/pages/fans_list_v2/fans_list_v2?fans_type=2'>
+      <view class='val'>{{fans.normal}}</view>
+      <view class='label'>普通粉丝(人)</view>
+    </navigator>
+    <navigator class='fans-item'  url='/pages/fans_list_v2/fans_list_v2?fans_type=3'>
+      <view class='val'>{{fans.unlock}}</view>
+      <view class='label'>潜在粉丝(人)</view>
+    </navigator>
+  </view>
+</view>
+
+<view class='uc-goods-list' wx:if="{{vip_goods_list.length > 0}}">
+  <view class='hd'>
+    <view class='m'>会员礼包</view>
+    <view class='s'>精选会员礼包</view>
+  </view>
+  <view class='bd grid-goods-list'>
+    <navigator wx:for="{{vip_goods_list}}" class='grid-goods-list-item' url='/pages/goods/goods?id={{item.id}}'>
+      <view class='cover'><image src='{{item.default_photo.thumb}}'></image></view>
+      <view class='goods-meta'>
+        <view class='goods-name'>{{item.name}}</view>
+        <view class='goods-keywords'>{{item.keywords}}</view>
+        <view class='goods-price'>
+          <view class='price'>¥{{item.display_price && item.display_price > 0 ? item.display_price : item.current_price}} <text class='ori'>¥{{item.price}}</text></view>
+          <!--<view class='handle'>分享</view>-->
+        </view>
+      </view>
+    </navigator>
+  </view>
+</view>
+
+<view class='uc-goods-list'>
+  <view class='hd'>
+    <view class='m'>会员专享</view>
+    <view class='s'>打动人心的精选</view>
+  </view>
+  <view class='bd grid-goods-list'>
+    <navigator wx:for="{{goods_list}}" class='grid-goods-list-item' url='/pages/goods/goods?id={{item.id}}'>
+      <view class='cover'><image src='{{item.default_photo.thumb}}'></image></view>
+      <view class='goods-meta'>
+        <view class='goods-name'>{{item.name}}</view>
+        <view class='goods-keywords'>{{item.keywords}}</view>
+        <view class='goods-price'>
+          <view class='price'>¥{{item.display_price && item.display_price > 0 ? item.display_price : item.current_price}} <text class='ori'>¥{{item.price}}</text></view>
+          <!--<view class='handle'>分享</view>-->
+        </view>
+      </view>
+    </navigator>
+  </view>
+</view>
+
+<view class='qrcode-window' wx:if='{{show_qrcode}}'  catchtap='onHideQrcode'>
+  <view class='bd' catchtap='onClickQrcode'>
+    <view class='title'>{{user.nickname}}的邀请码</view>
+    <view class='cover'>
+      <image src='{{qrcode}}'></image>
+    </view>
+    <view class='handle' catchtap='onClickDownloadQrcode'>下载</view>
+  </view>
+  <view class='close' catchtap='onHideQrcode'><image src='/images/icon_close.png'></image></view>
+</view>

@@ -1,0 +1,77 @@
+<!--pages/activity726/activity726.wxml-->
+<view  class='activity726 activity726_1'>
+  <image mode='widthFix' src='https://suxintao.oss-cn-hangzhou.aliyuncs.com/manual/activity726/acitivity726_01.png?v={{version}}'></image>
+</view>
+
+<view class='activity726 activity726_buy_share'>
+  <view class='buy' bindtap='onBuy'>
+    <image mode='widthFix' src='https://suxintao.oss-cn-hangzhou.aliyuncs.com/manual/activity726/acitivity726_buy.png?v={{version}}'></image>
+  </view>
+
+  <view class='share'>
+  <image mode='widthFix' src='https://suxintao.oss-cn-hangzhou.aliyuncs.com/manual/activity726/acitivity726_share.png?v={{version}}'></image>
+  <button open-type='share' class='share'></button>
+  </view>
+</view>
+
+<view class='activity726 activity726_2'>
+  <image mode='widthFix' src='https://suxintao.oss-cn-hangzhou.aliyuncs.com/manual/activity726/acitivity726_02.png?v={{version}}'></image>
+</view>
+
+<view class='activity726 activity726_video'>
+  <video custom-cache="{{false}}" src='http://suxintao.oss-cn-hangzhou.aliyuncs.com/manual/activity726/video.mp4' ></video>
+</view>
+
+<view class='activity726 activity726_3'>
+  <image  mode='widthFix' src='https://suxintao.oss-cn-hangzhou.aliyuncs.com/manual/activity726/acitivity726_03.png?v={{version}}'></image>
+</view>
+
+<view class='activity726'>
+  <image  mode='widthFix' src='https://suxintao.oss-cn-hangzhou.aliyuncs.com/manual/activity726/acitivity726_04.png?v={{version}}'></image>
+</view>
+
+<view class='activity726'>
+  <image  mode='widthFix' src='https://suxintao.oss-cn-hangzhou.aliyuncs.com/manual/activity726/acitivity726_05.png?v={{version}}'></image>
+</view>
+
+<view class='activity726'>
+  <image  mode='widthFix' src='https://suxintao.oss-cn-hangzhou.aliyuncs.com/manual/activity726/acitivity726_06.png?v={{version}}'></image>
+</view>
+
+<view class='activity726'>
+  <image  mode='widthFix' src='https://suxintao.oss-cn-hangzhou.aliyuncs.com/manual/activity726/acitivity726_07.png?v={{version}}'></image>
+</view>
+
+<view class='activity726'>
+  <image  mode='widthFix' src='https://suxintao.oss-cn-hangzhou.aliyuncs.com/manual/activity726/acitivity726_08.png?v={{version}}'></image>
+</view>
+
+<view class='activity726'>
+  <image  mode='widthFix' src='https://suxintao.oss-cn-hangzhou.aliyuncs.com/manual/activity726/acitivity726_09.png?v={{version}}'></image>
+</view>
+
+<view class='activity726'>
+  <image  mode='widthFix' src='https://suxintao.oss-cn-hangzhou.aliyuncs.com/manual/activity726/acitivity726_10.png?v={{version}}'></image>
+</view>
+
+<view class='activity726'>
+  <image  mode='widthFix' src='https://suxintao.oss-cn-hangzhou.aliyuncs.com/manual/activity726/acitivity726_11.png?v={{version}}'></image>
+</view>
+
+<view class='activity726'>
+  <image  mode='widthFix' src='https://suxintao.oss-cn-hangzhou.aliyuncs.com/manual/activity726/acitivity726_12.png?v={{version}}'></image>
+</view>
+
+<view class='activity726'>
+  <image  mode='widthFix' src='https://suxintao.oss-cn-hangzhou.aliyuncs.com/manual/activity726/acitivity726_13.png?v={{version}}'></image>
+</view>
+<navigator open-type='switchTab' class='gohome' url='/pages/home/home'>首页</navigator>
+
+<view class='modal-activity726' wx:if="{{showAcitivity726}}">
+  <navigator  url='/pages/activity726_bonus/activity726_bonus' class='modal-content modal-bd'>
+    <image src='https://suxintao.oss-cn-hangzhou.aliyuncs.com/manual/activity726/modal_bonus.png'></image>
+  </navigator>
+  <view class='modal-content modal-close' bindtap='onCloseModal726'>
+    <image src='/images/icon_close.png'></image>
+  </view>
+</view>

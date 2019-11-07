@@ -1,0 +1,8 @@
+<!--pages/profile_edit/profile_edit.wxml-->
+<view class='input-area'>
+    <view class='input-item'>
+      <view class='input-label'>{{title}}</view>
+      <input placeholder='请输入{{title}}' value='{{val}}' bindinput='onInput'></input>
+    </view>
+</view>
+<button class='submit' bindtap='onSubmit'>保存</button>

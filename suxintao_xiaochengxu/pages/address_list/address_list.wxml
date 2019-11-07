@@ -1,0 +1,31 @@
+<!--pages/address_list/address_list.wxml-->
+<view class='main'>
+  <view class='consignee' wx:for="{{consigneeList}}" key="index">
+    <view class='title'>{{item.name}} {{item.mobile}}</view>
+    <view class='address'>
+      {{item.regions[1].name}} {{item.regions[2].name}} {{item.regions[3].name}}{{item.address}}
+    </view>
+    <view class='handle'>
+      <view class='default'>
+        <switch checked="false" wx:if='{{item.is_default}}' disabled   data-consignee-id='{{item.id}}' checked bindchange="onSwitchDefault" />
+        <switch wx:else data-consignee-id='{{item.id}}' disabled  bindchange="onSwitchDefault" />
+        <!-- 这是我写的 -->
+        <!-- <switch checked="{{item.is_default}}" data-index="{{index}}"  bindchange="onSwitchDefault" /> -->
+        默认地址
+      </view>
+
+      <view class='other'>
+        <block >
+          <view class='edit' data-index='{{index}}' bindtap='onEdit'>编辑</view>
+          <view class='remove' data-consignee-id='{{item.id}}' data-index='{{index}}' bindtap='onRemove' style='margin-left:16rpx'>删除</view>
+        </block>
+        <block wx:if="{{hide != 'false'}}">
+            <view class='edit' data-index='{{index}}' bindtap='onChoose'>使用该地址</view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='bottom'>
+  <view class='submit' bindtap='onAdd'>添加收货地址</view>
+</view>

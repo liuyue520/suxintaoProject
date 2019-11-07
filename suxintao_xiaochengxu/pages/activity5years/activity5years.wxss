@@ -1,0 +1,53 @@
+/* pages/activity5years/activity5years.wxss */
+page{
+  background: #000;
+}
+.cover{
+  font-size: 0;
+}
+.cover image{
+  width: 100%;
+}
+
+.share, .exchange{
+  color: #333;
+  padding: 16rpx 0; 
+  text-align: center;
+  background: #e2a64b;
+  margin: 0 84rpx;
+}
+.share .href, .exchange .href{
+  color: #333;
+  text-align: center;
+  background-image: url(http://suxintao.oss-cn-hangzhou.aliyuncs.com/manual/activity/years5/years5_btn_bg.png?v=3);
+  background-size: cover;
+  width: 140rpx;
+  height: 48rpx;
+  margin: 0 auto;
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 48rpx;
+}
+.share .tips, .exchange .tips{
+  text-align: center;
+}
+
+.share .time{
+  color: #666;
+  font-size: small;
+}
+
+.share .href{
+  position: relative;
+}
+.share .href button{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+.share .href button::after{
+  border: none;
+}

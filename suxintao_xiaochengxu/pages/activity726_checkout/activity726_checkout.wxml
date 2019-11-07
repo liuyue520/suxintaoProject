@@ -1,0 +1,71 @@
+<!--pages/checkout/checkout.wxml-->
+<form bindsubmit="onFormSubmit">
+<view class='main'>
+  <view class='consignee' wx:if="{{consignee}}" bindtap='onChooseConsignee'>
+    <view class='info'>
+      <view class='title'>{{consignee.name}} {{consignee.mobile}}</view>
+      <view class='address'>
+        {{consignee.regions[1].name}} {{consignee.regions[2].name}} {{consignee.regions[3].name}}{{consignee.address}}
+      </view>
+    </view>
+    <view class='handle'><image src='/images/btn_right.png'></image></view>
+  </view>
+
+  <view class='consignee-add' bindtap='onAddConsignee' wx:else>
+    <view class='tips'>请选择收货地址</view>
+    <view class='handle'><image src='/images/btn_right.png'></image></view>
+  </view>
+
+  <view class='cart-goods-list mt8'>
+    <view class='cart-goods' wx:for='{{cartGoodsList}}'>
+      <view class='goods-image'>
+        <image src='{{item.product.default_photo.thumb}}' mode='aspectFit'></image>
+      </view>
+      <view class='goods-meta'>
+        <view class='goods-title'>{{item.product.name}}</view>
+        <view class='goods-attr'>
+            <view class='attr-item' wx:for='{{item.property}}' wx:for-item="attr_item">{{attr_item}}</view>
+        </view>
+        <view class='other'>
+          <view class='goods-price'>¥{{item.price}}</view>
+          <view class='goods-num num-handle'>
+            {{item.amount}} 件
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='coupon'>
+    <view class='label'>优惠券</view>
+    <view class='val'>无 <image src='/images/btn_right.png'></image></view>
+  </view>
+
+  <view class='module-title'>买家留言</view>
+  <view class='post-script'>
+    <view class='simulator' wx:if="{{show_pop_window}}"></view>
+    <textarea wx:else placeholder="对本次交易的说明" name="post_script" />
+  </view>
+
+  <view class='order-price mt8'>
+    <view class='price-item'>
+      <view class='label'>商品总额</view>
+      <view class='val'>¥ {{order_price.goods_price}}</view>
+    </view>
+    <view class='price-item'>
+      <view class='label'>优惠券</view>
+      <view class='val'>¥ 0</view>
+    </view>
+    <view class='price-item'>
+      <view class='label'>邮费</view>
+      <view class='val'>¥ {{order_price.shipping_fee}}</view>
+    </view>
+  </view>
+
+  <view style='height:88rpx'></view>
+</view>
+<view class='bottom'>
+  <view class='total'>合计: <text style='color:#ff0000'>¥{{order_price.amount}}</text></view>
+  <button form-type="submit" class='submit'>立即购买</button>
+</view>
+</form>

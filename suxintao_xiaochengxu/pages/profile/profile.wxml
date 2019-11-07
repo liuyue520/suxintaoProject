@@ -1,0 +1,14 @@
+<!--pages/profile/profile.wxml-->
+<view class='profile-list'>
+  <view class='profile-item'>
+    <text class='profile-title'>头像</text>
+    <image src='{{user.avatar}}' class='avatar'></image>
+    <!--<image class='profile-goto' src='/images/btn_right.png'></image>-->
+  </view>
+
+  <navigator class='profile-item' url='/pages/profile_edit/profile_edit?field=nickname&val={{user.nickname}}'>
+    <text class='profile-title'>昵称</text>
+    <text class='profile-val'>{{user.nickname}}</text>
+    <image class='profile-goto' src='/images/btn_right.png'></image>
+  </navigator>
+</view>

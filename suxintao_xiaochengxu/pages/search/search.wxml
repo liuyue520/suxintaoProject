@@ -1,0 +1,26 @@
+<!--pages/search/search.wxml-->
+<view class='search-bar'>
+  <view class='search-bd'><image src='/images/search_black.png'></image><input placeholder="{{default_keywords}}" type='text' confirm-type='search' bindconfirm='onSearch' value='{{keywords}}'/></view>
+  <view class='cancel-btn' bindtap='onCancel'>取消</view>
+</view>
+
+<view class='recommend-keywords' wx:if="{{! show_result}}">
+  <view class='hd'>热门搜索</view>
+  <view class='bd'>
+    <view wx:for="{{recommend_keywords}}" class='keywords' bindtap='onClickKeywords' data-keywords="{{item.content}}">{{item.content}}</view>
+  </view>
+</view>
+
+<view class='search-result' wx:else>
+  <navigator wx:for="{{goods_list}}" class='goods-list-item' url='/pages/goods/goods?id={{item.id}}'>
+    <view class='cover'><image src='{{item.default_photo.thumb}}'></image></view>
+    <view class='goods-meta'>
+      <view class='goods-name'>{{item.name}}</view>
+      <view class='goods-keywords'>{{item.keywords}}</view>
+      <view class='goods-price'>
+        <view class='price'>¥{{item.display_price && item.display_price > 0 ? item.display_price : item.current_price}}</view>
+        <view class='handle' style='display:none'>分享</view>
+      </view>
+    </view>
+  </navigator>
+</view>

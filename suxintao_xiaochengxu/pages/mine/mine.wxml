@@ -1,0 +1,101 @@
+<!--pages/mine/mine.wxml-->
+<view class='header'>
+  <view class='avatar'><image src='{{user.avatar}}'></image></view>
+  <view class='info'>
+    <view class='username'>{{user.nickname}}</view>
+    <view class="loginFun" bindtap="loginFun" wx:if="{{!user.nickname}}">去登陆</view>
+    <view class='share-user-rank' style='color:#666; line-height:32px; display:flex; align-items:center;'>
+      {{user.share_user_rank_name}}
+      <image style='width:72rpx; height:42rpx; margin-left:8px;' src='/images/icon_years5.png' wx:if="{{user.share_user_rank_year5}}"></image>  
+    </view>
+    <view class='mobile' style='display:none;'>绑定手机号 ></view>
+    <view class='invite-code'><view class="val">邀请码：{{user.refer_code}}</view><view class='copy' bindtap='onCopy' data-text="{{user.refer_code}}">复制</view></view>
+    <view class='mobile'>推荐人 {{user.refer_user}}</view>
+
+    <view class='qrcode' bindtap='onShowQrcode'><image src='/images/qrcode.png'></image></view>
+  </view>
+</view>
+
+<view class='blank'></view>
+
+<view class='order-module'>
+  <navigator class='hd' url='/pages/order_list/order_list?order_type=10'>全部订单<image src='/images/btn_right.png'></image></navigator>
+  <view class='route'>
+    <navigator class='route-item' url='/pages/order_list/order_list?order_type=0'><image src='/images/order_to_pay.png'></image>待付款</navigator>
+    <navigator class='route-item' url='/pages/order_list/order_list?order_type=1'><image src='/images/order_to_ship.png'></image>待发货</navigator>
+    <navigator class='route-item' url='/pages/order_list/order_list?order_type=2'><image src='/images/order_to_receive.png'></image>待收货</navigator>
+    <navigator class='route-item' url='/pages/order_list/order_list?order_type=3'><image src='/images/order_finish.png'></image>已完成</navigator>
+  </view>
+</view>
+
+<view class='blank'></view>
+
+<view class='mine-nav-list'>
+    <navigator class='mine-nav-item' style='display:none;'>
+      <image class='mine-nav-icon' src='/images/nav_coupon.png'></image>
+      <text class='mine-nav-title'>优惠券</text>
+      <image class='mine-nav-goto' src='/images/btn_right.png'></image>
+    </navigator>
+    <navigator class='mine-nav-item' url='/pages/address_list/address_list?hide=false'>
+      <image class='mine-nav-icon' src='/images/nav_address.png'></image>
+      <text class='mine-nav-title'>收货地址管理</text>
+      <image class='mine-nav-goto' src='/images/btn_right.png'></image>
+    </navigator>
+
+    <view class='contact'>
+      <view class='mine-nav-item'>
+        <image class='mine-nav-icon' src='/images/nav_customer.png'></image>
+        <text class='mine-nav-title'>客服</text>
+        <image class='mine-nav-goto' src='/images/btn_right.png'></image>
+      </view>
+      <button open-type="contact" bindcontact="handleContact"></button>
+    </view>
+    <navigator class='mine-nav-item' url='/pages/web_view/web_view?url={{return_url}}'>
+      <image class='mine-nav-icon' src='/images/nav_return.png'></image>
+      <text class='mine-nav-title'>退换货政策</text>
+      <image class='mine-nav-goto' src='/images/btn_right.png'></image>
+    </navigator>
+    <navigator class='mine-nav-item' url='/pages/supplier_apply/supplier_apply'>
+      <image class='mine-nav-icon' src='/images/nav_partner.png'></image>
+      <text class='mine-nav-title'>商务合作</text>
+      <image class='mine-nav-goto' src='/images/btn_right.png'></image>
+    </navigator>
+    <navigator class='mine-nav-item' url='/pages/web_view/web_view?url={{passport_url}}'>
+      <image class='mine-nav-icon' src='/images/nav_passport.png'></image>
+      <text class='mine-nav-title'>资质证照</text>
+      <image class='mine-nav-goto' src='/images/btn_right.png'></image>
+    </navigator>
+    <navigator class='mine-nav-item' url='/pages/web_view/web_view?url={{agreement_url}}'>
+      <image class='mine-nav-icon' src='/images/nav_agreement.png'></image>
+      <text class='mine-nav-title'>协议规则</text>
+      <image class='mine-nav-goto' src='/images/btn_right.png'></image>
+    </navigator>
+    <navigator class='mine-nav-item' url='/pages/profile/profile'>
+      <image class='mine-nav-icon' src='/images/nav_profile.png'></image>
+      <text class='mine-nav-title'>个人信息</text>
+      <image class='mine-nav-goto' src='/images/btn_right.png'></image>
+    </navigator>
+    <!-- todo -->
+    <view class='mine-nav-item' bindtap='onClearCache' style='display:none'>
+      <image class='mine-nav-icon' src='/images/nav_agreement.png'></image>
+      <text class='mine-nav-title'>clear cache</text>
+      <image class='mine-nav-goto' src='/images/btn_right.png'></image>
+    </view>
+
+    <navigator class='mine-nav-item' url='{{item.link}}' wx:for="{{menus}}">
+      <image class='mine-nav-icon' src='{{item.icon}}'></image>
+      <text class='mine-nav-title'>{{item.title}}</text>
+      <image class='mine-nav-goto' src='/images/btn_right.png'></image>
+    </navigator>
+</view>
+
+<view class='qrcode-window' wx:if='{{show_qrcode}}'  catchtap='onHideQrcode'>
+  <view class='bd' catchtap='onClickQrcode'>
+    <view class='title'>{{user.nickname}}的邀请码</view>
+    <view class='cover'>
+      <image src='{{qrcode}}'></image>
+    </view>
+    <view class='handle' catchtap='onClickDownloadQrcode'>下载</view>
+  </view>
+  <view class='close' catchtap='onHideQrcode'><image src='/images/icon_close.png'></image></view>
+</view>

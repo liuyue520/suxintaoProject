@@ -1,0 +1,152 @@
+/* pages/mine/mine.wxss */
+page{
+  background: #fff;
+  color: #333;
+}
+.blank{
+  height: 16rpx;
+  background: #f5f5f5;
+}
+.mine-nav-list{
+  margin-top: 8dp;
+  background: #ffffff;
+}
+.mine-nav-item{
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #f5f5f5;
+  height: 88rpx;
+  color: #333333;
+  font-size: 16px;
+  padding: 0 16rpx;
+}
+.mine-nav-item:last-child{
+  border-bottom: none;
+}
+
+.mine-nav-item .mine-nav-icon{
+  width: 40rpx;
+  height: 40rpx;
+  opacity: 0.8;
+}
+.mine-nav-item .mine-nav-title{
+  flex: 1;
+  margin: 0 16rpx;
+}
+.mine-nav-item .mine-nav-goto{
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.header{
+  display: flex;
+  padding: 32rpx 16rpx;
+}
+.header .info .username{
+  font-size: large;
+}
+.loginFun{
+  width: 200rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  margin-bottom: 10rpx;
+  border-radius: 10rpx;
+  background-color: rgba(226,166,75, 0.2);
+  text-align: center;
+  color: #e2a64b;
+}
+.header .info .mobile{
+  line-height: 64rpx;
+  color:#666;
+}
+.header .avatar{
+  font-size: 0;
+  margin-right: 16rpx;
+}
+.header .avatar image{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 80rpx;
+}
+
+.header .info{
+  position: relative;
+  flex: 1;
+}
+.header .info .invite-code{
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: small;
+}
+.header .info .invite-code .val{
+  text-align: center;
+  background: rgba(226,166,75, 0.2);
+  padding: 8rpx;
+  color: #666;
+}
+.header .info .invite-code .copy{
+  padding: 8rpx;
+  color: #333;
+  background: #e2a64b;
+  border-radius: 8rpx;
+}
+.header .info .qrcode{
+  font-size: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.header .info .qrcode image{
+  width: 88rpx;
+  height: 88rpx;
+}
+
+.order-module .hd{
+  height: 88rpx;
+  line-height: 88rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 48rpx;
+  border-bottom: 1rpx solid #e4e4e4;
+}
+.order-module .hd image{
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.order-module .route{
+  padding: 32rpx 48rpx;
+  display: flex;
+}
+
+.order-module .route .route-item{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 64rpx;
+  font-size: small;
+  color: #666;
+}
+.order-module .route .route-item image{
+  width: 64rpx;
+  height: 64rpx;
+}
+
+.contact{
+  position: relative;
+}
+.contact button{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  left: 0;
+  top: 0;
+}
+.contact button::after{
+  border: none;
+}
