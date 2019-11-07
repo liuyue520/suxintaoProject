@@ -65,8 +65,10 @@
   <view style='height:88rpx'></view>
 </view>
 <view class='bottom'>
-  <view class='total'>合计: <text style='color:#ff0000'>¥{{order_price.amount}}</text></view>
-  <button form-type="submit"  style="background-color:{{isColor}}" disabled='{{disabled}}' class='submit'>提交订单</button>
+  <cover-view class='bottom'>
+      <view class='total'>合计: <text style='color:#ff0000'>¥{{order_price.amount}}</text></view>
+      <button form-type="submit"  style="background-color:{{isColor}}" disabled='{{disabled}}' class='submit'>提交订单</button>
+  </cover-view>
 </view>
 </form>
 
