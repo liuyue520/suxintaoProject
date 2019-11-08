@@ -164,21 +164,22 @@ Page({
         success:function(res){
           page.order_id = res.order.id;
           page.setData({
-            huodong:res
+            huodong: res
           })
           if (res.order.is_99 == 1) {
             page.setData({
               show_pop_window: true,
               tips: res.order.tips99
             });
-          } else if (res.order.is_299_huodong == 1){
-              page.setData({
-                show_pop_window: true,
-                tips: res.order.tips299
-              });
+          } else if (res.order.is_299_huodong == 1) {
+            page.setData({
+              show_pop_window: true,
+              tips: res.order.tips299
+            });
           } else {
             app.onPay({ order_id: res.order.id });
           }
+
         },
         error:function(res){
           console.log(res, '状态码')
@@ -202,6 +203,11 @@ Page({
                   })
                 }
               }
+            })
+          }else if(res.error_code != 0){
+            wx.showToast({
+              title: res.error_desc,
+              icon: "none"
             })
           }
         },
@@ -248,6 +254,11 @@ Page({
           page.ishanding = false;
           if (res.error_code == 90001) {
             page.setData({ show_pop_window_refer_code: true });
+          } else if (res.error_code != 0) {
+            wx.showToast({
+              title: res.error_desc,
+              icon: "none"
+            })
           }
         },
         complete: function(res){

@@ -53,6 +53,26 @@
   </view>
 </view>
 
+<view class='uc-goods-list'>
+  <view class='hd'>
+    <view class='m'>会员专享</view>
+    <view class='s'>打动人心的精选</view>
+  </view>
+  <view class='bd grid-goods-list'>
+    <navigator wx:for="{{goods_list}}" class='grid-goods-list-item' url='/pages/goods/goods?id={{item.id}}'>
+      <view class='cover'><image src='{{item.default_photo.thumb}}'></image></view>
+      <view class='goods-meta'>
+        <view class='goods-name'>{{item.name}}</view>
+        <view class='goods-keywords'>{{item.keywords}}</view>
+        <view class='goods-price'>
+          <view class='price'>¥{{item.display_price && item.display_price > 0 ? item.display_price : item.current_price}} <text class='ori'>¥{{item.price}}</text></view>
+          <!--<view class='handle'>分享</view>-->
+        </view>
+      </view>
+    </navigator>
+  </view>
+</view>
+
 <view class='uc-goods-list' wx:if="{{vip_goods_list.length > 0}}">
   <view class='hd'>
     <view class='m'>会员礼包</view>
@@ -73,25 +93,7 @@
   </view>
 </view>
 
-<view class='uc-goods-list'>
-  <view class='hd'>
-    <view class='m'>会员专享</view>
-    <view class='s'>打动人心的精选</view>
-  </view>
-  <view class='bd grid-goods-list'>
-    <navigator wx:for="{{goods_list}}" class='grid-goods-list-item' url='/pages/goods/goods?id={{item.id}}'>
-      <view class='cover'><image src='{{item.default_photo.thumb}}'></image></view>
-      <view class='goods-meta'>
-        <view class='goods-name'>{{item.name}}</view>
-        <view class='goods-keywords'>{{item.keywords}}</view>
-        <view class='goods-price'>
-          <view class='price'>¥{{item.display_price && item.display_price > 0 ? item.display_price : item.current_price}} <text class='ori'>¥{{item.price}}</text></view>
-          <!--<view class='handle'>分享</view>-->
-        </view>
-      </view>
-    </navigator>
-  </view>
-</view>
+
 
 <view class='qrcode-window' wx:if='{{show_qrcode}}'  catchtap='onHideQrcode'>
   <view class='bd' catchtap='onClickQrcode'>

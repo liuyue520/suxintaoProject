@@ -48,7 +48,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 16,
+			"current": 20,
 			"list": [
 				{
 					"id": -1,
@@ -180,6 +180,20 @@
 					"id": -1,
 					"name": "pages/card_exchange_goods299/card_exchange_goods299",
 					"pathName": "pages/card_exchange_goods299/card_exchange_goods299",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/cart/cart",
+					"pathName": "pages/cart/cart",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/vip/vip",
+					"pathName": "pages/vip/vip",
 					"query": "",
 					"scene": null
 				}

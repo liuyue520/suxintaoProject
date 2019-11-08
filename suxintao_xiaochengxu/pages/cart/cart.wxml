@@ -29,7 +29,8 @@ module.exports.indexOf = indexOf;
           <view class='meta'>
             <view class='goods-name'>{{item.product.name}}</view>
             <view class='goods-attr'>
-              <view class='attr-item' wx:for='{{item.property}}' wx:for-item="attr_item">{{attr_item}}</view>
+              <!-- <view class='attr-item' wx:for='{{item.property}}' wx:for-item="attr_item">{{attr_item}}</view> -->
+              <view class='attr-item'>{{item.property[0]}}</view>
             </view>
             <view class='amount'>
               <view class='price'>¥{{item.price}}</view>

@@ -6,7 +6,7 @@
         <!-- 活动时间 -->
         <view class="ActivityTiem">
           <text class="ActivityTitle">活动时间：</text>
-          <text class="Context">2019年11月7日10:00-11月9日10:00</text>
+          <text class="Context">2019年11月7日10:00-11月12日22:00</text>
         </view>
         <!-- 活动时间结束 -->
         <!-- 参与方式 -->
