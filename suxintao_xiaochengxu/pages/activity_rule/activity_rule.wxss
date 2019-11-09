@@ -11,6 +11,7 @@ page{
 .Comtent{
   width: 100%;
   background-color: #ef9a8b;
+  padding-bottom: 30rpx;
 }
 .box{
   width: 90%;
