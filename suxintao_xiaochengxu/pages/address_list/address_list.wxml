@@ -1,4 +1,7 @@
 <!--pages/address_list/address_list.wxml-->
+<loading hidden="{{loadingHidden}}">
+ 加载中...
+</loading>
 <view class='main'>
   <view class='consignee' wx:for="{{consigneeList}}" key="index">
     <view class='title'>{{item.name}} {{item.mobile}}</view>

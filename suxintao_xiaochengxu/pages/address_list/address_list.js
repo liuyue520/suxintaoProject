@@ -8,6 +8,7 @@ Page({
   data: {
     consigneeList:[],
     isChoose:false,
+    loadingHidden:false
   },
 
   /**
@@ -44,6 +45,7 @@ Page({
         page.setData({
           isChoose: page.data.isChoose,
           consigneeList: res.consignees,
+          loadingHidden: true
         });
       }
     });
