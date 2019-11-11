@@ -115,6 +115,9 @@
         </view>
       </view>
       <view class="{{Wstate == 1 ? 'ClassifBox' : 'ClassifState'}}">
+        <loading hidden="{{loadingHidden}}">
+        加载中...
+        </loading>
         <view class="{{Wstate == 1 ? 'Box' : 'BoxState'}}"  wx:for="{{hot_goods_list}}" bindtap="isOrderID" wx:key="{{index}}" data-id='{{item.id}}'>
           <view class="{{Wstate == 1 ? 'ImgBox' : 'ImgState'}}">
             <image mode="aspectFill" src="{{item.default_photo.thumb}}"></image>

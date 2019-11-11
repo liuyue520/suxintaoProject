@@ -3,8 +3,8 @@ const systemInfo = wx.getSystemInfoSync();
 import Monitor from '/utils/monitor';
 App(Monitor.hookApp({
   //todo
-  host: "http://47.99.59.250/",// http://47.99.59.250/ 
-  // host:'https://suxintao.oioos.com/',
+  // host: "http://47.99.59.250/",// http://47.99.59.250/ 
+  host:'https://suxintao.oioos.com/',
   onError(err) {
     console.log('进入onError:', err);
   },

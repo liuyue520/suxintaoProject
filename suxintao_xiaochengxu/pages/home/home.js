@@ -24,7 +24,8 @@ Page(Monitor.hookPage({
     Position:false,
     TabStatus:0,
     ScrollLength:1,
-    ImgState:false
+    ImgState:false,
+    loadingHidden:true
   },
 
   /**
@@ -165,7 +166,8 @@ Page(Monitor.hookPage({
         page.setData({
           hot_goods_list: res.goods_list,
           page: 1,
-          hasMore: res.paged.more > 0
+          hasMore: res.paged.more > 0,
+          loadingHidden: true
         });
       }
     });
@@ -211,12 +213,16 @@ Page(Monitor.hookPage({
     let that = this
     that.refresh_goods_list()
     that.setData({
-      TabStatus:0
+      TabStatus:0,
+      loadingHidden: false
     })
   },
   // 销量
   ListVolume: function () {
     let that = this
+    that.setData({
+      loadingHidden: false
+    })
     app.request({
       url: 'v2/home.hot_goods',
       data: { page: 1, per_page: 8, stateCode: 1 },
@@ -225,13 +231,17 @@ Page(Monitor.hookPage({
           hot_goods_list: res.goods_list,
           page: 1,
           hasMore: res.paged.more > 0,
-          TabStatus: 1
+          TabStatus: 1,
+          loadingHidden: true
       })
       }
     });
   }, 
   ListVolume2: function () {
     var page = this;
+    page.setData({
+      loadingHidden: false
+    })
     app.request({
       url: 'v2/home.hot_goods',
       data: page.getParams({ page: page.data.page + 1, per_page: 8, stateCode: 1 }),
@@ -240,7 +250,8 @@ Page(Monitor.hookPage({
           hot_goods_list: page.data.hot_goods_list.concat(res.goods_list),
           page: page.data.page + 1,
           hasMore: res.paged.more > 0,
-          TabStatus: 1
+          TabStatus: 1,
+          loadingHidden: true
         });
       }
     });
@@ -249,6 +260,9 @@ Page(Monitor.hookPage({
   // 新品
   NewProd:function(){
     let that = this
+    that.setData({
+      loadingHidden: false
+    })
     app.request({
       url: 'v2/home.hot_goods',
       data: { page: 1, per_page: 8, stateCode: 2 },
@@ -257,13 +271,17 @@ Page(Monitor.hookPage({
           hot_goods_list: res.goods_list,
           page: 1,
           hasMore: res.paged.more > 0,
-          TabStatus: 2
+          TabStatus: 2,
+          loadingHidden: true
         })
       }
     });
   },
   NewProd2: function () {
     var page = this;
+    page.setData({
+      loadingHidden: false
+    })
     app.request({
       url: 'v2/home.hot_goods',
       data: page.getParams({ page: page.data.page + 1, per_page: 8, stateCode: 2 }),
@@ -273,7 +291,8 @@ Page(Monitor.hookPage({
           hot_goods_list: page.data.hot_goods_list.concat(res.goods_list),
           page: page.data.page + 1,
           hasMore: res.paged.more > 0,
-          TabStatus: 2
+          TabStatus: 2,
+          loadingHidden: true
         });
       }
     });
@@ -281,6 +300,9 @@ Page(Monitor.hookPage({
   // // 价格
   ListSort: function () {
     let that = this
+    that.setData({
+      loadingHidden: false
+    })
     app.request({
       url: 'v2/home.hot_goods',
       data: { page: 1, per_page: 8, stateCode: 3 },
@@ -290,7 +312,8 @@ Page(Monitor.hookPage({
           hot_goods_list: res.goods_list,
           page: 1,
           hasMore: res.paged.more > 0,
-          TabStatus: 3
+          TabStatus: 3,
+          loadingHidden: true
         })
       }
     });
