@@ -17,7 +17,9 @@ Page({
     value:2,
     key:null,
     loadingHidden:false,
-    ispaixu: 1
+    ispaixu: 1,
+    xiaoliang: 1,
+    xinping: 1
   },
 
   /**
@@ -109,6 +111,15 @@ Page({
         value: 2
       })
     }
+    if (that.data.value == 1) {
+      that.setData({
+        xiaoliang: 1
+      })
+    } else {
+      that.setData({
+        xiaoliang: 2
+      })
+    }
   },
   NewProd:function(){
     let that = this
@@ -125,6 +136,15 @@ Page({
       that.onRefresh(5, that.data.value);
       that.setData({
         value: 2
+      })
+    }
+    if (that.data.value == 1) {
+      that.setData({
+        xinping: 1
+      })
+    } else {
+      that.setData({
+        xinping: 2
       })
     }
   },
@@ -216,6 +236,8 @@ Page({
   },
   isOrderID: function (e) {
     let id = e.currentTarget.dataset.id
-    console.log(id)
+    wx.navigateTo({
+      url: '/pages/goods/goods?id=' + id,
+    })
   },
 })
