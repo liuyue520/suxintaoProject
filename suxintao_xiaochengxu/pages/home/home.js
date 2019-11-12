@@ -147,7 +147,7 @@ Page(Monitor.hookPage({
         page.setData({
           banners:res.banners,
           promotions: promtions,
-          current_promotion_index: 0,
+          current_promotion_index: 1,
           topics:res.topics,
           channels:res.channels,
           brands: res.brands,

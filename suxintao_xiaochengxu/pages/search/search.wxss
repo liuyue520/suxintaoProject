@@ -164,7 +164,7 @@ page{
 .Title{
   font-size: 30rpx;
   width: 400rpx;
-  height: 65rpx;
+  height: 68rpx;
   padding: 5px;
   font-weight: 500;
   overflow: hidden;

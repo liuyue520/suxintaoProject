@@ -1,4 +1,4 @@
-<view  class="{{ImgState == true ? '' : 'container-ban'}}">
+<!-- <view  class="{{ImgState == true ? '' : 'container-ban'}}"> -->
   <view class='hd-bg'></view>
   <view class="Query">
     <navigator hover-class="none" url='/pages/search/search' class='search'>
@@ -33,13 +33,13 @@
   <block  wx:if="{{promotions.length > 0}}">
   <!-- <view class='module-blank'></view> -->
   <view class='limitbuy'>
-    <view class='hd'>
+    <view class='hdone'>
       <view class='title'>
-      <image src='/images/home_promotion.png'></image>
-      秒杀专区        
+      <image src='https://suxintao.oss-cn-hangzhou.aliyuncs.com/manual/home/xianshimiaosha.png'></image>
+      <!-- 秒杀专区         -->
       </view>
       <view class='limitbuy-tabs-wrapper'>
-        <scroll-view class='limitbuy-tabs' scroll-x>
+        <scroll-view class='limitbuy-tabs' scroll-x scroll-left="75rpx">
           <view class="isFlex">
             <view class='limitbuy-item {{index == current_promotion_index ? "active" : ""}}' wx:for="{{promotions}}" wx:key="{{index}}" data-index='{{index}}' bindtap='onTapPromotionTab'>
               <view class="{{index == current_promotion_index ? 'angle-wrapper' : 'angle'}}">
@@ -79,7 +79,7 @@
   </block>
   <view class='module-blank'></view>
   <view class='brand-goods'>
-    <view class='hd'><image src='/images/home_brand.png'></image>品牌精选</view>
+    <!-- <view class='hd'><image src='/images/home_brand.png'></image>品牌精选</view> -->
     <view class='bd'>
       <view class='brand-item' wx:for="{{brands}}" wx:key="{{index}}">
         <navigator hover-class="none" class='brand-logo' url="/pages/goods_list/goods_list?brand_id={{item.id}}">
@@ -164,7 +164,7 @@
       <image src='/images/icon_close.png'></image>
     </view>
   </view>
-</view>
+<!-- </view> -->
 <!-- <view class="isAlert" hidden="{{ImgState}}" bindtap="onColse"></view>
 <view class="AlertImg" hidden="{{ImgState}}" >
   <image bindtap="activity" src="https://suxintao.oss-cn-hangzhou.aliyuncs.com/manual/activity/activity1107_02.png"></image>

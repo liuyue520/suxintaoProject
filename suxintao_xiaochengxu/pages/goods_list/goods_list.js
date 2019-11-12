@@ -37,32 +37,38 @@ Page({
   },
 
   onReachBottom: function () {
-    this.setData({
+    let page = this
+    page.setData({
       loadingHidden: false
     })
-    console.log(this.data.value)
-    switch (this.data.TabStatus) {
+    console.log(page.data.value)
+    switch (page.data.TabStatus) {
       case 0:
         if (this.data.hasMore) {
-          this.onLoadMore(null, this.data.value);
+          page.onLoadMore(null, this.data.value);
         }
         break;
       case 1:
-        if (this.data.hasMore) {
-          this.onLoadMore(4, this.data.value);
+        if (page.data.hasMore) {
+          page.onLoadMore(4, this.data.value);
         }
         break;
       case 2:
-        if (this.data.hasMore) {
-          this.onLoadMore(5, this.data.value);
+        if (page.data.hasMore) {
+          page.onLoadMore(5, this.data.value);
         }
         break;
       case 3:
-        if (this.data.hasMore) {
-          this.onLoadMore(1, this.data.value);
+        if (page.data.hasMore) {
+          page.onLoadMore(1, this.data.value);
         }
         break;
     }
+    setTimeout(function(){
+      page.setData({
+        loadingHidden: true
+      })
+    },3000)
   },
 
   getParams: function (params) {
@@ -152,8 +158,7 @@ Page({
   ListSort:function(){
     let that = this
     that.setData({
-      TabStatus: 3,
-      loadingHidden: false
+      TabStatus: 3
     })
     if (that.data.value == 1) {
       that.setData({
@@ -197,6 +202,9 @@ Page({
 
   onLoadMore: function (key, value) {
     var page = this;
+    page.setData({
+      loadingHidden: false
+    })
     app.request({
       url: 'v2/ecapi.search.product.list',
       data: page.getParams({ page: page.data.page + 1, per_page: 8, sort_key: key, sort_value: value}),

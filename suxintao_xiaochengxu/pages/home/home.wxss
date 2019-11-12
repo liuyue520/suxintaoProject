@@ -135,7 +135,7 @@ page{
   height: 140rpx;
   text-align: center;
   box-sizing: border-box;
-  padding: 18rpx 0;
+  /* padding: 18rpx 0; */
 }
 .isFlex{
   display: flex;
@@ -337,7 +337,13 @@ page{
   margin-right: 16rpx;
   /*background: #FF6450;*/
 }
-
+.hdone .title {
+  font-size: 0;
+}
+.hdone .title image{
+  width: 750rpx;
+  height: 200rpx;
+}
 .channels{
   width: 100%;
   padding: 32rpx 0;
@@ -357,8 +363,8 @@ page{
   width: 150rpx !important;
   height: 40rpx;
   position: absolute;
-  left: 20rpx;
-  top: 30rpx;
+  left: 12rpx;
+  top: 5rpx;
   z-index: 666;
 }
 .channels .channel .cover image{

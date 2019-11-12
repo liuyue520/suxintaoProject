@@ -159,7 +159,9 @@ Page({
   },
   isOrderID: function (e) {
     let id = e.currentTarget.dataset.id
-    console.log(id)
+    wx.navigateTo({
+      url: '/pages/goods/goods?id=' + id,
+    })
   },
   /**
    * 页面上拉触底事件的处理函数
