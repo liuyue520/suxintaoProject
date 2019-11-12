@@ -80,19 +80,20 @@ Page({
     let that = this
     that.setData({
       TabStatus: 0,
-      loadingHidden: false
+      loadingHidden: false,
+      value:2
     })
-    if(that.data.value == 2){
+    // if(that.data.value == 2){
       that.onRefresh(null, that.data.value);
-      that.setData({
-        value:1
-      })
-    }else{
-      that.onRefresh(null,that.data.value);
-      that.setData({
-        value: 2
-      })
-    }
+    //   that.setData({
+    //     value:1
+    //   })
+    // }else{
+    //   that.onRefresh(null,that.data.value);
+    //   that.setData({
+    //     value: 2
+    //   })
+    // }
   },
   ListVolume:function(){
     let that = this
