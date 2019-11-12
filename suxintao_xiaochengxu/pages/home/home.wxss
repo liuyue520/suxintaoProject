@@ -204,16 +204,16 @@ page{
   position: relative;
   display: flex;
   box-sizing: border-box;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   width: 750rpx;
   overflow: hidden;
 }
 .limitbuy-goods .cover{
   font-size: 0;
-  width: 55%;
+  width:50%;
   height: 300rpx;
 }
-.limitbuy-goods .cover image{
+.limitbuy-goods .cover .isGoodsImg{
   width: 100%;
   height: 100%;
   border-top-left-radius: 8rpx;
@@ -222,7 +222,7 @@ page{
 .limitbuy-goods .goods-name{
   color: #333;
   font-size: 28rpx;
-  width: 330rpx;
+  width: 300rpx;
   word-break: break-all;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -242,7 +242,8 @@ page{
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
-  border: 1px solid black;
+  width: 300rpx;
+  /* border: 1px solid black; */
 }
 .limitbuy-goods .sale{
   margin-left: 15rpx;

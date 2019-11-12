@@ -56,7 +56,7 @@
       <navigator hover-class="none" wx:for="{{promotions[current_promotion_index].goods_list}}" wx:key="{{index}}" class='limitbuy-goods' url='/pages/goods/goods?id={{item.id}}'>
         <image class="Seckill" src="../../images/Seckill.png"></image>
         <view class='cover'>
-          <image src="{{item.promote_image}}" ></image>
+          <image class="isGoodsImg" src="{{item.promote_image}}" ></image>
         </view>
         <view class="isGoodsBox">
           <view class='goods-name'>{{item.name}}</view>

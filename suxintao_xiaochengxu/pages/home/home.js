@@ -138,7 +138,7 @@ Page(Monitor.hookPage({
           let All = promtions[i].goods_list
           for(let y = 0;y < All.length;y++){
             let jindu = All[y].sales_count + All[y].good_stock
-            let satrt = All[y].good_stock  / jindu
+            let satrt = All[y].sales_count  / jindu
             promtions[i].goods_list[y].jinsuStart = Math.floor(satrt * 100)
           }
         }
