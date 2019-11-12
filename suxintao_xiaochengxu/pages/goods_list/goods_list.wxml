@@ -35,7 +35,7 @@
 <view class="{{Wstate == 1 ? 'ClassifBox' : 'ClassifState'}}">
   <view class="{{Wstate == 1 ? 'Box' : 'BoxState'}}"  wx:for="{{hot_goods_list}}" bindtap="isOrderID" wx:key="{{index}}" data-id='{{item.id}}'>
     <view class="{{Wstate == 1 ? 'ImgBox' : 'ImgState'}}">
-      <image src="{{item.default_photo.thumb}}"></image>
+      <image src="{{item.default_photo.thumb}}" mode="aspectFill"></image>
     </view>
     <view class="{{Wstate == 1 ? 'Commodity' : 'CommodityState'}}">
       <view class="{{Wstate == 1 ? 'Title' : 'TitleState'}}">{{item.name}}</view>

@@ -152,8 +152,8 @@
   font-size: large;
   font-weight: bold;
   color: #000;
-  line-height: 32px;
 }
 .uc-goods-list .hd .s{
   color: #999;
+  margin-bottom: 10rpx;
 }

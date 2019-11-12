@@ -139,7 +139,7 @@
         </loading>
         <view class="{{Wstate == 1 ? 'Box' : 'BoxState'}}"  wx:for="{{hot_goods_list}}" bindtap="isOrderID" wx:key="{{index}}" data-id='{{item.id}}'>
           <view class="{{Wstate == 1 ? 'ImgBox' : 'ImgState'}}">
-            <image mode="aspectFill" src="{{item.default_photo.thumb}}"></image>
+            <image mode="aspectFill" src="{{item.default_photo.thumb}}" mode="aspectFill"></image>
           </view>
           <view class="{{Wstate == 1 ? 'Commodity' : 'CommodityState'}}">
             <view class="{{Wstate == 1 ? 'Title' : 'TitleState'}}">{{item.name}}</view>
@@ -165,8 +165,8 @@
     </view>
   </view>
 </view>
-<view class="isAlert" hidden="{{ImgState}}" bindtap="onColse"></view>
+<!-- <view class="isAlert" hidden="{{ImgState}}" bindtap="onColse"></view>
 <view class="AlertImg" hidden="{{ImgState}}" >
   <image bindtap="activity" src="https://suxintao.oss-cn-hangzhou.aliyuncs.com/manual/activity/activity1107_02.png"></image>
   <image bindtap="onColse" id="onClose" src="../../images/colse.png"></image>
-</view>
+</view> -->

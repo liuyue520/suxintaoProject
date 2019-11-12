@@ -24,7 +24,7 @@ Page(Monitor.hookPage({
     Position:false,
     TabStatus:0,
     ScrollLength:1,
-    ImgState:false,
+    ImgState:true,
     loadingHidden:true
   },
 
@@ -55,11 +55,11 @@ Page(Monitor.hookPage({
       //   })
       // }, 18000)
     }
-    if (app.HomeState == true) {
-      that.setData({
-        ImgState: true
-      })
-    }
+    // if (app.HomeState == true) {
+    //   that.setData({
+    //     ImgState: true
+    //   })
+    // }
   },
   onTapPromotionTab: function (e) {
     let that = this
@@ -98,6 +98,7 @@ Page(Monitor.hookPage({
   },
 
   onReachBottom: function () {
+    
     switch (this.data.TabStatus) {
       case 0:
         if (this.data.hasMore) {
@@ -191,7 +192,8 @@ Page(Monitor.hookPage({
         page.setData({
           hot_goods_list: page.data.hot_goods_list.concat(res.goods_list),
           page: page.data.page + 1,
-          hasMore: res.paged.more > 0
+          hasMore: res.paged.more > 0,
+          loadingHidden: true
         });
       }
     });
@@ -325,6 +327,9 @@ Page(Monitor.hookPage({
   },
   ListSort2: function () {
     var page = this;
+    page.setData({
+      loadingHidden: false
+    })
     app.request({
       url: 'v2/home.hot_goods',
       data: page.getParams({ page: page.data.page + 1, per_page: 8, stateCode: 3 }),
@@ -334,7 +339,8 @@ Page(Monitor.hookPage({
           hot_goods_list: page.data.hot_goods_list.concat(res.goods_list),
           page: page.data.page + 1,
           hasMore: res.paged.more > 0,
-          TabStatus: 3
+          TabStatus: 3,
+          loadingHidden: true
         });
       }
     });
