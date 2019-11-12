@@ -1,1 +1,188 @@
 /* pages/goods_list/goods_list.wxss */
+/* pages/classif/classif.wxss */
+page{
+  background: #f7f5f6;
+  padding-top: 110rpx;
+}
+.ClassifTab{
+  display: flex;
+  justify-content: space-around;
+  height: 100rpx;
+  line-height: 50rpx;
+  box-sizing: border-box;
+  font-size: 30rpx;
+  margin-bottom: 15rpx;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #ffffff;
+}
+.ClassifTab view{
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.SelectImg{
+  height:30rpx;
+  width: 30rpx;
+  vertical-align: sub;
+}
+.ClassifBox{
+  width: 100%;
+}
+.ClassifState{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.Box{
+  width: 100%;
+  border-radius: 8rpx;
+  /* transition: all .2s linear; */
+  display: flex;
+  margin: 0 0 25rpx;
+}
+.BoxState{
+  width: 46%;
+  /* border: 1px solid black; */
+  box-sizing: border-box;
+  margin:0 15rpx;
+  background: #ffffff;
+  border-radius: 8rpx;
+  /* transition: all .2s linear; */
+  padding-bottom: 10rpx;
+  margin-bottom: 15rpx;
+}
+.ImgBox{
+  width: 300rpx;
+  height: 280rpx;
+  margin-left: 15rpx;
+  /* border: 1px solid black; */
+}
+.ImgBox image{
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+.ImgState{
+  width: 80%;
+  height: 350rpx;
+  margin: 0 auto;
+  box-sizing: border-box;
+  /* border: 1px solid black; */
+}
+.ImgState image{
+  width: 100%;
+  height: 100%;
+}
+.Commodity{
+  margin-left: 10rpx;
+}
+
+.Title{
+  font-size: 30rpx;
+  width: 400rpx;
+  height: 65rpx;
+  padding: 5px;
+  font-weight: 500;
+  overflow: hidden;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+}
+.TitleState{
+  font-size: 25rpx;
+  height: 77rpx;
+  padding: 10rpx 5rpx;
+  box-sizing: border-box;
+  font-weight: 500;
+  overflow: hidden;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+}
+.introduce{
+  margin-top: 20rpx;
+  font-size: 25rpx;
+  width: 400rpx;
+  height: 28rpx;
+  overflow: hidden;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  padding: 10rpx;
+  -webkit-line-clamp:1;
+  color: gray;
+}
+.introduceState{
+  margin-top: 5rpx;
+  font-size: 23rpx;
+  width: 100%;
+  height: 28rpx;
+  overflow: hidden;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  padding:0 10rpx;
+  -webkit-line-clamp:1;
+  color: gray;
+  box-sizing: border-box;
+}
+.Sellout{
+  margin-top: 10rpx;
+  font-size: 25rpx;
+  padding:0 10rpx;
+  color: gray;
+}
+.SelloutState{
+  margin-top: 10rpx;
+  font-size: 25rpx;
+  padding:0 10rpx;
+  color: gray;
+}
+.Price{
+  color: #ff6450;
+  margin-top: 10rpx;
+  font-weight: 500;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+}
+.PriceState{
+  color: #ff6450;
+  margin-top: 10rpx;
+  font-weight: 500;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+}
+.Vip{
+  display: block;
+  height: 35rpx;
+  padding:0 10px 0 50rpx;
+  background-size: 100% 100%;
+  margin-left: 10rpx;
+  font-size: 25rpx;
+  color: white;
+  line-height: 35rpx;
+}
+.VipState{
+  display: block;
+  height: 35rpx;
+  padding:0 10px 0 50rpx;
+  background-size: 100% 100%;
+  margin-left: 10rpx;
+  font-size: 23rpx;
+  color: white;
+  line-height: 35rpx;
+}
+.paixu{
+  width: 30rpx;
+  height: 30rpx;
+  vertical-align: middle;
+}

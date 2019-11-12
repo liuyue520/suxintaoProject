@@ -1,4 +1,4 @@
-<navigator hover-class="none" wx:for="{{goods_list}}" class='goods-list-item' url='/pages/goods/goods?id={{item.id}}'>
+<!-- <navigator hover-class="none" wx:for="{{goods_list}}" class='goods-list-item' url='/pages/goods/goods?id={{item.id}}'>
   <view class='cover'><image src='{{item.default_photo.thumb}}'></image></view>
   <view class='goods-meta'>
     <view class='goods-name'>{{item.name}}</view>
@@ -8,4 +8,39 @@
       <view class='handle' style='display:none'>分享</view>
     </view>
   </view>
-</navigator>
+</navigator> -->
+<loading hidden="{{loadingHidden}}">
+加载中...
+</loading>
+<view class="ClassifTab">
+  <view class="Synthe" bindtap="Synthe" style="color:{{TabStatus == 0 ? '#FF6450' : 'black'}}">
+    综合
+  </view>
+  <view class="Sales" bindtap="ListVolume" style="color:{{TabStatus == 1 ? '#FF6450' : 'black'}}">
+    销量
+  </view>
+  <view class="Newproducts" bindtap="NewProd" style="color:{{TabStatus == 2 ? '#FF6450' : 'black'}}">新品</view>
+  <view class="Tariff" bindtap="ListSort" style="color:{{TabStatus == 3 ? '#FF6450' : 'black'}}">
+  价格
+  <image class="paixu" src="{{ispaixu == 1 ? '../../images/xiao.png' : '../../images/da.png'}}"></image>
+  </view>
+  <view class="Select" bindtap="Select">
+    <image class="SelectImg" src="{{Wstate == 1 ? '../../images/heng.png' : '../../images/shu.png'}}"></image>
+  </view>
+</view>
+<view class="{{Wstate == 1 ? 'ClassifBox' : 'ClassifState'}}">
+  <view class="{{Wstate == 1 ? 'Box' : 'BoxState'}}"  wx:for="{{hot_goods_list}}" bindtap="isOrderID" wx:key="{{index}}" data-id='{{item.id}}'>
+    <view class="{{Wstate == 1 ? 'ImgBox' : 'ImgState'}}">
+      <image src="{{item.default_photo.thumb}}"></image>
+    </view>
+    <view class="{{Wstate == 1 ? 'Commodity' : 'CommodityState'}}">
+      <view class="{{Wstate == 1 ? 'Title' : 'TitleState'}}">{{item.name}}</view>
+      <view class="{{Wstate == 1 ? 'introduce' : 'introduceState'}}">{{item.keywords}}</view>
+      <view class="{{Wstate == 1 ? 'Sellout' : 'SelloutState'}}">已售出{{item.sales_count}}件</view>
+      <view class="{{Wstate == 1 ? 'Price' : 'PriceState'}}">
+        <text class="Price">￥{{item.current_price && item.ccurrent_price < 0 ? item.display_price : item.current_price}}</text>
+        <text class="{{Wstate == 1 ? 'Vip' : 'VipState'}}" wx:if="{{item.vip}}" style="background-image:url(../../images/vip.png)">{{item.vip}}</text>
+      </view>
+    </view>
+  </view>
+</view>

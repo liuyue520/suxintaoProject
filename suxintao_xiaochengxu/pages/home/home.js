@@ -135,9 +135,14 @@ Page(Monitor.hookPage({
           if (promtions[i].status == 0){
             current = i;
           }
+          let All = promtions[i].goods_list
+          for(let y = 0;y < All.length;y++){
+            let jindu = All[y].sales_count + All[y].good_stock
+            let satrt = All[y].good_stock  / jindu
+            promtions[i].goods_list[y].jinsuStart = Math.floor(satrt * 100)
+          }
         }
-        console.log(promtions,'11111')
-        current = Math.max(0, current);
+        console.log(promtions)
         page.setData({
           banners:res.banners,
           promotions: promtions,

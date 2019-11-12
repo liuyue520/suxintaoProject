@@ -14,7 +14,8 @@ Page({
 
     income:null,
 
-    explode_income:{}
+    explode_income:{},
+    loadingHidden:true
   },
 
   /**
@@ -23,7 +24,7 @@ Page({
   onLoad: function (options) {
     this.setData({ type: options.type});
     this.onRefresh();
-
+    console.log(options.type,'状态')
     var page = this;
     app.request({
       url: 'v2/ecapi.vip',
@@ -78,15 +79,19 @@ Page({
 
   onLoadMore: function () {
     var page = this;
-
+    page.setData({
+      loadingHidden:false
+    })
     app.request({
       url: 'v2/share.income_list',
       data: page.getParams({ page: page.data.page + 1, per_page: 20 }),
       success: function (res) {
+        console.log(res.income_list, '下拉数据')
         page.setData({
           income_list: page.data.income_list.concat(res.income_list),
           page: page.data.page + 1,
-          hasMore: res.paged.more > 0
+          hasMore: res.paged.more > 0,
+          loadingHidden: true
         });
       }
     });

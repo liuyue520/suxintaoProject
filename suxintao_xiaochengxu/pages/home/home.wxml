@@ -2,9 +2,10 @@
   <view class='hd-bg'></view>
   <view class="Query">
     <navigator hover-class="none" url='/pages/search/search' class='search'>
-      <image src='/images/search_black.png'></image>
+      <image class="iconQ" src='/images/search_black.png'></image>
       <text class='keywords'>请输入你要搜索的商品</text>
     </navigator>
+    <image class="iconL" src="../../images/iconL.png"></image>
   </view>
   <view class='flash'>
       <swiper autoplay="true" circular="true" indicator-dots="true" indicator-active-color="#ED6D59" indicator-color='#ffffff'>
@@ -15,6 +16,7 @@
         </swiper-item>
       </swiper>
   </view>
+
   <view class='channels'>
     <navigator hover-class="none" url='{{item.url}}'  wx:for="{{channels}}" wx:key="{{index}}" class='channel'>
       <view class='cover'>
@@ -23,41 +25,56 @@
       <view class='title'>{{item.title}}</view>
     </navigator>
   </view>
-  <view class='module-blank'></view>
-  <navigator hover-class="none" style='font-size:0' url='/pages/exchange299/exchange299'>
-    <image style='width:100%' mode='widthFix' src='http://suxintao.oss-cn-hangzhou.aliyuncs.com/manual/exchange/exchange299.jpg'></image>
+  <!-- <view class='module-blank'></view> -->
+  <navigator hover-class="none" style='font-size:0;text-align: center;' url='/pages/exchange299/exchange299'>
+    <image style='width:95%;' mode='widthFix' src='https://suxintao.oss-cn-hangzhou.aliyuncs.com/manual/exchange/exchange299_1111.png'></image>
   </navigator>
 
   <block  wx:if="{{promotions.length > 0}}">
-  <view class='module-blank'></view>
+  <!-- <view class='module-blank'></view> -->
   <view class='limitbuy'>
     <view class='hd'>
       <view class='title'>
       <image src='/images/home_promotion.png'></image>
-      秒杀专区
+      秒杀专区        
       </view>
       <view class='limitbuy-tabs-wrapper'>
         <scroll-view class='limitbuy-tabs' scroll-x>
-          <view class='limitbuy-item {{index == current_promotion_index ? "active" : ""}}' wx:for="{{promotions}}" wx:key="{{index}}" data-index='{{index}}' bindtap='onTapPromotionTab'>
-            <view class='time'>{{item.time}}</view>
-            <view class='status'>{{item.status == 0 ? "抢购中" : (item.status == 1 ? "预热中" : "明日预告")}}</view>
+          <view class="isFlex">
+            <view class='limitbuy-item {{index == current_promotion_index ? "active" : ""}}' wx:for="{{promotions}}" wx:key="{{index}}" data-index='{{index}}' bindtap='onTapPromotionTab'>
+              <view class="{{index == current_promotion_index ? 'angle-wrapper' : 'angle'}}">
+                <view class='time'>{{item.time}}</view>
+                <view class='status'>{{item.status == 0 ? "正在抢购" : (item.status == 1 ? "即将上线" : "明日预告")}}</view>
+              </view>
+            </view>
           </view>
         </scroll-view>
       </view>
     </view>
+    <!-- 开始limitbuy-goods -->
     <view class='bd'>
       <navigator hover-class="none" wx:for="{{promotions[current_promotion_index].goods_list}}" wx:key="{{index}}" class='limitbuy-goods' url='/pages/goods/goods?id={{item.id}}'>
-        <view class='cover'><image src="{{item.promote_image}}" mode='widthFix'></image></view>
-        <view class='goods-name'>{{item.name}}</view>
-        <view class='keywords'>{{item.keywords}}</view>
-        <view class='ft-meta'>
-          <view class='price'>¥{{item.discount.price}}</view>
-          <view class='ori-price'>¥{{item.price}}</view>
-          <view class='sale'><image src='/images/home_shandian.png'></image> 已售出{{item.sales_count}}件</view>
-          <view class='buy'>立即购买</view>
+        <image class="Seckill" src="../../images/Seckill.png"></image>
+        <view class='cover'>
+          <image src="{{item.promote_image}}" ></image>
+        </view>
+        <view class="isGoodsBox">
+          <view class='goods-name'>{{item.name}}</view>
+          <view class='keywords'>{{item.keywords}}</view>
+          <view class='sale'>已售出{{item.sales_count}}件</view>
+          <view class='ft-meta'>
+            <view class='price'>¥{{item.discount.price}}</view>
+            <view class='ori-price'>¥{{item.price}}</view>
+            <view class="GoodsBtn">
+                <view class='buy'>立即购买</view>
+            </view>
+            <view class='saleone'>剩余{{item.good_stock}}件</view>
+            <view class="progress"><progress percent="{{item.jinsuStart}}" activeColor="#a42723" border-radius='10' active /></view>
+          </view>
         </view>
       </navigator>
     </view>
+    <!-- limitbuy-goods结束 -->
   </view>
   </block>
   <view class='module-blank'></view>
@@ -70,7 +87,9 @@
         </navigator>
         <view class='brand-goods-list'>
           <navigator hover-class="none" wx:for="{{item.best_goods}}" wx:key="{{index}}"  wx:for-item="brand_goods" class='brand-goods-item' url='/pages/goods/goods?id={{brand_goods.id}}'>
-            <view class='cover'><image src='{{brand_goods.default_photo.thumb}}'></image></view>
+            <view class='cover'>
+                <image src='{{brand_goods.default_photo.thumb}}'></image>
+            </view>
             <view class='goods-meta'>
               <view class='goods-name'>{{brand_goods.name}}</view>
               <view class='ft-meta'>

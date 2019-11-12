@@ -1,4 +1,7 @@
 <!--pages/income_list/income_list.wxml-->
+<loading hidden="{{loadingHidden}}">
+加载中...
+</loading>
 <view class='head'>
   <view bindtap='onClickTab' data-type='today' class='tab {{type == "today" ? "active" : ""}}'>
     <view class='val'>{{income.today}}</view>
@@ -23,7 +26,8 @@
       <view class='amount'>{{item.income}}</view>
       <view class='meta'>
         <view class='income-type'>
-          {{item.order_user_name}} 
+          <!-- {{item.order_user_name}}  -->
+          {{item.income_type_value == 5 ? item.income_type : item.order_user_name}}
           <image wx:if="{{item.income_type_value == 1 || item.income_type_value == 2}}" src='/images/income_type{{item.income_type_value}}.png'></image>
         </view>
         <view class='add-time'>{{item.add_time}}</view>
