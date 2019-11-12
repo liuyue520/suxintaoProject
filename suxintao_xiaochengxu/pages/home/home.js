@@ -25,7 +25,7 @@ Page(Monitor.hookPage({
     TabStatus:0,
     ScrollLength:1,
     ImgState:true,
-    loadingHidden:true
+    loadingHidden:true,
   },
 
   /**
@@ -140,7 +140,12 @@ Page(Monitor.hookPage({
           for(let y = 0;y < All.length;y++){
             let jindu = All[y].sales_count + All[y].good_stock
             let satrt = All[y].sales_count  / jindu
-            promtions[i].goods_list[y].jinsuStart = Math.floor(satrt * 100)
+            promtions[i].goods_list[y].jinsuStart = Math.floor(satrt * 100);
+            if (promtions[i].status == 0) {
+              promtions[i].goods_list[y].btnStatus = false
+            }else{
+              promtions[i].goods_list[y].btnStatus = true
+            }
           }
         }
         console.log(promtions)
@@ -159,7 +164,24 @@ Page(Monitor.hookPage({
     page.refresh_goods_list();
     page.activityInit();
   },
-
+  OrderId: function (e) {
+    let that = this
+    // console.log(e.currentTarget.dataset.index, '索引',that.data.current_promotion_index)
+    let Order = e.currentTarget.dataset.id
+    let promList = that.data.promotions
+    // console.log(promList[that.data.current_promotion_index].goods_list[e.currentTarget.dataset.index].btnStatus)
+    let isListState = promList[that.data.current_promotion_index].goods_list[e.currentTarget.dataset.index].btnStatus
+    if (isListState == false){
+      wx.navigateTo({
+        url: '/pages/goods/goods?id=' + Order,
+      })
+    }else{
+      wx.showToast({
+        title: '客官别着急,还没开始哦!',
+        icon: "none"
+      })
+    }
+  },
 
   refresh_goods_list: function () {
     var page = this;

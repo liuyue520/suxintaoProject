@@ -16,6 +16,11 @@ page{
   /* background: #FF6450; */
 
 }
+button[disabled] {
+    color: #fff !important;
+    background: #999 !important;
+    border-color: #999 !important;
+}
 .Query{
   position: fixed;
   top: 0;

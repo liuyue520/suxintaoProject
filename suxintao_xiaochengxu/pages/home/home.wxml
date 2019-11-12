@@ -53,7 +53,7 @@
     </view>
     <!-- 开始limitbuy-goods -->
     <view class='bd'>
-      <navigator hover-class="none" wx:for="{{promotions[current_promotion_index].goods_list}}" wx:key="{{index}}" class='limitbuy-goods' url='/pages/goods/goods?id={{item.id}}'>
+      <view wx:for="{{promotions[current_promotion_index].goods_list}}" bindtap="OrderId" wx:key="{{index}}" data-index="{{index}}" data-id="{{item.id}}" class='limitbuy-goods'>
         <image class="Seckill" src="../../images/Seckill.png"></image>
         <view class='cover'>
           <image class="isGoodsImg" src="{{item.promote_image}}" ></image>
@@ -63,16 +63,16 @@
           <view class='keywords'>{{item.keywords}}</view>
           <view class='sale'>已售出{{item.sales_count}}件</view>
           <view class='ft-meta'>
-            <view class='price'>¥{{item.discount.price}}</view>
-            <view class='ori-price'>¥{{item.price}}</view>
+            <view class='price'>¥{{item.btnStatus == false ? item.discount.price : '0.00'}}</view>
+            <view class='ori-price'>¥{{item.btnStatus == false ? item.price : '0.00'}}</view>
             <view class="GoodsBtn">
-                <view class='buy'>立即购买</view>
+                <button class='buy' disabled="{{item.btnStatus}}">{{item.btnStatus == false ? '立即购买' : '即将开始'}}</button>
             </view>
             <view class='saleone'>剩余{{item.good_stock}}件</view>
             <view class="progress"><progress percent="{{item.jinsuStart}}" activeColor="#a42723" border-radius='10' active /></view>
           </view>
         </view>
-      </navigator>
+      </view>
     </view>
     <!-- limitbuy-goods结束 -->
   </view>
