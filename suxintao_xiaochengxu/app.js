@@ -109,6 +109,14 @@ App(Monitor.hookApp({
   removeToken: function () {
     wx.removeStorageSync("token");
   },
+
+  Setxiaoliang: function (obj = 1){
+    wx.setStorageSync("xiaoliang", obj);
+  },
+  Getxiaoliang:function(obj){
+    return wx.getStorageSync("xiaoliang");
+  },
+
   isLogin: function (aa){
     let text = '';
     try {

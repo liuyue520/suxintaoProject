@@ -136,6 +136,9 @@ Page(Monitor.hookPage({
           if (promtions[i].status == 0){
             current = i;
           }
+          if (promtions[i].is_showtime) {
+            var promotion_index = i
+          }
           let All = promtions[i].goods_list
           for(let y = 0;y < All.length;y++){
             let jindu = All[y].sales_count + All[y].good_stock
@@ -148,11 +151,11 @@ Page(Monitor.hookPage({
             }
           }
         }
-        console.log(promtions)
+        // console.log(promtions)
         page.setData({
           banners:res.banners,
           promotions: promtions,
-          current_promotion_index: 1,
+          current_promotion_index: promotion_index,
           topics:res.topics,
           channels:res.channels,
           brands: res.brands,

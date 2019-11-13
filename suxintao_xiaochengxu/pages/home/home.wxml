@@ -2,10 +2,13 @@
   <view class='hd-bg'></view>
   <view class="Query">
     <navigator hover-class="none" url='/pages/search/search' class='search'>
-      <image class="iconQ" src='/images/search_black.png'></image>
-      <text class='keywords'>请输入你要搜索的商品</text>
+      <text class="suxintao">苏心淘·淘好货·更舒心</text>
+      <view class="QueryBorder">
+        <image class="iconQ" src='/images/search_black.png'></image>
+        <text class='keywords'>大家都在搜黑卡</text>
+      </view>
     </navigator>
-    <image class="iconL" src="../../images/iconL.png"></image>
+    <!-- <image class="iconL" src="../../images/iconL.png"></image> -->
   </view>
   <view class='flash'>
       <swiper autoplay="true" circular="true" indicator-dots="true" indicator-active-color="#ED6D59" indicator-color='#ffffff'>
@@ -39,7 +42,7 @@
       <!-- 秒杀专区         -->
       </view>
       <view class='limitbuy-tabs-wrapper'>
-        <scroll-view class='limitbuy-tabs' scroll-x scroll-left="75rpx">
+        <scroll-view class='limitbuy-tabs' scroll-x scroll-left="1100rpx">
           <view class="isFlex">
             <view class='limitbuy-item {{index == current_promotion_index ? "active" : ""}}' wx:for="{{promotions}}" wx:key="{{index}}" data-index='{{index}}' bindtap='onTapPromotionTab'>
               <view class="{{index == current_promotion_index ? 'angle-wrapper' : 'angle'}}">
@@ -63,7 +66,7 @@
           <view class='keywords'>{{item.keywords}}</view>
           <view class='sale'>已售出{{item.sales_count}}件</view>
           <view class='ft-meta'>
-            <view class='price'>¥{{item.btnStatus == false ? item.discount.price : '0.00'}}</view>
+            <view class='price'><text class="simo">¥</text>{{item.btnStatus == false ? item.discount.price : '0.00'}}</view>
             <view class='ori-price'>¥{{item.btnStatus == false ? item.price : '0.00'}}</view>
             <view class="GoodsBtn">
                 <button class='buy' disabled="{{item.btnStatus}}">{{item.btnStatus == false ? '立即购买' : '即将开始'}}</button>
@@ -77,7 +80,7 @@
     <!-- limitbuy-goods结束 -->
   </view>
   </block>
-  <view class='module-blank'></view>
+  <view class='module-blank'><image src="../../images/null.png"></image></view>
   <view class='brand-goods'>
     <!-- <view class='hd'><image src='/images/home_brand.png'></image>品牌精选</view> -->
     <view class='bd'>
@@ -102,9 +105,13 @@
       </view>
     </view>
   </view>
-  <view class='module-blank'></view>
+  <view class='module-blank'><image src="../../images/null.png"></image></view>
   <view class='hot-goods'>
-    <view class='hd'><image src='/images/home_hot.png'></image>今日热卖</view>
+    <!-- <view class='hd'><image src='/images/home_hot.png'></image>今日热卖</view> -->
+    <view class='title'>
+      <image src='https://suxintao.oss-cn-hangzhou.aliyuncs.com/manual/home/jinriremai.png'></image>
+    <!-- 秒杀专区         -->
+    </view>
     <view class='bd'>
       <!-- <block wx:for="{{hot_goods_list}}" wx:key="{{index}}">
       <navigator hover-class="none" class='goods-list-item' url='/pages/goods/goods?id={{item.id}}'>

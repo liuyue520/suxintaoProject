@@ -18,7 +18,7 @@ Page({
     key:null,
     loadingHidden:false,
     ispaixu: 1,
-    xiaoliang: 1,
+    xiaoliang:1,
     xinping: 1
   },
 
@@ -29,7 +29,7 @@ Page({
     if(typeof options.brand_id != 'undefined'){
       this.data.brand_id = options.brand_id;
     } 
-    console.log(options.brand_id, '1231231', options.cat_id)
+    // console.log(options.brand_id, '1231231', options.cat_id)
     if (typeof options.cat_id != 'undefined') {
       this.data.cat_id = options.cat_id;
     }
@@ -41,7 +41,7 @@ Page({
     page.setData({
       loadingHidden: false
     })
-    console.log(page.data.value)
+    // console.log(page.data.value)
     switch (page.data.TabStatus) {
       case 0:
         if (this.data.hasMore) {
@@ -50,17 +50,18 @@ Page({
         break;
       case 1:
         if (page.data.hasMore) {
-          page.onLoadMore(4, this.data.value);
+          console.log(this.data.xiaoliang,'下拉一户')
+          page.onLoadMore(4, this.data.xiaoliang);
         }
         break;
       case 2:
         if (page.data.hasMore) {
-          page.onLoadMore(5, this.data.value);
+          page.onLoadMore(5, this.data.xinping);
         }
         break;
       case 3:
         if (page.data.hasMore) {
-          page.onLoadMore(1, this.data.value);
+          page.onLoadMore(1, this.data.ispaixu);
         }
         break;
     }
@@ -89,17 +90,7 @@ Page({
       loadingHidden: false,
       value:2
     })
-    // if(that.data.value == 2){
       that.onRefresh(null, that.data.value);
-    //   that.setData({
-    //     value:1
-    //   })
-    // }else{
-    //   that.onRefresh(null,that.data.value);
-    //   that.setData({
-    //     value: 2
-    //   })
-    // }
   },
   ListVolume:function(){
     let that = this
@@ -107,25 +98,23 @@ Page({
       TabStatus: 1,
       loadingHidden: false
     })
-    if (that.data.value == 2) {
-      that.onRefresh(4, that.data.value);
-      that.setData({
-        value: 1
-      })
-    } else {
-      that.onRefresh(4, that.data.value);
-      that.setData({
-        value: 2
-      })
-    }
-    if (that.data.value == 1) {
-      that.setData({
-        xiaoliang: 1
-      })
-    } else {
-      that.setData({
-        xiaoliang: 2
-      })
+    if (that.data.xiaoliang){
+      if (that.data.xiaoliang == 1){
+        that.data.xiaoliang++
+        that.setData({
+          hot_goods_list:[],
+          xiaoliang: that.data.xiaoliang
+        })
+        that.onRefresh(4, that.data.xiaoliang)
+        console.log(that.data.xiaoliang)
+      } else if (that.data.xiaoliang == 2){
+        that.data.xiaoliang--
+        that.setData({
+          hot_goods_list: [],
+          xiaoliang: that.data.xiaoliang
+        })
+        that.onRefresh(4, that.data.xiaoliang)
+      }
     }
   },
   NewProd:function(){
@@ -134,62 +123,59 @@ Page({
       TabStatus: 2,
       loadingHidden: false
     })
-    if (that.data.value == 2) {
-      that.onRefresh(5, that.data.value);
-      that.setData({
-        value: 1
-      })
-    } else {
-      that.onRefresh(5, that.data.value);
-      that.setData({
-        value: 2
-      })
-    }
-    if (that.data.value == 1) {
-      that.setData({
-        xinping: 1
-      })
-    } else {
-      that.setData({
-        xinping: 2
-      })
+    if (that.data.xinping) {
+      if (that.data.xinping == 1) {
+        that.data.xinping++
+        that.setData({
+          hot_goods_list: [],
+          xinping: that.data.xinping
+        })
+        that.onRefresh(5, that.data.xinping)
+        console.log(that.data.xinping)
+      } else if (that.data.xinping == 2) {
+        that.data.xinping--
+        that.setData({
+          hot_goods_list: [],
+          xinping: that.data.xinping
+        })
+        that.onRefresh(5, that.data.xinping)
+      }
     }
   },
   ListSort:function(){
     let that = this
     that.setData({
-      TabStatus: 3
+      TabStatus: 3,
+      loadingHidden: false
     })
-    if (that.data.value == 1) {
-      that.setData({
-        ispaixu: 1
-      })
-    } else {
-      that.setData({
-        ispaixu: 2
-      })
+    if (that.data.ispaixu) {
+      if (that.data.ispaixu == 1) {
+        that.data.ispaixu++
+        that.setData({
+          hot_goods_list: [],
+          ispaixu: that.data.ispaixu
+        })
+        that.onRefresh(1, that.data.ispaixu)
+        console.log(that.data.ispaixu)
+      } else if (that.data.ispaixu == 2) {
+        that.data.ispaixu--
+        that.setData({
+          hot_goods_list: [],
+          ispaixu: that.data.ispaixu
+        })
+        that.onRefresh(1, that.data.ispaixu)
+      }
     }
-    if (that.data.value == 2) {
-      that.onRefresh(1, that.data.value);
-      that.setData({
-        value: 1
-      })
-    } else {
-      that.onRefresh(1, that.data.value);
-      that.setData({
-        value: 2
-      })
-    }
+  
   },
   onRefresh: function (key,value) {
     var page = this;
-
+    // console.log(value, '排序')
     app.request({
       url: 'v2/ecapi.search.product.list',
       data: page.getParams({ page: 1, per_page: 8, sort_key: key, sort_value:value}),
       success: function (res) {
         wx.stopPullDownRefresh();
-
         page.setData({
           hot_goods_list: res.products,
           page: 1,
@@ -201,6 +187,7 @@ Page({
   },
 
   onLoadMore: function (key, value) {
+    // console.log(value,'排序')
     var page = this;
     page.setData({
       loadingHidden: false

@@ -58,31 +58,59 @@ Page({
     })
     that._search(null,that.data.value)
   },
+  onReachBottom: function () {
+    if (this.data.show_result) {
+      // if (this.data.hasMore) {
+      //   this._search_more();
+      // }
+      switch (this.data.TabStatus) {
+        case 0:
+          if (this.data.hasMore) {
+            this._search_more(null, this.data.value);
+          }
+          break;
+        case 1:
+          if (this.data.hasMore) {
+            console.log(this.data.xiaoliang,'下拉')
+            this._search_more(4, this.data.xiaoliang);
+          }
+          break;
+        case 2:
+          if (this.data.hasMore) {
+            this._search_more(5, this.data.xinping);
+          }
+          break;
+        case 3:
+          if (this.data.hasMore) {
+            this._search_more(1, this.data.ispaixu);
+          }
+          break;
+      }
+    }
+  },
+
   ListVolume: function () {
     let that = this
     that.setData({
       TabStatus: 1,
       loadingHidden: false
     })
-    if (that.data.value == 2) {
-      that._search(4, that.data.value);
-      that.setData({
-        value: 1
-      })
-    } else {
-      that._search(4, that.data.value);
-      that.setData({
-        value: 2
-      })
-    }
-    if (that.data.value == 1) {
-      that.setData({
-        xiaoliang: 1
-      })
-    } else {
-      that.setData({
-        xiaoliang: 2
-      })
+    if (that.data.xiaoliang) {
+      if (that.data.xiaoliang == 1) {
+        that.data.xiaoliang++
+        that.setData({
+          goods_list: [],
+          xiaoliang: that.data.xiaoliang
+        })
+        that._search(4, that.data.xiaoliang)
+      } else if (that.data.xiaoliang == 2) {
+        that.data.xiaoliang--
+        that.setData({
+          goods_list: [],
+          xiaoliang: that.data.xiaoliang
+        })
+        that._search(4, that.data.xiaoliang)
+      }
     }
   },
   NewProd: function () {
@@ -91,25 +119,22 @@ Page({
       TabStatus: 2,
       loadingHidden: false,
     })
-    if (that.data.value == 2) {
-      that._search(5, that.data.value);
-      that.setData({
-        value: 1
-      })
-    } else {
-      that._search(5, that.data.value);
-      that.setData({
-        value: 2
-      })
-    }
-    if (that.data.value == 1) {
-      that.setData({
-        xinping: 1
-      })
-    } else {
-      that.setData({
-        xinping: 2
-      })
+    if (that.data.xinping) {
+      if (that.data.xinping == 1) {
+        that.data.xinping++
+        that.setData({
+          goods_list: [],
+          xinping: that.data.xinping
+        })
+        that._search(5, that.data.xinping)
+      } else if (that.data.xinping == 2) {
+        that.data.xinping--
+        that.setData({
+          goods_list: [],
+          xinping: that.data.xinping
+        })
+        that._search(5, that.data.xinping)
+      }
     }
   },
   ListSort: function () {
@@ -118,26 +143,43 @@ Page({
       TabStatus: 3,
      loadingHidden: false
     })
-    if (that.data.value == 1) {
-      that.setData({
-        ispaixu: 1
-      })
-    } else {
-      that.setData({
-        ispaixu: 2
-      })
+    if (that.data.ispaixu) {
+      if (that.data.ispaixu == 1) {
+        that.data.ispaixu++
+        that.setData({
+          goods_list: [],
+          ispaixu: that.data.ispaixu
+        })
+        that._search(1, that.data.ispaixu)
+      } else if (that.data.ispaixu == 2) {
+        that.data.ispaixu--
+        that.setData({
+          goods_list: [],
+          ispaixu: that.data.ispaixu
+        })
+        that._search(1, that.data.ispaixu)
+      }
     }
-    if (that.data.value == 2) {
-      that._search(1, that.data.value);
-      that.setData({
-        value: 1
-      })
-    } else {
-      that._search(1, that.data.value);
-      that.setData({
-        value: 2
-      })
-    }
+    // if (that.data.value == 1) {
+    //   that.setData({
+    //     ispaixu: 1
+    //   })
+    // } else {
+    //   that.setData({
+    //     ispaixu: 2
+    //   })
+    // }
+    // if (that.data.value == 2) {
+    //   that._search(1, that.data.value);
+    //   that.setData({
+    //     value: 1
+    //   })
+    // } else {
+    //   that._search(1, that.data.value);
+    //   that.setData({
+    //     value: 2
+    //   })
+    // }
   },
   Select: function () {
     let that = this
@@ -166,36 +208,6 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-    if(this.data.show_result){
-      // if (this.data.hasMore) {
-      //   this._search_more();
-      // }
-      console.log(this.data.value)
-      switch (this.data.TabStatus) {
-        case 0:
-          if (this.data.hasMore) {
-            this._search_more(null, this.data.value);
-          }
-          break;
-        case 1:
-          if (this.data.hasMore) {
-            this._search_more(4, this.data.value);
-          }
-          break;
-        case 2:
-          if (this.data.hasMore) {
-            this._search_more(5, this.data.value);
-          }
-          break;
-        case 3:
-          if (this.data.hasMore) {
-            this._search_more(1, this.data.value);
-          }
-          break;
-      }
-    }
-  },
 
   _setKeywords: function(keywords){
     this.setData({
@@ -225,14 +237,14 @@ Page({
     });
   },
 
-  _search_more: function(){
+  _search_more: function (key, value){
     var page = this;
     page.setData({
       loadingHidden: false
     })
     app.request({
       url: 'v2/ecapi.search.product.list',
-      data: page._getParams({ page: page.data.page + 1, per_page: 8 }),
+      data: page._getParams({ page: page.data.page + 1, per_page: 8,sort_key: key, sort_value: value }),
       success: function (res) {
         page.setData({
           goods_list: page.data.goods_list.concat(res.products),

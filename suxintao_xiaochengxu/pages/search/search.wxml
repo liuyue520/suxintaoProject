@@ -30,11 +30,11 @@
   <view class="Synthe" bindtap="Synthe" style="color:{{TabStatus == 0 ? '#FF6450' : 'black'}}">综合</view>
   <view class="Sales" bindtap="ListVolume" style="color:{{TabStatus == 1 ? '#FF6450' : 'black'}}">
     销量
-  <image class="paixu" src="{{xiaoliang == 1 ? '../../images/da.png' : '../../images/xiao.png'}}"></image>
+  <image class="paixu" src="{{xiaoliang == 2 ? '../../images/da.png' : '../../images/xiao.png'}}"></image>
   </view>
   <view class="Newproducts" bindtap="NewProd" style="color:{{TabStatus == 2 ? '#FF6450' : 'black'}}">
    新品
-    <image class="paixu" src="{{xinping == 1 ? '../../images/da.png' : '../../images/xiao.png'}}"></image>
+    <image class="paixu" src="{{xinping == 2 ? '../../images/da.png' : '../../images/xiao.png'}}"></image>
   </view>
   <view class="Tariff" bindtap="ListSort" style="color:{{TabStatus == 3 ? '#FF6450' : 'black'}}">
     价格

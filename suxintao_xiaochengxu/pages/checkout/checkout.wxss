@@ -129,9 +129,13 @@ page{
 }
 .bottom .total{
   flex: 1;
-  color: #333;
+  color: #f33b35;
   text-align: left;
   padding-left: 32rpx;
+  font-size: 25rpx;
+  line-height: 90rpx;
+  background: #fff;
+
 }
 .bottom .submit{
   width: 180rpx;
