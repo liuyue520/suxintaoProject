@@ -1,7 +1,33 @@
 <view class="hd">
-  <view class='val'>{{can_withdraw}}</view>
-  <view class='title'>可提现金额</view>
+  <!-- <view class='val'>{{can_withdraw}}</view>
+  <view class='title'>可提现金额</view> -->
+  <view class="Sure">
+      <view class='val'>￥{{can_withdraw}}</view>
+      <view class='title'>可提现金额</view>
+  </view>
+  <!-- <view class="MayNot">
+      <view class='val'>￥0</view>
+      <view class='title' bindtap="rule">暂时无法提现 <image class="isTip" src="../../images/Tip.png"></image></view>
+  </view> -->
 </view>
+<!-- <view class="xiaofei">
+  <view class="syorder_info_sum">
+    <view>￥{{syorder_info_sum == null ? '0' : syorder_info_sum}}</view>
+    上月消费
+  </view>
+  <view class="byorder_info_sum">
+    <view>￥{{byorder_info_sum == null ? '0' : byorder_info_sum}}</view>
+    本月消费
+  </view>
+  <view class="syincome_log_sum">
+    <view>￥{{syincome_log_sum == null ? '0' : syincome_log_sum}}</view>
+    上月收益
+  </view>
+  <view class="byincome_log_sum">
+    <view>￥{{byincome_log_sum == null ? '0' : byincome_log_sum}}</view>
+    本月收益
+  </view>
+</view> -->
 <form bindsubmit="onFormSubmit">
 <view class='input-item'>
     <view class='label'>提现金额</view>
@@ -22,4 +48,19 @@
       <view class='add-time'>申请时间 {{item.add_time}}</view>
     </view>
   </view>
+</view>
+
+<view class="{{ruleStatus == true ? 'mark' : 'close'}}" catchtouchmove="true"></view>
+<view class="{{ruleStatus == true ? 'TipContext' : 'close'}}" catchtouchmove="true">
+  <view class="TipTitle">收益提现规则</view>
+  <view class="tiaojian">提现条件</view>
+  <view class="OnlyCondition">
+    <view>1.收益月份在平台消费满99元；</view>
+    <view>2.之前月份没有满足消费条件，后续月份想提现可在提现月份消费满N*99；</view>
+  </view>
+  <view class="tiaojian" style="margin-top:25rpx;">提示</view>
+  <view class="OnlyCondition">
+    <view>收益可以用于平台商品消费下单时直接抵扣；</view>
+  </view>
+  <view class="isBtn" bindtap="isClose">我知道了</view>
 </view>

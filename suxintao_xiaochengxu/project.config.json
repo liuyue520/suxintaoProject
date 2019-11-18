@@ -47,6 +47,10 @@
 			"currentL": -1,
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 25,
 			"list": [
@@ -75,7 +79,7 @@
 					"id": 3,
 					"name": "goods",
 					"pathName": "pages/goods/goods",
-					"query": "id=198&refer_code=ABC123",
+					"query": "id= 546&refer_code=ABC123",
 					"scene": null
 				},
 				{
@@ -159,7 +163,7 @@
 					"id": 15,
 					"name": "pages/goods/goods",
 					"pathName": "pages/goods/goods",
-					"query": "id=413",
+					"query": "id= 422",
 					"scene": null
 				},
 				{
@@ -229,6 +233,21 @@
 					"id": -1,
 					"name": "pages/search/search",
 					"pathName": "pages/search/search",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/withdraw/withdraw",
+					"pathName": "pages/withdraw/withdraw",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/withdraw_Profit/withdraw_Profit",
+					"pathName": "pages/withdraw_Profit/withdraw_Profit",
+					"query": "id= 422",
 					"scene": null
 				}
 			]

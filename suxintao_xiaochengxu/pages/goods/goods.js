@@ -73,6 +73,22 @@ Page({
         var current_price = res.product.display_price && res.product.display_price > 0 ? res.product.display_price : res.product.current_price;
         var price_rank1 = (current_price * res.product.share_rank_discount1) / 100;
         var price_rank2 = (current_price * res.product.share_rank_discount2) / 100;
+        let arr = []
+        for (let i in res.product.stock){
+          arr.push(res.product.stock[i].product_price)
+          arr.sort(function (a, b) {return a - b;})
+        }
+        let min = arr[0];
+        let max = arr[arr.length - 1];
+        // console.log(min, max, arr,'排序好了')
+        res.product.min = min
+        res.product.max = max
+        if (min == max){
+          res.product.equal = res.product.min
+        }else{
+          res.product.equal = res.product.min + '-' + res.product.max
+        }
+        console.log(res.product)
         page.setData({
           goodsInfo: res.product,
           price_rank1: price_rank1.toFixed(2),
@@ -83,7 +99,7 @@ Page({
 
         page.data.properties = res.product.properties;//bind时依赖
         var properties = page.bindCurrentAttrMap(page.data.properties);
-        console.log(page.data.price_rank1, page.data.price_rank2)
+        // console.log(page.data.price_rank1, page.data.price_rank2)
         page.setData({
           properties: properties,
         });
@@ -177,7 +193,13 @@ Page({
       }
     });
   },
-
+  onInputValue:function(e){
+    console.log(e)
+    let that = this 
+    that.setData({
+      buy_num: Number(e.detail.value)
+    })
+  },
   onBuyNow:function(e){
     if (this.data.stock < 1) {
       wx.showToast({
@@ -249,7 +271,7 @@ Page({
   },
 
   resetStock:function(){
-    console.log(this.data.goodsInfo.good_stock,'stock')
+    // console.log(this.data.goodsInfo.good_stock,'stock')
     var stock = this.data.goodsInfo.good_stock;
     var price = this.data.goodsInfo.display_price && this.data.goodsInfo.display_price > 0 ? this.data.goodsInfo.display_price : this.data.goodsInfo.current_price;
     var image = this.data.goodsInfo.default_photo.large;

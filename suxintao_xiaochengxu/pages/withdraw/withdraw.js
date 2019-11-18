@@ -8,7 +8,8 @@ Page({
     apply_list: [],
 
     page: 1,
-    hasMore: false
+    hasMore: false,
+    ruleStatus: false
   },
 
   /**
@@ -38,12 +39,16 @@ Page({
       data: page.getParams({ page: 1, per_page: 10 }),
       success: function (res) {
         wx.stopPullDownRefresh();
-
+        console.log(res)
         page.setData({
           apply_list: res.apply_list,
           page: 1,
           hasMore: res.paged.more > 0,
-          can_withdraw: res.can_withdraw
+          can_withdraw: res.can_withdraw,
+          // syorder_info_sum: res.syorder_info_sum,
+          // byorder_info_sum: res.byorder_info_sum,
+          // syincome_log_sum: res.syincome_log_sum,
+          // byincome_log_sum: res.byincome_log_sum
         });
       }
     });
@@ -60,7 +65,11 @@ Page({
           apply_list: page.data.apply_list.concat(res.apply_list),
           page: page.data.page + 1,
           hasMore: res.paged.more > 0,
-          can_withdraw: res.can_withdraw
+          can_withdraw: res.can_withdraw,
+          // syorder_info_sum: res.syorder_info_sum,
+          // byorder_info_sum: res.byorder_info_sum,
+          // syincome_log_sum: res.syincome_log_sum,
+          // byincome_log_sum: res.byincome_log_sum
         });
       }
     });
@@ -91,10 +100,7 @@ Page({
       return;
     }
     this.submiting = true;
-
     var page = this;
-
-
     app.request({
       url: 'v2/withdraw.apply.add',
       data: { amount: params.amount},
@@ -102,5 +108,17 @@ Page({
         page.onRefresh();
       }
     });
+  },
+  rule:function(){
+    let that = this
+    that.setData({
+      ruleStatus:true
+    })
+  },
+  isClose:function(){
+    let that = this
+    that.setData({
+      ruleStatus: false
+    })
   }
 })

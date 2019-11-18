@@ -54,6 +54,12 @@ App(Monitor.hookApp({
             url: '/pages/login/login',
           })
         }
+        else if (res.error_code == 400) {
+          wx.showToast({
+            title: '购买数量不能小于1',
+            icon: 'none'
+          })
+        }
         else if (res.error_code > 0) {
           if (obj.error) {
             obj.error(res);
@@ -63,7 +69,7 @@ App(Monitor.hookApp({
               icon: 'none'
             })
           }
-        }
+        } 
         else {
           if (obj.success) {
             obj.success(res);

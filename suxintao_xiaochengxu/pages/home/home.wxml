@@ -2,10 +2,10 @@
   <view class='hd-bg'></view>
   <view class="Query">
     <navigator hover-class="none" url='/pages/search/search' class='search'>
-      <text class="suxintao">苏心淘·淘好货·更舒心</text>
+      <image style="width:250rpx;height:45rpx;" src="../../images/font.png"></image>
       <view class="QueryBorder">
         <image class="iconQ" src='/images/search_black.png'></image>
-        <text class='keywords'>大家都在搜黑卡</text>
+        <text class='keywords'>大家都在搜 299礼包</text>
       </view>
     </navigator>
     <!-- <image class="iconL" src="../../images/iconL.png"></image> -->
@@ -113,23 +113,6 @@
     <!-- 秒杀专区         -->
     </view>
     <view class='bd'>
-      <!-- <block wx:for="{{hot_goods_list}}" wx:key="{{index}}">
-      <navigator hover-class="none" class='goods-list-item' url='/pages/goods/goods?id={{item.id}}'>
-      <view class='cover'><image src='{{item.default_photo.thumb}}'></image></view>
-      <view class='goods-meta'>
-        <view class='goods-name'>{{item.name}}</view>
-        <view class='goods-keywords'>{{item.keywords}}</view>
-        <view class='bd-meta'>已售出{{item.sales_count}}件</view>
-        <view class='ft-meta'>
-          <view class='current-price'>¥{{item.display_price && item.display_price > 0 ? item.display_price : item.current_price}}</view>
-          <view class='ori-price'>¥{{item.price}}</view>
-        </view>
-        <view class='cart-icon'><image src='/images/home_cart.png'></image></view>
-      </view>
-    </navigator>
-    <view class='hot-goods-blank'></view>
-    </block> -->
-
     <!-- 开始 -->
       <view id="the-id" class="{{Position == false ? 'ClassifTab' : 'Position'}}">
         <view class="Synthe" bindtap="Synthe" style="color:{{TabStatus == 0 ? '#FF6450' : 'black'}}">综合</view>

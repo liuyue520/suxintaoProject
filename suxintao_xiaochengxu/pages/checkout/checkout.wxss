@@ -3,6 +3,10 @@ page{
   background: #ffffff;
   height: 100%;
 }
+button:after{
+  border-radius: 0;
+  border: none;
+}
 .container-ban{
   height: 100%;
   overflow: hidden;
@@ -135,7 +139,8 @@ page{
   font-size: 25rpx;
   line-height: 90rpx;
   background: #fff;
-
+  width: 100%;
+  box-sizing: border-box;
 }
 .bottom .submit{
   width: 180rpx;

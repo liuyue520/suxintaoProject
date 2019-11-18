@@ -15,7 +15,8 @@ Page({
     show_pop_window_refer_code:false,
     refer_code:null,
     isColor:'#e2a64b;',
-    disabled:false
+    disabled:false,
+    loadingHidden: false
   },
 
   isOneStepBuy:false,
@@ -74,6 +75,7 @@ Page({
             if (consignee.is_default){
               page.setData({
                 consignee: consignee,
+                loadingHidden: true
               });
               page.setupOrderPrice();
               break;

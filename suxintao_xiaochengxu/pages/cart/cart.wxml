@@ -1,4 +1,7 @@
 <!--pages/cart/cart.wxml-->
+<loading hidden="{{loadingHidden}}">
+加载中...
+</loading>
 <wxs module="helper">
 var indexOf = function(array, item) {
   return array.indexOf(item);
@@ -36,7 +39,7 @@ module.exports.indexOf = indexOf;
               <view class='price'>¥{{item.price}}</view>
               <view class='num'>
                 <view class='minus' bindtap='onMinus' data-path='{{index}}'><image src='/images/minus.png' class='indicator'></image></view>
-                <view class='num-val'>{{item.amount}}</view>
+                <view ><input class="num-val" bindinput="onInoutValue" data-path='{{index}}' type='number' value='{{item.amount}}'></input></view>
                 <view class='plus' bindtap='onPlus' data-path='{{index}}'><image src='/images/plus.png' class='indicator'></image></view>
               </view>
             </view>

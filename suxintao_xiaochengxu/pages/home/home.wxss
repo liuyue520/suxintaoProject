@@ -32,10 +32,15 @@ button[disabled] {
   align-items: center;
   box-sizing: border-box;
 }
+.font{
+  width: 300rpx;
+}
 .suxintao{
   color:black;
   font-size:30rpx;
   font-weight: 540;
+  letter-spacing:2rpx;
+  /* font-family: */
 }
 .search{
   height: 60rpx;
@@ -525,7 +530,7 @@ button[disabled] {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 50rpx;  
+  height: 80rpx;  
   box-sizing: border-box;
   font-size: 30rpx;
   margin-bottom: 20rpx; 
@@ -546,8 +551,8 @@ button[disabled] {
   box-shadow: 10rpx 10rpx 20rpx #d3d1d2;
 }
 .ClassifTab view{
-  height: 50rpx;
-  line-height: 50rpx;
+  height: 80rpx;
+  line-height: 80rpx;
   width: 20%;
   text-align: center;
   padding-bottom: 15rpx;

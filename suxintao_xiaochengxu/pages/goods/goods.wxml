@@ -15,7 +15,8 @@
   </view>
 
   <view class='price'>
-    <view class='current'><text class='rmb'>¥</text>{{goodsInfo.display_price && goodsInfo.display_price > 0 ? goodsInfo.display_price : goodsInfo.current_price}}</view>
+    <view class='current' wx:if="{{goodsInfo.stock != ''}}"><text class='rmb'>¥</text>{{goodsInfo.equal}}</view>
+    <view class='current' wx:else>¥ {{goodsInfo.display_price && goodsInfo.display_price > 0 ? goodsInfo.display_price : price}}</view>
     <view class='ori'>¥{{goodsInfo.price}}</view>
   </view>
 
@@ -107,7 +108,8 @@
       <view class='bd'>
         <view class='num'>
           <view class='minus'  bindtap='onMinus'><image src='/images/minus.png' class='indicator'></image></view>
-          <view class='num-val'><input disabled="{{true}}" type='number' value='{{buy_num}}'></input></view>
+          <!-- <view class='num-val'><input disabled="{{true}}" type='number' value='{{buy_num}}'></input></view> -->
+          <view class='num-val'><input type='number' value='{{buy_num}}' bindinput='onInputValue'></input></view>
           <view class='plus'  bindtap='onPlus'><image src='/images/plus.png' class='indicator'></image></view>
         </view>
       </view>

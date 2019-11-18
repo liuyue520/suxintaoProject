@@ -17,6 +17,7 @@ Page({
     order_price: {},
 
     select_num:0,
+    loadingHidden:false
   },
 
   /**
@@ -124,35 +125,90 @@ Page({
    */
   onMinus: function (e) {
     console.log(e);
+    let page = this
     var path = e.currentTarget.dataset.path;
-    this.increaseNum(path, -1);
+    page.increaseNum(path, -1);
+    page.setData({
+      loadingHidden: false
+    })
+    setTimeout(function(){
+      page.setData({
+        loadingHidden: true
+      })
+    },1000)
   },
-
+  onInoutValue:function(e){
+    let that = this
+    let path = e.currentTarget.dataset.path;
+    let value = e.detail.value
+    that.increaseNum(path, value);
+    that.data.goodsGroups[0].goods[path].amount = Number(value)
+    console.log(that.data.goodsGroups[0].goods);
+    that._refreshSelectNum()
+    that.setData({
+      loadingHidden: true
+    })
+  },
   onPlus: function (e) {
     console.log(e);
     var path = e.currentTarget.dataset.path;
     this.increaseNum(path, 1);
+    this.setData({
+      loadingHidden: false
+    })
   },
 
   //dependencies goodsGroups
   increaseNum: function (path, offset) {
     var page = this;
-
-    var cartGoods = this.data.goodsGroups[0].goods[path];
-    var num = cartGoods.amount;
-    var newNum = num + offset;
-    newNum = Math.max(1, newNum);
-    app.request({
-      url: 'v2/ecapi.cart.update',
-      data: { good: cartGoods.id, amount: newNum },
-      success: function (res) {
-        page.refreshCartGoods();
+    if (offset == 1 || offset == -1){
+      var cartGoods = this.data.goodsGroups[0].goods[path];
+      var num = cartGoods.amount;
+      var newNum = num + Number(offset);
+      newNum = newNum;
+      app.request({
+        url: 'v2/ecapi.cart.update',
+        data: { good: cartGoods.id, amount: newNum },
+        success: function (res) {
+          if (res.error_code == 0){
+            page.refreshCartGoods();
+            page.setData({
+              loadingHidden: true
+            })
+            return
+          } else if(res.error_code == 400){
+            wx.showToast({
+              title: '商品数量不能等于0',
+              icon: 'none'
+            })
+          }
+        }
+      });
+    }else{
+      var cartGoods = this.data.goodsGroups[0].goods[path];
+      var num = cartGoods.amount;
+      var newNum = Number(offset);
+      if (newNum != 0){
+        app.request({
+          url: 'v2/ecapi.cart.update',
+          data: { good: cartGoods.id, amount: newNum },
+          success: function (res) {
+            page.refreshCartGoods();
+          }
+        });
+      }else{
+        wx.showToast({
+          title: '商品数量不能等于0',
+          icon: 'none'
+        })
+        return;
       }
-    });
+    }
   },
 
   OnCheckout: function () {
     var selectCartGoods = this.getSelectGoods();
+    wx.setStorageSync("buy_info", JSON.stringify(selectCartGoods));
     if (selectCartGoods.length < 1) {
       wx.showToast({
         title: '您没有选中商品',
@@ -160,12 +216,20 @@ Page({
       })
       return;
     }
-
-    wx.setStorageSync("buy_info", JSON.stringify(selectCartGoods));
-
-    wx.navigateTo({
-      url: '/pages/checkout/checkout',
-    })
+    for (var i = 0; i < selectCartGoods.length; i++) {
+      if (selectCartGoods[i].amount == 0) {
+        wx.showToast({
+          title: '请填写商品数量!',
+          icon: 'none'
+        })
+        return
+      } else {
+        wx.navigateTo({
+          url: '/pages/checkout/checkout',
+        })
+        return
+      }
+    }
   },
 
   onRemove: function (e) {
@@ -240,9 +304,10 @@ Page({
           selectAll:selectAll,
           selectPaths:selectPaths,
           goodsGroups: goodsGroups,
+          loadingHidden: true
         });
 
-        console.log([1, 20].indexOf(20), 1100, selectPaths, typeof selectPaths);
+        // console.log([1, 20].indexOf(20), 1100, selectPaths, typeof selectPaths);
 
         page.setupOrderPrice();
         page._refreshSelectNum();

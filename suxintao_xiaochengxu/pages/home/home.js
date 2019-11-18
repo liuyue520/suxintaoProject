@@ -210,6 +210,9 @@ Page(Monitor.hookPage({
 
   more_goods_list: function () {
     var page = this;
+    page.setData({
+      loadingHidden: false
+    })
     app.request({
       url: 'v2/home.hot_goods',
       data: page.getParams({ page: page.data.page + 1, per_page: 8, stateCode: 0}),

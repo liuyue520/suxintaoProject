@@ -104,7 +104,7 @@ page{
   line-height: 64rpx;
   border-radius: 32rpx;
   padding: 0 48rpx;
-  background: #ff0000;
+  background: #e88885;
   color: #fff;
 }
 .goods-list-item .goods-meta .sale-users{
