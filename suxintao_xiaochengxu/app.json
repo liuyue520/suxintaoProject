@@ -41,9 +41,9 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#e88885",
+    "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTitleText": "苏心淘",
-    "navigationBarTextStyle": "white",
+    "navigationBarTextStyle": "black",
     "backgroundColor": "#e88885",
     "enablePullDownRefresh": true
   },

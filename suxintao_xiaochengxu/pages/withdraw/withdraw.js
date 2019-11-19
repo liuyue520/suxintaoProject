@@ -45,6 +45,7 @@ Page({
           page: 1,
           hasMore: res.paged.more > 0,
           can_withdraw: res.can_withdraw,
+          bukeyitixian: res.bukeyitixian
           // syorder_info_sum: res.syorder_info_sum,
           // byorder_info_sum: res.byorder_info_sum,
           // syincome_log_sum: res.syincome_log_sum,
@@ -66,6 +67,7 @@ Page({
           page: page.data.page + 1,
           hasMore: res.paged.more > 0,
           can_withdraw: res.can_withdraw,
+          bukeyitixian: res.bukeyitixian
           // syorder_info_sum: res.syorder_info_sum,
           // byorder_info_sum: res.byorder_info_sum,
           // syincome_log_sum: res.syincome_log_sum,
@@ -119,6 +121,11 @@ Page({
     let that = this
     that.setData({
       ruleStatus: false
+    })
+  },
+  AllProfit:function(){
+    wx.navigateTo({
+      url: "/pages/withdraw_Profit/withdraw_Profit",
     })
   }
 })

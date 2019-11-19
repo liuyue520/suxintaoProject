@@ -4,14 +4,23 @@
 </loading>
 <view class="Profit">
   <!-- 年份 -->
-  <view class='select_box'>
+  <!-- <view class='select_box'>
     <view class='select' catchtap='selectTap'>
       <text class='select_text'>{{selectData[index]}}年</text>
-      <!-- <image class='select_img {{show&&"select_img_rotate"}}' src='/image/gobottom.png'></image>    -->
     </view>
     <view class='option_box' style='height:{{show?(selectData.length>5?300:selectData.length*60):0}}rpx;'>
       <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
     </view>
-    </view>
+    </view> -->
   <!-- 年份结束 -->
+
+  <view class="ProfitStion">
+    <view class="ProfitBox" wx:for="{{withdraw_Profit}}" wx:key="{{index}}" data-id="{{item.user_id}}">
+        <view class="BoxLeft">
+          <view class="confirm">已确认订单收益￥{{item.income}}</view>
+          <view class="personal">个人消费金额￥{{item.goods_amount}}</view>
+        </view>
+        <view class="BoxRight">{{item.yuef}}</view>
+    </view>
+  </view>
 </view>

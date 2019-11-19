@@ -226,7 +226,7 @@
 					"id": 24,
 					"name": "pages/goods_list/goods_list",
 					"pathName": "pages/goods_list/goods_list",
-					"query": "category=92",
+					"query": "id= 106",
 					"scene": null
 				},
 				{

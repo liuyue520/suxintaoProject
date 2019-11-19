@@ -5,7 +5,7 @@
       <image style="width:250rpx;height:45rpx;" src="../../images/font.png"></image>
       <view class="QueryBorder">
         <image class="iconQ" src='/images/search_black.png'></image>
-        <text class='keywords'>大家都在搜 299礼包</text>
+        <text class='iskeywords'>大家都在搜 299礼包</text>
       </view>
     </navigator>
     <!-- <image class="iconL" src="../../images/iconL.png"></image> -->
@@ -28,9 +28,9 @@
       <view class='title'>{{item.title}}</view>
     </navigator>
   </view>
-  <!-- <view class='module-blank'></view> -->
-  <navigator hover-class="none" style='font-size:0;text-align: center;' url='/pages/exchange299/exchange299'>
-    <image style='width:95%;' mode='widthFix' src='https://suxintao.oss-cn-hangzhou.aliyuncs.com/manual/exchange/exchange299_1111.png'></image>
+
+  <navigator hover-class="none" style='font-size:0;text-align: center;margin-top:-20rpx;' url='/pages/exchange299/exchange299'>
+    <image style='width:95%;' mode='widthFix' src='https://suxintao.oss-cn-hangzhou.aliyuncs.com/manual/exchange/exchang299_1119.png'></image>
   </navigator>
 
   <block  wx:if="{{promotions.length > 0}}">
@@ -42,7 +42,7 @@
       <!-- 秒杀专区         -->
       </view>
       <view class='limitbuy-tabs-wrapper'>
-        <scroll-view class='limitbuy-tabs' scroll-x scroll-left="1100rpx">
+        <scroll-view class='limitbuy-tabs' scroll-x scroll-left="{{300 * current_promotion_index - 200}}rpx">
           <view class="isFlex">
             <view class='limitbuy-item {{index == current_promotion_index ? "active" : ""}}' wx:for="{{promotions}}" wx:key="{{index}}" data-index='{{index}}' bindtap='onTapPromotionTab'>
               <view class="{{index == current_promotion_index ? 'angle-wrapper' : 'angle'}}">
