@@ -62,6 +62,7 @@ Page({
     if (consignee){
       page.setData({
         consignee:JSON.parse(consignee),
+        loadingHidden: true
       });
       page.setupOrderPrice();
     }else{
@@ -333,5 +334,11 @@ Page({
         }
       },
     });
+  },
+  onHide:function(){
+    let that = this 
+    that.setData({
+      loadingHidden:true
+    })
   }
 })

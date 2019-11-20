@@ -73,14 +73,14 @@ Page({
     var page = this;
     app.request({
       url: 'v2/withdraw.apply.list2',
-      data: { page: 1, per_page: 2},
+      data: { page: 1, per_page: 8},
       success: function (res) {
         wx.stopPullDownRefresh();
         console.log(res)
         page.setData({
           withdraw_Profit: res.apply_list,
           page: 1,
-          // hasMore: res.paged.more > 0,
+          hasMore: res.paged.more > 0,
           loadingHidden: true
         });
       }
@@ -93,14 +93,20 @@ Page({
     })
     app.request({
       url: 'v2/withdraw.apply.list2',
-      data:{ page: page.data.page + 1, per_page: 2},
+      data:{ page: page.data.page + 1, per_page: 8},
       success: function (res) {
-        page.setData({
-          withdraw_Profit: page.data.withdraw_Profit.concat(res.apply_list),
-          page: page.data.page + 1,
-          hasMore: res.paged.more > 0,
-          loadingHidden: true
-        });
+        if (res.error_code == 0){
+          page.setData({
+            withdraw_Profit: page.data.withdraw_Profit.concat(res.apply_list),
+            page: page.data.page + 1,
+            hasMore: res.paged.more > 0,
+            loadingHidden: true
+          });
+        }else{
+          page.setData({
+            loadingHidden: true
+          });
+        }
       }
     });
   },
@@ -123,7 +129,6 @@ Page({
    */
   onPullDownRefresh: function () {
     let that = this
-    
   },
 
   /**

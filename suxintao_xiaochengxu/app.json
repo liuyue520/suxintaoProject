@@ -44,7 +44,7 @@
     "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTitleText": "苏心淘",
     "navigationBarTextStyle": "black",
-    "backgroundColor": "#e88885",
+    "backgroundColor": "#F75E4A",
     "enablePullDownRefresh": true
   },
   "tabBar": {

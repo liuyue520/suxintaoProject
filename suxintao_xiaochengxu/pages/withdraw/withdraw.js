@@ -97,7 +97,7 @@ Page({
       })
       return;
     }
-
+  
     if (this.submiting) {
       return;
     }

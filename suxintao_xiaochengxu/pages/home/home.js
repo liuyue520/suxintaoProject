@@ -143,15 +143,35 @@ Page(Monitor.hookPage({
           for(let y = 0;y < All.length;y++){
             let jindu = All[y].sales_count + All[y].good_stock
             let satrt = All[y].sales_count  / jindu
+            if (All[y].sales_count == 0){
+              All[y].hypothesis = Math.floor(Math.random() * 999);
+            }
             promtions[i].goods_list[y].jinsuStart = Math.floor(satrt * 100);
             if (promtions[i].status == 0) {
               promtions[i].goods_list[y].btnStatus = false
             }else{
               promtions[i].goods_list[y].btnStatus = true
             }
+            let prier = All[y].price
+            let num = parseInt(prier);
+            let l = num.toString().length;
+            let P = String(num)
+            var shortName = P.substring(l - 1, l);
+            if (Number(shortName) == 0){
+                let text = '??.0'
+              promtions[i].goods_list[y].text = text
+            }else{
+              let text = ''
+              let index = l - 1
+              for (let i = 0; i < index; i++) {
+                text += '?'
+              }
+              promtions[i].goods_list[y].text = text + shortName
+            }
+            console.log(All[y].text)
           }
         }
-        // console.log(promtions)
+        
         page.setData({
           banners:res.banners,
           promotions: promtions,
