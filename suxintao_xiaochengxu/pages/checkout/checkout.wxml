@@ -19,6 +19,36 @@
     <view class='handle'><image src='/images/btn_right.png'></image></view>
   </view>
 
+  <!-- <view class="CollectBills">
+    <scroll-view scroll-x>
+        <view class="CollectBox"> -->
+        <!-- 商品模块 -->
+            <!-- <view class="Bills" wx:for="{{Collect}}" wx:key="{{index}}">
+              <view class="GoodsBills">
+                <image class="GoodsImg" src="{{item.default_photo.thumb}}"></image>
+                <view class="PriceChange">满99换购</view>
+              </view>
+              <view class="GoodsName">{{item.name}}</view>
+              <view class="isPrice">
+                <view class="PriceNum">+￥{{item.hg_jiage}}<image class="isCatr" src="../../images/isCatr.png"></image></view>
+              </view>
+              <view class="GoodsNum">
+                <view bindtap="onMinus" class="minus" data-path="0" data-index="{{index}}">
+                  <image class="indicator" src="../../images/minus.png"></image>
+                </view>
+                <view class="numVal">
+                  <input bindinput="onInoutValue" class="num-val" data-path="0" type="number" value="{{item.isTotal}}" maxlength="2"></input>
+                </view>
+                <view bindtap="onPlus"class="plus" data-path="0"  data-index="{{index}}">
+                  <image class="indicator"src="../../images/plus.png"></image>
+                </view>
+              </view>
+            </view> -->
+        <!-- 商品模块 -->
+        <!-- </view>
+    </scroll-view>
+  </view> -->
+
   <view class='cart-goods-list mt8'>
     <view class='cart-goods' wx:for='{{cartGoodsList}}'>
       <view class='goods-image'>
@@ -42,7 +72,14 @@
   <view class='coupon'>
     <view class='label'>优惠券</view>
     <view class='val'>无 <image src='/images/btn_right.png'></image></view>
+    <!-- <view class='val'>{{share_income}}<image src='/images/btn_right.png'></image></view> -->
   </view>
+  <view class='coupon'>
+    <view class='label' style="color:{{OnleColor}}">可使用收益  共￥{{isStatus == false ? share_income : status_share_income}},使用￥{{isStatus == true ? '0' : inMoney}}</view>
+    <button class="xiugai" bindtap="isModify" disabled="{{isStatus}}" style="color:{{OnleColor}}" >修改</button>
+    <switch type="switch" bindchange="onSwitch" color="rgb(226, 166, 75)"></switch>
+  </view>
+
 
   <view class='module-title'>买家留言</view>
   <view class='post-script'>
@@ -61,6 +98,10 @@
       <view class='val'>¥ 0</view>
     </view>
     <view class='price-item'>
+      <view class='label'>可使用收益</view>
+      <view class='val'>-¥ {{isStatus == true ? '0' : inMoney}}</view>
+    </view>
+    <view class='price-item'>
       <view class='label'>邮费</view>
       <view class='val'>¥ {{order_price.shipping_fee}}</view>
     </view>
@@ -70,10 +111,23 @@
 </view>
 <view class='bottom'>
   <cover-view class='bottom'>
-      <cover-view class='total'>合计:¥{{order_price.amount}}</cover-view>
+      <cover-view wx:if="{{isStatus == false}}" class='total'>合计:¥{{AllTotal != '' ? AllTotal : order_price.amount}}</cover-view>
+      <cover-view wx:else class='total'>合计:¥{{order_price.amount}}</cover-view>
       <button form-type="submit"  style="background-color:{{isColor}}" disabled='{{disabled}}' class='submit'>提交订单</button>
   </cover-view>
 </view>
+
+  <view class="mask" bindtap="colse" style="display:{{maskStatus == true ? 'block' : 'none'}}"></view>
+  <view style="display:{{maskStatus == true ? 'block' : 'none'}}" class="{{maskStatus == true ? 'isMoney' : ''}}" >
+    <view class="colse" bindtap="colse">
+      <image  src="../../images/colse.png"></image>
+    </view>
+    <view class="Tip">请输入那您要使用的收益价格!</view>
+    <view class="isNum">
+      <input class="nMoney" value="{{inMoney}}" bindfocus='isfocus' bindinput="isBinpit"></input>
+    </view>
+    <view class="Btn" bindtap="isConfirm" data-Mvalue="{{inMoney}}">确认</view>
+  </view>
 </form>
 
 <view class='pop-window' wx:if='{{show_pop_window}}' catchtouchmove='true'>
@@ -107,3 +161,5 @@
     </view>
   </view>
 </view>
+
+

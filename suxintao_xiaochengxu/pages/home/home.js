@@ -9,7 +9,7 @@ Page(Monitor.hookPage({
   data: {
     banners:null,
     Wstate: 1,
-    current_promotion_index: -1,
+    current_promotion_index: 0,
     promotions: null,
 
     hot_goods_list:[],
@@ -155,11 +155,11 @@ Page(Monitor.hookPage({
             let prier = All[y].price
             let num = parseInt(prier);
             let l = num.toString().length;
-            let P = String(num)
+            let P = String(num);
             var shortName = P.substring(l - 1, l);
             if (Number(shortName) == 0){
-                let text = '??.0'
-              promtions[i].goods_list[y].text = text
+              let text = '??.0';
+              promtions[i].goods_list[y].text = text;
             }else{
               let text = ''
               let index = l - 1
@@ -168,7 +168,6 @@ Page(Monitor.hookPage({
               }
               promtions[i].goods_list[y].text = text + shortName
             }
-            console.log(All[y].text)
           }
         }
         

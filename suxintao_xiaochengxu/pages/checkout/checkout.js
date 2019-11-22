@@ -16,7 +16,15 @@ Page({
     refer_code:null,
     isColor:'#e2a64b;',
     disabled:false,
-    loadingHidden: false
+    loadingHidden: false,
+    Collect:[],
+    OnleColor: '#999999',
+    isStatus: true,
+    maskStatus:false,
+    inMoney:0,
+    AllTotal:'',
+    images:'https://suxintao.oss-cn-hangzhou.aliyuncs.com/images/201908/goods_img/471_G_1567143303336.jpg',
+    isTotal:1
   },
 
   isOneStepBuy:false,
@@ -28,7 +36,7 @@ Page({
     console.log("onLoad");
     this.setupBuyInfo();
     this.setupOrderPrice();
-
+    this.CollectBills()
     if (typeof options.onestep != "undefined" && options.onestep == 1){
       this.isOneStepBuy = true
     }
@@ -122,8 +130,11 @@ Page({
       url:'v2/ecapi.order.price',
       data: params,
       success:function(res){
+        console.log(res)
         page.setData({
-          order_price: res.order_price
+          order_price: res.order_price,
+          share_income: res.share_income,
+          status_share_income: res.share_income
         });
       }
     });
@@ -153,7 +164,6 @@ Page({
 
     if(this.isOneStepBuy){
       var cartGoods = this.data.cartGoodsList[0];
-
       app.request({
         url: 'v2/ecapi.product.purchase',
         data: {
@@ -162,7 +172,8 @@ Page({
           consignee: this.data.consignee.id,
           product: cartGoods.goods_id,
           property: JSON.stringify( cartGoods.attrs.split(',')),
-          shipping:1
+          shipping:1,
+          share_income: this.data.AllTotal
         },
         success:function(res){
           page.order_id = res.order.id;
@@ -232,7 +243,8 @@ Page({
           cart_good_id: JSON.stringify(cartRecids),
           comment: e.detail.value.post_script,
           consignee: this.data.consignee.id,
-          shipping: 1
+          shipping: 1,
+          share_income: this.data.AllTotal
         },
         success: function (res) {
           page.setData({
@@ -303,7 +315,116 @@ Page({
       });
     }
   },
-
+  CollectBills:function(){
+    let that = this
+    app.request({
+      url: 'v2/ecapi.hg.product.list',
+      method:'get',
+      success: function (res) { 
+        if (res.error_code == 0){
+          for (let i = 0; i < res.products.length;i++){
+            res.products[i].isTotal = 1
+          }
+          that.setData({
+            Collect: res.products
+          })
+        }
+      },
+    });
+  },
+  // onPlus:function(e){
+  //   let that = this
+  //   let index = e.currentTarget.dataset.index
+  //   console.log(index)
+  //   that.data.Collect[index].isTotal++
+  //   that.setData({
+  //     Collect: that.data.Collect
+  //   })
+  //   if (that.data.Collect[index].isTotal > 2){
+  //     wx.showToast({
+  //       title: '数量不能超出2件',
+  //       icon: "none"
+  //     })
+  //     // 没有写好,没有that.data.Collect[index].isTotal
+  //   }
+  //   return
+  // },
+  // onMinus:function(e){
+  //   let that = this
+  //   if (that.data.isTotal <= 1){
+  //     wx.showToast({
+  //       title: '数量不能小于1件',
+  //       icon: "none"
+  //     })
+  //   }else{
+  //     that.data.isTotal--
+  //     that.setData({
+  //       isTotal: that.data.isTotal
+  //     })
+  //   }
+  // },
+  onSwitch:function(e){
+    console.log(e)
+    let that = this
+    let isStatus = e.detail.value
+    if (isStatus){
+      that.setData({
+        OnleColor:'#e2a64b',
+        isStatus: false
+      })
+    }else{
+      that.setData({
+        OnleColor: '#999999',
+        isStatus: true
+      })
+    }
+    console.log(isStatus)
+  },
+  isModify:function(){
+    let that = this
+    that.setData({
+      maskStatus: true
+    })
+  },
+  isfocus:function(){
+    let that = this 
+    that.setData({
+      inMoney:''
+    })
+  },
+  isBinpit:function(e){
+    let that = this
+    that.setData({
+      inMoneyOne: e.detail.value
+    })
+    console.log(e)
+  },
+  // 确认
+  isConfirm:function(e){
+    let that = this
+    if (that.data.inMoneyOne > (that.data.order_price.goods_price + that.data.order_price.shipping_fee)){
+      wx.showToast({
+        title: "使用的收益金额不能大于支付价格",
+        icon: 'none'
+      })
+    }else{
+      let jiage = (that.data.order_price.goods_price + that.data.order_price.shipping_fee) - that.data.inMoneyOne
+      console.log(jiage)
+      that.setData({
+        maskStatus: false,
+        inMoney: that.data.inMoneyOne,
+        AllTotal: jiage,
+        share_income: that.data.share_income - that.data.inMoneyOne
+      })
+    }
+  },
+  colse:function(){
+    let that = this
+    that.setData({
+      maskStatus: false,
+      inMoney:0
+    })
+  },
   inputReferCode: function (e) {
     this.data.refer_code = e.detail.value;
   }, 

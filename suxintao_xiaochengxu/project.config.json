@@ -249,6 +249,13 @@
 					"pathName": "pages/withdraw_Profit/withdraw_Profit",
 					"query": "id= 422",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/checkout/checkout",
+					"pathName": "pages/checkout/checkout",
+					"query": "id= 106",
+					"scene": null
 				}
 			]
 		}

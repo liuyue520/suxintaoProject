@@ -64,7 +64,7 @@
         <view class="isGoodsBox">
           <view class='goods-name'>{{item.name}}</view>
           <view class='keywords'>{{item.keywords}}</view>
-          <view class='sale'>已售出{{item.sales_count == "0" ? item.hypothesis : item.sales_count}}件</view>
+          <view class='sale'>已售出{{item.sales_count}}件</view>
           <view class='ft-meta'>
             <view class='price'><text class="simo">¥</text>{{item.btnStatus == false ? item.discount.price : item.text}}</view>
             <view class='ori-price'>¥{{item.btnStatus == false ? item.price : item.text}}</view>
